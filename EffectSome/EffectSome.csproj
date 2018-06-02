@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3A98DD9-77BF-4BF2-819D-97AF9CB6FAC8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EffectSome</RootNamespace>
+    <AssemblyName>EffectSome</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\user\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <TargetCulture>en-US</TargetCulture>
+    <ProductName>EffectSome</ProductName>
+    <PublisherName>ACES</PublisherName>
+    <MinimumRequiredVersion>0.6.1.0</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.6.5.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>true</Prefer32Bit>
+    <NoWarn>IDE1006</NoWarn>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FC34B5403C4FDE82290CF386C936D8330A7CBB7F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>EffectSome_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>EffectSome.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>aces.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0-rc1\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Other\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Other\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\GeometryDash\CustomLevelObject.cs" />
+    <Compile Include="Objects\GeometryDash\GuidelineEditorPreset.cs" />
+    <Compile Include="Utilities\Functions\GeometryDash\CopyPaste\CopyPasteSettings.cs" />
+    <Compile Include="Utilities\Functions\GeometryDash\CopyPaste\CopyPasteSettingsWriting.cs" />
+    <Compile Include="Utilities\Functions\GeometryDash\CopyPaste\CopyPasteSettingsWritingFunctions.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\CustomObjectEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\CustomObjectEditor.Designer.cs">
+      <DependentUpon>CustomObjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\DesignAssistant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\DesignAssistant.Designer.cs">
+      <DependentUpon>DesignAssistant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\General\Pair.cs" />
+    <Compile Include="Objects\GeometryDash\Level.cs" />
+    <Compile Include="Utilities\Functions\GeometryDash\Editor.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditSpecialObjectParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditSpecialObjectParameters.Designer.cs">
+      <DependentUpon>EditSpecialObjectParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objects\GeometryDash\GlobalParameterSettingsPreset.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\MultiLevel\LevelVersionConverter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\MultiLevel\LevelVersionConverter.Designer.cs">
+      <DependentUpon>LevelVersionConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\Other\ObjectViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\Other\ObjectViewer.Designer.cs">
+      <DependentUpon>ObjectViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Functions\General\UsefulFunctions.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\ColorChannelEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\ColorChannelEditor.Designer.cs">
+      <DependentUpon>ColorChannelEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application\ConsolePrompt.cs" />
+    <Compile Include="Forms\Tools\DebuggingOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tools\DebuggingOptions.Designer.cs">
+      <DependentUpon>DebuggingOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\Other\DetectBPM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\Other\DetectBPM.Designer.cs">
+      <DependentUpon>DetectBPM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Functions\GeometryDash\DLLs.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditObjectParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditObjectParameters.Designer.cs">
+      <DependentUpon>EditObjectParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditTriggerParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditTriggerParameters.Designer.cs">
+      <DependentUpon>EditTriggerParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditTriggerParametersAdvanced.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditTriggerParametersAdvanced.Designer.cs">
+      <DependentUpon>EditTriggerParametersAdvanced.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Functions\General\Extensions.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\ExtraLevelEditorFunctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\ExtraLevelEditorFunctions.Designer.cs">
+      <DependentUpon>ExtraLevelEditorFunctions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsAPI\FileMetadata.cs" />
+    <Compile Include="Utilities\Functions\GeometryDash\Gamesave.cs" />
+    <Compile Include="Objects\GeometryDash\Guideline.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\MultiLevel\GuidelineEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\MultiLevel\GuidelineEditor.Designer.cs">
+      <DependentUpon>GuidelineEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\InitialObjectValuesEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\InitialObjectValuesEditor.Designer.cs">
+      <DependentUpon>InitialObjectValuesEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\MultiLevel\LevelOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\MultiLevel\LevelOverview.Designer.cs">
+      <DependentUpon>LevelOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\Other\GlobalParameterSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\Other\GlobalParameterSettings.Designer.cs">
+      <DependentUpon>GlobalParameterSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\Other\LimitBypasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\Other\LimitBypasses.Designer.cs">
+      <DependentUpon>LimitBypasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Functions\General\Memory.cs" />
+    <Compile Include="WindowsAPI\MemoryEdit.cs" />
+    <Compile Include="Objects\GeometryDash\LevelObject.cs" />
+    <Compile Include="Utilities\Enumerations\GeometryDash\Objects.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\EditorSelectionOptions\ObjectsSelectionMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\EditorSelectionOptions\ObjectsSelectionMenu.Designer.cs">
+      <DependentUpon>ObjectsSelectionMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tools\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tools\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsAPI\QualityTimer.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\EditorSelectionOptions\QuickSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\EditorSelectionOptions\QuickSelection.Designer.cs">
+      <DependentUpon>QuickSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application\Settings.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\Other\StatusBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\Other\StatusBox.Designer.cs">
+      <DependentUpon>StatusBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsAPI\TaskBarIconProgress.cs" />
+    <Compile Include="WindowsAPI\ThreadSafeImplementations.cs" />
+    <Compile Include="Forms\Dialogs\MenuStrip\EditorSelectionOptions\TriggersSelectionMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dialogs\MenuStrip\EditorSelectionOptions\TriggersSelectionMenu.Designer.cs">
+      <DependentUpon>TriggersSelectionMenu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Other\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\GeneralEditor\ColorChannelEditor.resx">
+      <DependentUpon>ColorChannelEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\GeneralEditor\CustomObjectEditor.resx">
+      <DependentUpon>CustomObjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tools\DebuggingOptions.resx">
+      <DependentUpon>DebuggingOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\GeneralEditor\DesignAssistant.resx">
+      <DependentUpon>DesignAssistant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\Other\DetectBPM.resx">
+      <DependentUpon>DetectBPM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditObjectParameters.resx">
+      <DependentUpon>EditObjectParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditSpecialObjectParameters.resx">
+      <DependentUpon>EditSpecialObjectParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditTriggerParameters.resx">
+      <DependentUpon>EditTriggerParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditTriggerParametersAdvanced.resx">
+      <DependentUpon>EditTriggerParametersAdvanced.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\GeneralEditor\ExtraLevelEditorFunctions.resx">
+      <DependentUpon>ExtraLevelEditorFunctions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\MultiLevel\GuidelineEditor.resx">
+      <DependentUpon>GuidelineEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\GeneralEditor\InitialObjectValuesEditor.resx">
+      <DependentUpon>InitialObjectValuesEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\MultiLevel\LevelOverview.resx">
+      <DependentUpon>LevelOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\MultiLevel\LevelVersionConverter.resx">
+      <DependentUpon>LevelVersionConverter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\Other\GlobalParameterSettings.resx">
+      <DependentUpon>GlobalParameterSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\Other\LimitBypasses.resx">
+      <DependentUpon>LimitBypasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\EditorSelectionOptions\ObjectsSelectionMenu.resx">
+      <DependentUpon>ObjectsSelectionMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\Other\ObjectViewer.resx">
+      <DependentUpon>ObjectViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tools\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\EditorSelectionOptions\QuickSelection.resx">
+      <DependentUpon>QuickSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\Other\StatusBox.resx">
+      <DependentUpon>StatusBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dialogs\MenuStrip\EditorSelectionOptions\TriggersSelectionMenu.resx">
+      <DependentUpon>TriggersSelectionMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\EffectSome.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\EffectSome.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="aces.ico" />
+    <Content Include="New file.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <FileAssociation Include=".esf">
+      <Visible>False</Visible>
+      <Description>EffectSome File</Description>
+      <Progid>ES</Progid>
+      <DefaultIcon>New file.ico</DefaultIcon>
+    </FileAssociation>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
