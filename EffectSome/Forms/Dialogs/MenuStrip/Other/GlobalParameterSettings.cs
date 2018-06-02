@@ -11,6 +11,7 @@ using System.IO;
 using static System.IO.File;
 using static System.IO.Directory;
 using static System.Convert;
+using static EffectSome.GlobalParameterSettingsPreset;
 
 namespace EffectSome
 {
@@ -24,7 +25,9 @@ namespace EffectSome
 
         public enum Tab
         {
-            AutoCopyPaste, AdjustIDs, AutoAddGroupIDs
+            AutoCopyPaste,
+            AdjustIDs,
+            AutoAddGroupIDs
         }
 
         public GlobalParameterSettings()
@@ -42,42 +45,42 @@ namespace EffectSome
         #region RadioButtons
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            tempPreset.AdjustIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)(ToInt32(radioButton2.Checked) + ToInt32(radioButton9.Checked) * 2);
+            tempPreset.AdjustIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton2.Checked) + ToInt32(radioButton9.Checked) * 2);
             CheckPresetUpdateAbility(comboBox2, button12, Tab.AdjustIDs);
         }
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown2.Enabled = radioButton2.Checked;
-            tempPreset.AdjustIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)(ToInt32(radioButton2.Checked) + ToInt32(radioButton9.Checked) * 2);
+            tempPreset.AdjustIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton2.Checked) + ToInt32(radioButton9.Checked) * 2);
             CheckPresetUpdateAbility(comboBox2, button12, Tab.AdjustIDs);
         }
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown4.Enabled = radioButton8.Checked;
-            tempPreset.CopyPasteMode = (GlobalParameterSettingsPreset.AutoCopyPasteMode)(ToInt32(radioButton14.Checked) + ToInt32(radioButton15.Checked) * 2);
+            tempPreset.CopyPasteMode = (AutoCopyPasteMode)(ToInt32(radioButton14.Checked) + ToInt32(radioButton15.Checked) * 2);
             CheckPresetUpdateAbility(comboBox1, button11, Tab.AutoCopyPaste);
         }
         private void radioButton9_CheckedChanged(object sender, EventArgs e)
         {
             button7.Enabled = (listBox1.Enabled = numericUpDown28.Enabled = button4.Enabled = radioButton9.Checked) && listBox1.SelectedItems.Count != 0;
-            tempPreset.AdjustIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)(ToInt32(radioButton2.Checked) + ToInt32(radioButton9.Checked) * 2);
+            tempPreset.AdjustIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton2.Checked) + ToInt32(radioButton9.Checked) * 2);
             CheckPresetUpdateAbility(comboBox2, button12, Tab.AdjustIDs);
         }
         private void radioButton10_CheckedChanged(object sender, EventArgs e)
         {
             button8.Enabled = (listBox2.Enabled = numericUpDown29.Enabled = button9.Enabled = radioButton10.Checked) && listBox2.SelectedItems.Count != 0;
-            tempPreset.AutoAddGroupIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)(ToInt32(radioButton11.Checked) + ToInt32(radioButton10.Checked) * 2);
+            tempPreset.AutoAddGroupIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton11.Checked) + ToInt32(radioButton10.Checked) * 2);
             CheckPresetUpdateAbility(comboBox4, button18, Tab.AutoAddGroupIDs);
         }
         private void radioButton11_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown30.Enabled = radioButton11.Checked;
-            tempPreset.AutoAddGroupIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)(ToInt32(radioButton11.Checked) + ToInt32(radioButton10.Checked) * 2);
+            tempPreset.AutoAddGroupIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton11.Checked) + ToInt32(radioButton10.Checked) * 2);
             CheckPresetUpdateAbility(comboBox4, button18, Tab.AutoAddGroupIDs);
         }
         private void radioButton12_CheckedChanged(object sender, EventArgs e)
         {
-            tempPreset.AutoAddGroupIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)(ToInt32(radioButton11.Checked) + ToInt32(radioButton10.Checked) * 2);
+            tempPreset.AutoAddGroupIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton11.Checked) + ToInt32(radioButton10.Checked) * 2);
             CheckPresetUpdateAbility(comboBox4, button18, Tab.AutoAddGroupIDs);
         }
         private void radioButton14_CheckedChanged(object sender, EventArgs e)
@@ -85,7 +88,7 @@ namespace EffectSome
             checkBox3.Enabled = checkBox4.Enabled = radioButton14.Checked;
             numericUpDown11.Enabled = checkBox4.Checked && radioButton14.Checked;
             numericUpDown12.Enabled = checkBox3.Checked && radioButton14.Checked;
-            tempPreset.CopyPasteMode = (GlobalParameterSettingsPreset.AutoCopyPasteMode)(ToInt32(radioButton14.Checked) + ToInt32(radioButton15.Checked) * 2);
+            tempPreset.CopyPasteMode = (AutoCopyPasteMode)(ToInt32(radioButton14.Checked) + ToInt32(radioButton15.Checked) * 2);
             CheckPresetUpdateAbility(comboBox1, button11, Tab.AutoCopyPaste);
             button11.Enabled = true;
         }
@@ -94,7 +97,7 @@ namespace EffectSome
             checkBox1.Enabled = checkBox2.Enabled = radioButton15.Checked;
             numericUpDown9.Enabled = checkBox2.Checked && radioButton15.Checked;
             numericUpDown10.Enabled = checkBox1.Checked && radioButton15.Checked;
-            tempPreset.CopyPasteMode = (GlobalParameterSettingsPreset.AutoCopyPasteMode)(ToInt32(radioButton14.Checked) + ToInt32(radioButton15.Checked) * 2);
+            tempPreset.CopyPasteMode = (AutoCopyPasteMode)(ToInt32(radioButton14.Checked) + ToInt32(radioButton15.Checked) * 2);
             CheckPresetUpdateAbility(comboBox1, button11, Tab.AutoCopyPaste);
             button11.Enabled = true;
         }
@@ -103,7 +106,7 @@ namespace EffectSome
         private void button4_Click(object sender, EventArgs e)
         {
             listBox1.Items.Add(numericUpDown28.Value);
-            tempPreset.AdjustIDsSpecifiedValues = listBox1.Items.ToInt32Array();
+            tempPreset.AdjustIDsSpecifiedValues = listBox1.Items.ToInt32List();
             CheckPresetUpdateAbility(comboBox2, button12, Tab.AdjustIDs);
         }
         private void button6_Click(object sender, EventArgs e)
@@ -113,19 +116,19 @@ namespace EffectSome
         private void button7_Click(object sender, EventArgs e)
         {
             RemoveItems(listBox1);
-            tempPreset.AdjustIDsSpecifiedValues = listBox1.Items.ToInt32Array();
+            tempPreset.AdjustIDsSpecifiedValues = listBox1.Items.ToInt32List();
             CheckPresetUpdateAbility(comboBox2, button12, Tab.AdjustIDs);
         }
         private void button8_Click(object sender, EventArgs e)
         {
             RemoveItems(listBox2);
-            tempPreset.AutoAddGroupIDsSpecifiedValues = listBox2.Items.ToInt32Array();
+            tempPreset.AutoAddGroupIDsSpecifiedValues = listBox2.Items.ToInt32List();
             CheckPresetUpdateAbility(comboBox4, button18, Tab.AutoAddGroupIDs);
         }
         private void button9_Click(object sender, EventArgs e)
         {
             listBox2.Items.Add(numericUpDown29.Value);
-            tempPreset.AutoAddGroupIDsSpecifiedValues = listBox2.Items.ToInt32Array();
+            tempPreset.AutoAddGroupIDsSpecifiedValues = listBox2.Items.ToInt32List();
             CheckPresetUpdateAbility(comboBox4, button18, Tab.AutoAddGroupIDs);
         }
         private void button10_Click(object sender, EventArgs e)
@@ -403,30 +406,30 @@ namespace EffectSome
                         numericUpDown10.Value = (decimal)presets[selectedIndex].AutoCopyPasteSpecifiedDistanceY;
                         numericUpDown11.Value = (decimal)presets[selectedIndex].AutoCopyPasteSpecifiedLocationX;
                         numericUpDown12.Value = (decimal)presets[selectedIndex].AutoCopyPasteSpecifiedLocationY;
-                        radioButton8.Checked = presets[selectedIndex].CopyPasteMode == GlobalParameterSettingsPreset.AutoCopyPasteMode.NumberOfTimes;
-                        radioButton14.Checked = presets[selectedIndex].CopyPasteMode == GlobalParameterSettingsPreset.AutoCopyPasteMode.SpecifiedLocation;
-                        radioButton15.Checked = presets[selectedIndex].CopyPasteMode == GlobalParameterSettingsPreset.AutoCopyPasteMode.SpecifiedDistance;
+                        radioButton8.Checked = presets[selectedIndex].CopyPasteMode == AutoCopyPasteMode.NumberOfTimes;
+                        radioButton14.Checked = presets[selectedIndex].CopyPasteMode == AutoCopyPasteMode.SpecifiedLocation;
+                        radioButton15.Checked = presets[selectedIndex].CopyPasteMode == AutoCopyPasteMode.SpecifiedDistance;
                         break;
                     }
                 case Tab.AdjustIDs:
                     {
                         numericUpDown2.Value = presets[selectedIndex].AdjustIDsAdjustment;
-                        radioButton1.Checked = presets[selectedIndex].AdjustIDAdjustmentMode == GlobalParameterSettingsPreset.PropertyAdjustmentMode.OnlyUseUnusedIDs;
-                        radioButton2.Checked = presets[selectedIndex].AdjustIDAdjustmentMode == GlobalParameterSettingsPreset.PropertyAdjustmentMode.AdjustIDs;
-                        radioButton9.Checked = presets[selectedIndex].AdjustIDAdjustmentMode == GlobalParameterSettingsPreset.PropertyAdjustmentMode.SetIDsToSpecifiedValues;
+                        radioButton1.Checked = presets[selectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs;
+                        radioButton2.Checked = presets[selectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment;
+                        radioButton9.Checked = presets[selectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues;
                         listBox1.Items.Clear();
-                        for (int i = 0; i < presets[selectedIndex].AdjustIDsSpecifiedValues.Length; i++)
+                        for (int i = 0; i < presets[selectedIndex].AdjustIDsSpecifiedValues.Count; i++)
                             listBox1.Items.Add(presets[selectedIndex].AdjustIDsSpecifiedValues[i]);
                         break;
                     }
                 case Tab.AutoAddGroupIDs:
                     {
                         numericUpDown30.Value = presets[selectedIndex].AutoAddGroupIDsAdjustment;
-                        radioButton12.Checked = presets[selectedIndex].AutoAddGroupIDAdjustmentMode == GlobalParameterSettingsPreset.PropertyAdjustmentMode.OnlyUseUnusedIDs;
-                        radioButton11.Checked = presets[selectedIndex].AutoAddGroupIDAdjustmentMode == GlobalParameterSettingsPreset.PropertyAdjustmentMode.AdjustIDs;
-                        radioButton10.Checked = presets[selectedIndex].AutoAddGroupIDAdjustmentMode == GlobalParameterSettingsPreset.PropertyAdjustmentMode.SetIDsToSpecifiedValues;
+                        radioButton12.Checked = presets[selectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs;
+                        radioButton11.Checked = presets[selectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment;
+                        radioButton10.Checked = presets[selectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues;
                         listBox2.Items.Clear();
-                        for (int i = 0; i < presets[selectedIndex].AutoAddGroupIDsSpecifiedValues.Length; i++)
+                        for (int i = 0; i < presets[selectedIndex].AutoAddGroupIDsSpecifiedValues.Count; i++)
                             listBox2.Items.Add(presets[selectedIndex].AutoAddGroupIDsSpecifiedValues[i]);
                         checkBox9.Checked = presets[selectedIndex].AutoAddGroupIDsChooseGroupIDsToAdjust;
                         listBox6.SelectedIndices.Clear();
@@ -633,7 +636,7 @@ namespace EffectSome
                 string[] autoAddGroupIDsData = ReadAllText(presetNames[i] + "\\AutoAddGroupIDs.esf").Split('|');
                 string[] autoCopyPasteData = ReadAllText(presetNames[i] + "\\AutoCopyPaste.esf").Split('|');
                 // Add the values for the presets
-                presets[i].CopyPasteMode = (GlobalParameterSettingsPreset.AutoCopyPasteMode)ToInt32(autoCopyPasteData[0]);
+                presets[i].CopyPasteMode = (AutoCopyPasteMode)ToInt32(autoCopyPasteData[0]);
                 presets[i].AutoCopyPasteTimes = ToInt32(autoCopyPasteData[1]);
                 presets[i].AutoCopyPasteSpecifiedLocationX = ToSingle(autoCopyPasteData[2]);
                 presets[i].AutoCopyPasteSpecifiedLocationY = ToSingle(autoCopyPasteData[3]);
@@ -649,13 +652,13 @@ namespace EffectSome
                 presets[i].AutoCopyPasteMoveXEnabled = ToBoolean(autoCopyPasteData[13]);
                 presets[i].AutoCopyPasteMoveYEnabled = ToBoolean(autoCopyPasteData[14]);
 
-                presets[i].AdjustIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)ToInt32(adjustIDsData[0]);
+                presets[i].AdjustIDAdjustmentMode = (AdjustmentMode)ToInt32(adjustIDsData[0]);
                 presets[i].AdjustIDsAdjustment = ToInt32(adjustIDsData[1]);
-                presets[i].AdjustIDsSpecifiedValues = adjustIDsData[2].Length > 0 ? adjustIDsData[2].Split(':').ToInt32Array() : new int[0];
+                presets[i].AdjustIDsSpecifiedValues = adjustIDsData[2].Length > 0 ? adjustIDsData[2].Split(':').ToInt32List() : new List<int>();
 
-                presets[i].AutoAddGroupIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)ToInt32(autoAddGroupIDsData[0]);
+                presets[i].AutoAddGroupIDAdjustmentMode = (AdjustmentMode)ToInt32(autoAddGroupIDsData[0]);
                 presets[i].AutoAddGroupIDsAdjustment = ToInt32(autoAddGroupIDsData[1]);
-                presets[i].AutoAddGroupIDsSpecifiedValues = autoAddGroupIDsData[2].Length > 0 ? autoAddGroupIDsData[2].Split(':').ToInt32Array() : new int[0];
+                presets[i].AutoAddGroupIDsSpecifiedValues = autoAddGroupIDsData[2].Length > 0 ? autoAddGroupIDsData[2].Split(':').ToInt32List() : new List<int>();
                 presets[i].AutoAddGroupIDsAdjustedGroupIDs = autoAddGroupIDsData[3].Split(':').ToBooleanArray();
                 presets[i].AutoAddGroupIDsChooseGroupIDsToAdjust = ToBoolean(autoAddGroupIDsData[4]);
             }
@@ -668,7 +671,7 @@ namespace EffectSome
             string[] autoAddGroupIDsData = ReadAllText("EffectSome\\Presets\\Global Parameter Settings\\" + presets[presetIndex].PresetName + "\\AutoAddGroupIDs.esf").Split('|');
             string[] autoCopyPasteData = ReadAllText("EffectSome\\Presets\\Global Parameter Settings\\" + presets[presetIndex].PresetName + "\\AutoCopyPaste.esf").Split('|');
             // Add the values for the presets
-            presets[presetIndex].CopyPasteMode = (GlobalParameterSettingsPreset.AutoCopyPasteMode)ToInt32(autoCopyPasteData[0]);
+            presets[presetIndex].CopyPasteMode = (AutoCopyPasteMode)ToInt32(autoCopyPasteData[0]);
             presets[presetIndex].AutoCopyPasteTimes = ToInt32(autoCopyPasteData[1]);
             presets[presetIndex].AutoCopyPasteSpecifiedLocationX = ToSingle(autoCopyPasteData[2]);
             presets[presetIndex].AutoCopyPasteSpecifiedLocationY = ToSingle(autoCopyPasteData[3]);
@@ -684,13 +687,13 @@ namespace EffectSome
             presets[presetIndex].AutoCopyPasteMoveXEnabled = ToBoolean(autoCopyPasteData[13]);
             presets[presetIndex].AutoCopyPasteMoveYEnabled = ToBoolean(autoCopyPasteData[14]);
 
-            presets[presetIndex].AdjustIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)ToInt32(adjustIDsData[0]);
+            presets[presetIndex].AdjustIDAdjustmentMode = (AdjustmentMode)ToInt32(adjustIDsData[0]);
             presets[presetIndex].AdjustIDsAdjustment = ToInt32(adjustIDsData[1]);
-            presets[presetIndex].AdjustIDsSpecifiedValues = adjustIDsData[2].Length > 0 ? adjustIDsData[2].Split(':').ToInt32Array() : new int[0];
+            presets[presetIndex].AdjustIDsSpecifiedValues = adjustIDsData[2].Length > 0 ? adjustIDsData[2].Split(':').ToInt32List() : new List<int>();
 
-            presets[presetIndex].AutoAddGroupIDAdjustmentMode = (GlobalParameterSettingsPreset.PropertyAdjustmentMode)ToInt32(autoAddGroupIDsData[0]);
+            presets[presetIndex].AutoAddGroupIDAdjustmentMode = (AdjustmentMode)ToInt32(autoAddGroupIDsData[0]);
             presets[presetIndex].AutoAddGroupIDsAdjustment = ToInt32(autoAddGroupIDsData[1]);
-            presets[presetIndex].AutoAddGroupIDsSpecifiedValues = autoAddGroupIDsData[2].Length > 0 ? autoAddGroupIDsData[2].Split(':').ToInt32Array() : new int[0];
+            presets[presetIndex].AutoAddGroupIDsSpecifiedValues = autoAddGroupIDsData[2].Length > 0 ? autoAddGroupIDsData[2].Split(':').ToInt32List() : new List<int>();
             presets[presetIndex].AutoAddGroupIDsAdjustedGroupIDs = autoAddGroupIDsData[3].Split(':').ToBooleanArray();
             presets[presetIndex].AutoAddGroupIDsChooseGroupIDsToAdjust = ToBoolean(autoAddGroupIDsData[4]);
         }

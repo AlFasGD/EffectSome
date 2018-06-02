@@ -24,25 +24,29 @@ namespace EffectSome
         public float AutoCopyPasteMoveY;
         public bool AutoCopyPasteMoveXEnabled;
         public bool AutoCopyPasteMoveYEnabled;
-        public PropertyAdjustmentMode AdjustIDAdjustmentMode;
+        public AdjustmentMode AdjustIDAdjustmentMode;
         public int AdjustIDsAdjustment;
-        public int[] AdjustIDsSpecifiedValues;
-        public PropertyAdjustmentMode AutoAddGroupIDAdjustmentMode;
+        public List<int> AdjustIDsSpecifiedValues;
+        public AdjustmentMode AutoAddGroupIDAdjustmentMode;
         public int AutoAddGroupIDsAdjustment;
-        public int[] AutoAddGroupIDsSpecifiedValues;
+        public List<int> AutoAddGroupIDsSpecifiedValues;
         public bool[] AutoAddGroupIDsAdjustedGroupIDs = new bool[10];
         public bool AutoAddGroupIDsChooseGroupIDsToAdjust;
 
-        public enum AutoCopyPasteMode { NumberOfTimes, SpecifiedLocation, SpecifiedDistance }
-        public enum PropertyAdjustmentMode { OnlyUseUnusedIDs, AdjustIDs, SetIDsToSpecifiedValues }
+        public enum AutoCopyPasteMode
+        {
+            NumberOfTimes = 0,
+            SpecifiedLocation = 1,
+            SpecifiedDistance = 2
+        }
 
         /// <summary>Creates a new instance of the <see cref="GlobalParameterSettingsPreset"/> class with a specified preset name.</summary>
         /// <param name="presetName">The name of the preset to create.</param>
         public GlobalParameterSettingsPreset(string presetName)
         {
             PresetName = presetName;
-            AdjustIDsSpecifiedValues = new int[0];
-            AutoAddGroupIDsSpecifiedValues = new int[0];
+            AdjustIDsSpecifiedValues = new List<int>();
+            AutoAddGroupIDsSpecifiedValues = new List<int>();
         }
 
         public override string ToString()
@@ -65,16 +69,16 @@ namespace EffectSome
             result.Append(AutoCopyPasteMoveYEnabled + "|");
             result.Append((int)AdjustIDAdjustmentMode + "|");
             result.Append(AdjustIDsAdjustment + "|");
-            for (int i = 0; i < AdjustIDsSpecifiedValues.Length; i++)
+            for (int i = 0; i < AdjustIDsSpecifiedValues.Count; i++)
                 result.Append(AdjustIDsSpecifiedValues[i] + ":");
-            if (AdjustIDsSpecifiedValues.Length > 0)
+            if (AdjustIDsSpecifiedValues.Count > 0)
                 result = result.Remove(result.Length - 1, 1);
             result.Append("|");
             result.Append((int)AutoAddGroupIDAdjustmentMode + "|");
             result.Append(AutoAddGroupIDsAdjustment + "|");
-            for (int i = 0; i < AutoAddGroupIDsSpecifiedValues.Length; i++)
+            for (int i = 0; i < AutoAddGroupIDsSpecifiedValues.Count; i++)
                 result.Append(AutoAddGroupIDsSpecifiedValues[i] + ":");
-            if (AutoAddGroupIDsSpecifiedValues.Length > 0)
+            if (AutoAddGroupIDsSpecifiedValues.Count > 0)
                 result = result.Remove(result.Length - 1, 1);
             result.Append("|");
             for (int i = 0; i < AutoAddGroupIDsAdjustedGroupIDs.Length; i++)
@@ -110,18 +114,18 @@ namespace EffectSome
             {
                 result.Append((int)AdjustIDAdjustmentMode + "|");
                 result.Append(AdjustIDsAdjustment + "|");
-                for (int i = 0; i < AdjustIDsSpecifiedValues.Length; i++)
+                for (int i = 0; i < AdjustIDsSpecifiedValues.Count; i++)
                     result.Append(AdjustIDsSpecifiedValues[i] + ":");
-                if (AdjustIDsSpecifiedValues.Length > 0)
+                if (AdjustIDsSpecifiedValues.Count > 0)
                     result = result.Remove(result.Length - 1, 1);
             }
             else
             {
                 result.Append((int)AutoAddGroupIDAdjustmentMode + "|");
                 result.Append(AutoAddGroupIDsAdjustment + "|");
-                for (int i = 0; i < AutoAddGroupIDsSpecifiedValues.Length; i++)
+                for (int i = 0; i < AutoAddGroupIDsSpecifiedValues.Count; i++)
                     result.Append(AutoAddGroupIDsSpecifiedValues[i] + ":");
-                if (AutoAddGroupIDsSpecifiedValues.Length > 0)
+                if (AutoAddGroupIDsSpecifiedValues.Count > 0)
                     result = result.Remove(result.Length - 1, 1);
                 result.Append("|");
                 for (int i = 0; i < AutoAddGroupIDsAdjustedGroupIDs.Length; i++)
@@ -215,13 +219,13 @@ namespace EffectSome
             {
                 AdjustIDAdjustmentMode = right.AdjustIDAdjustmentMode;
                 AdjustIDsAdjustment = right.AdjustIDsAdjustment;
-                AdjustIDsSpecifiedValues = right.AdjustIDsSpecifiedValues.CopyArray();
+                AdjustIDsSpecifiedValues = right.AdjustIDsSpecifiedValues.Clone();
             }
             else
             {
                 AutoAddGroupIDAdjustmentMode = right.AutoAddGroupIDAdjustmentMode;
                 AutoAddGroupIDsAdjustment = right.AutoAddGroupIDsAdjustment;
-                AutoAddGroupIDsSpecifiedValues = right.AutoAddGroupIDsSpecifiedValues.CopyArray();
+                AutoAddGroupIDsSpecifiedValues = right.AutoAddGroupIDsSpecifiedValues.Clone();
                 AutoAddGroupIDsAdjustedGroupIDs = right.AutoAddGroupIDsAdjustedGroupIDs.CopyArray();
                 AutoAddGroupIDsChooseGroupIDsToAdjust = right.AutoAddGroupIDsChooseGroupIDsToAdjust;
             }
@@ -247,10 +251,10 @@ namespace EffectSome
                 AutoCopyPasteMoveYEnabled = AutoCopyPasteMoveYEnabled,
                 AdjustIDAdjustmentMode = AdjustIDAdjustmentMode,
                 AdjustIDsAdjustment = AdjustIDsAdjustment,
-                AdjustIDsSpecifiedValues = AdjustIDsSpecifiedValues.CopyArray(),
+                AdjustIDsSpecifiedValues = AdjustIDsSpecifiedValues.Clone(),
                 AutoAddGroupIDAdjustmentMode = AutoAddGroupIDAdjustmentMode,
                 AutoAddGroupIDsAdjustment = AutoAddGroupIDsAdjustment,
-                AutoAddGroupIDsSpecifiedValues = AutoAddGroupIDsSpecifiedValues.CopyArray(),
+                AutoAddGroupIDsSpecifiedValues = AutoAddGroupIDsSpecifiedValues.Clone(),
                 AutoAddGroupIDsAdjustedGroupIDs = AutoAddGroupIDsAdjustedGroupIDs.CopyArray(),
                 AutoAddGroupIDsChooseGroupIDsToAdjust = AutoAddGroupIDsChooseGroupIDsToAdjust
             };

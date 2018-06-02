@@ -1105,5 +1105,19 @@ namespace EffectSome
             }
             return l;
         }
+        public static List<int> ToInt32List(this ListBox.ObjectCollection o)
+        {
+            List<int> result = new List<int>();
+            for (int i = 0; i < o.Count; i++)
+                result.Add((int)o[i]);
+            return result;
+        }
+        public static List<int> ToInt32List(this string[] s)
+        {
+            List<int> result = new List<int>();
+            for (int i = 0; i < s.Length; i++)
+                result.Add(Convert.ToInt32(s[i]));
+            return result;
+        }
     }
 }

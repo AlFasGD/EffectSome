@@ -2171,7 +2171,7 @@ namespace EffectSome
         void WriteTriggersCopyPasteAutomation()
         {
             #region Move
-            if (checkBox122.Checked && presets[comboBox20.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox122.Checked && presets[comboBox20.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
             {
                 if (checkBox23.CheckState == CheckState.Checked)
                     InjectMoveTriggerCopyPasteAutomation3
@@ -2198,7 +2198,7 @@ namespace EffectSome
                         checkBox7.Checked, checkBox11.Checked, checkBox6.Checked
                     );
             }
-            else if (!checkBox122.Checked || presets[comboBox20.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox122.Checked || presets[comboBox20.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
             {
                 if (checkBox23.CheckState == CheckState.Checked)
                     InjectMoveTriggerCopyPasteAutomation1
@@ -2225,7 +2225,7 @@ namespace EffectSome
                         checkBox7.Checked, checkBox11.Checked, checkBox6.Checked
                     );
             }
-            else if (presets[comboBox20.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox20.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
             {
                 if (checkBox23.CheckState == CheckState.Checked)
                     InjectMoveTriggerCopyPasteAutomation2
@@ -2254,14 +2254,14 @@ namespace EffectSome
             }
             #endregion
             #region Stop
-            if (checkBox165.Checked && presets[comboBox35.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox165.Checked && presets[comboBox35.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
                 InjectStopTriggerCopyPasteAutomation3
                 (
                     checkBox164.Checked ? (presets[comboBox34.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox34.SelectedIndex].AutoCopyPasteMoveX : 0) : 0,
                     checkBox164.Checked ? (presets[comboBox34.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox34.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
                     checkBox20.Checked, checkBox21.Checked, checkBox17.Checked
                 );
-            else if (!checkBox165.Checked || presets[comboBox35.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox165.Checked || presets[comboBox35.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
                 InjectStopTriggerCopyPasteAutomation1
                 (
                     checkBox165.Checked ? presets[comboBox35.SelectedIndex].AdjustIDsAdjustment : 0,
@@ -2269,17 +2269,17 @@ namespace EffectSome
                     checkBox164.Checked ? (presets[comboBox34.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox34.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox20.Checked, checkBox21.Checked, checkBox17.Checked
                 );
-            else if (presets[comboBox35.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox35.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
                 InjectStopTriggerCopyPasteAutomation2
                 (
-                    checkBox165.Checked ? presets[comboBox35.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                    checkBox165.Checked ? presets[comboBox35.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                     checkBox164.Checked ? (presets[comboBox34.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox34.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                     checkBox164.Checked ? (presets[comboBox34.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox34.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox20.Checked, checkBox21.Checked, checkBox17.Checked
                 );
             #endregion
             #region Alpha
-            if (checkBox147.Checked && presets[comboBox21.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox147.Checked && presets[comboBox21.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
                 InjectAlphaTriggerCopyPasteAutomation3
                 (
                     checkBox27.Checked ? (float)numericUpDown4.Value : 0, checkBox27.CheckState == CheckState.Indeterminate,
@@ -2288,7 +2288,7 @@ namespace EffectSome
                     checkBox146.Checked ? (presets[comboBox4.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox4.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox43.Checked, checkBox51.Checked, checkBox41.Checked
                 );
-            else if (!checkBox147.Checked || presets[comboBox21.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox147.Checked || presets[comboBox21.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
                 InjectAlphaTriggerCopyPasteAutomation1
                 (
                     checkBox27.Checked ? (float)numericUpDown4.Value : 0, checkBox27.CheckState == CheckState.Indeterminate,
@@ -2298,19 +2298,19 @@ namespace EffectSome
                     checkBox146.Checked ? (presets[comboBox4.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox4.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox43.Checked, checkBox51.Checked, checkBox41.Checked
                 );
-            else if (presets[comboBox21.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox21.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
                 InjectAlphaTriggerCopyPasteAutomation2
                 (
                     checkBox27.Checked ? (float)numericUpDown4.Value : 0, checkBox27.CheckState == CheckState.Indeterminate,
                     checkBox28.Checked ? (float)numericUpDown5.Value : 0, checkBox28.CheckState == CheckState.Indeterminate,
-                    checkBox147.Checked ? presets[comboBox4.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                    checkBox147.Checked ? presets[comboBox4.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                     checkBox146.Checked ? (presets[comboBox4.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox4.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                     checkBox146.Checked ? (presets[comboBox4.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox4.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox43.Checked, checkBox51.Checked, checkBox41.Checked
                 );
             #endregion
             #region On Death
-            if (checkBox210.Checked && presets[comboBox61.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox210.Checked && presets[comboBox61.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
                 InjectOnDeathTriggerCopyPasteAutomation3
                 (
                     checkBox207.Checked, checkBox206.Checked,
@@ -2318,7 +2318,7 @@ namespace EffectSome
                     checkBox209.Checked ? (presets[comboBox63.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox63.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox90.Checked, checkBox91.Checked, checkBox89.Checked
                 );
-            else if (!checkBox210.Checked || presets[comboBox61.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox210.Checked || presets[comboBox61.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
                 InjectOnDeathTriggerCopyPasteAutomation1
                 (
                     checkBox207.Checked, checkBox206.Checked,
@@ -2327,18 +2327,18 @@ namespace EffectSome
                     checkBox209.Checked ? (presets[comboBox63.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox63.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox90.Checked, checkBox91.Checked, checkBox89.Checked
                 );
-            else if (presets[comboBox61.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox61.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
                 InjectOnDeathTriggerCopyPasteAutomation2
                 (
                     checkBox207.Checked, checkBox206.Checked,
-                    checkBox210.Checked ? presets[comboBox61.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                    checkBox210.Checked ? presets[comboBox61.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                     checkBox209.Checked ? (presets[comboBox63.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox63.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                     checkBox209.Checked ? (presets[comboBox63.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox63.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox90.Checked, checkBox91.Checked, checkBox89.Checked
                 );
             #endregion
             #region Animate
-            if (checkBox182.Checked && presets[comboBox37.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox182.Checked && presets[comboBox37.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
                 InjectAnimateTriggerCopyPasteAutomation3
                 (
                     checkBox44.Checked ? (int)numericUpDown9.Value : 0, checkBox44.CheckState == CheckState.Indeterminate,
@@ -2346,7 +2346,7 @@ namespace EffectSome
                     checkBox181.Checked ? (presets[comboBox38.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox38.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox79.Checked, checkBox80.Checked, checkBox77.Checked
                 );
-            else if (!checkBox182.Checked || presets[comboBox37.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox182.Checked || presets[comboBox37.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
                 InjectAnimateTriggerCopyPasteAutomation1
                 (
                     checkBox44.Checked ? (int)numericUpDown9.Value : 0, checkBox44.CheckState == CheckState.Indeterminate,
@@ -2355,18 +2355,18 @@ namespace EffectSome
                     checkBox181.Checked ? (presets[comboBox38.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox38.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox79.Checked, checkBox80.Checked, checkBox77.Checked
                 );
-            else if (presets[comboBox37.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox37.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
                 InjectAnimateTriggerCopyPasteAutomation2
                 (
                     checkBox44.Checked ? (int)numericUpDown9.Value : 0, checkBox44.CheckState == CheckState.Indeterminate,
-                    checkBox182.Checked ? presets[comboBox37.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                    checkBox182.Checked ? presets[comboBox37.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                     checkBox181.Checked ? (presets[comboBox38.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox38.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                     checkBox181.Checked ? (presets[comboBox38.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox38.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox79.Checked, checkBox80.Checked, checkBox77.Checked
                 );
             #endregion
             #region Spawn
-            if (checkBox128.Checked && presets[comboBox25.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox128.Checked && presets[comboBox25.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
                 InjectSpawnTriggerCopyPasteAutomation3
                 (
                     checkBox155.Checked ? (float)numericUpDown43.Value : 0, checkBox155.CheckState == CheckState.Indeterminate,
@@ -2374,7 +2374,7 @@ namespace EffectSome
                     checkBox127.Checked ? (presets[comboBox5.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox5.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox69.Checked, checkBox70.Checked, checkBox68.Checked
                 );
-            else if (!checkBox128.Checked || presets[comboBox25.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox128.Checked || presets[comboBox25.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
                 InjectSpawnTriggerCopyPasteAutomation1
                 (
                     checkBox155.Checked ? (float)numericUpDown43.Value : 0, checkBox155.CheckState == CheckState.Indeterminate,
@@ -2383,18 +2383,18 @@ namespace EffectSome
                     checkBox127.Checked ? (presets[comboBox5.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox5.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox69.Checked, checkBox70.Checked, checkBox68.Checked
                 );
-            else if (presets[comboBox25.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox25.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
                 InjectSpawnTriggerCopyPasteAutomation2
                 (
                     checkBox155.Checked ? (float)numericUpDown43.Value : 0, checkBox155.CheckState == CheckState.Indeterminate,
-                    checkBox128.Checked ? presets[comboBox25.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                    checkBox128.Checked ? presets[comboBox25.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                     checkBox127.Checked ? (presets[comboBox5.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox5.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                     checkBox127.Checked ? (presets[comboBox5.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox5.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox69.Checked, checkBox70.Checked, checkBox68.Checked
                 );
             #endregion  
             #region Touch
-            if (checkBox108.Checked && presets[comboBox46.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox108.Checked && presets[comboBox46.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
                 InjectTouchTriggerCopyPasteAutomation3
                 (
                     checkBox106.Checked, checkBox105.Checked, checkBox124.Checked, checkBox121.Checked, checkBox126.Checked, checkBox125.Checked,
@@ -2402,7 +2402,7 @@ namespace EffectSome
                     checkBox107.Checked ? (presets[comboBox47.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox47.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox75.Checked, checkBox76.Checked, checkBox74.Checked
                 );
-            else if (!checkBox108.Checked || presets[comboBox46.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox108.Checked || presets[comboBox46.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
                 InjectTouchTriggerCopyPasteAutomation1
                 (
                     checkBox106.Checked, checkBox105.Checked, checkBox124.Checked, checkBox121.Checked, checkBox126.Checked, checkBox125.Checked,
@@ -2411,18 +2411,18 @@ namespace EffectSome
                     checkBox107.Checked ? (presets[comboBox47.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox47.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox75.Checked, checkBox76.Checked, checkBox74.Checked
                 );
-            else if (presets[comboBox46.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox46.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
                 InjectTouchTriggerCopyPasteAutomation2
                 (
                     checkBox106.Checked, checkBox105.Checked, checkBox124.Checked, checkBox121.Checked, checkBox126.Checked, checkBox125.Checked,
-                    checkBox108.Checked ? presets[comboBox46.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                    checkBox108.Checked ? presets[comboBox46.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                     checkBox107.Checked ? (presets[comboBox47.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox47.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                     checkBox107.Checked ? (presets[comboBox47.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox47.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox75.Checked, checkBox76.Checked, checkBox74.Checked
                 );
             #endregion
             #region Toggle
-            if (checkBox143.Checked && presets[comboBox22.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox143.Checked && presets[comboBox22.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
                 InjectOnDeathTriggerCopyPasteAutomation3
                 (
                     checkBox141.Checked, checkBox140.Checked,
@@ -2430,7 +2430,7 @@ namespace EffectSome
                     checkBox142.Checked ? (presets[comboBox6.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox6.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox83.Checked, checkBox85.Checked, checkBox82.Checked
                 );
-            else if (!checkBox143.Checked || presets[comboBox22.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox143.Checked || presets[comboBox22.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
                 InjectOnDeathTriggerCopyPasteAutomation1
                 (
                     checkBox141.Checked, checkBox140.Checked,
@@ -2439,20 +2439,20 @@ namespace EffectSome
                     checkBox142.Checked ? (presets[comboBox6.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox6.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox83.Checked, checkBox85.Checked, checkBox82.Checked
                 );
-            else if (presets[comboBox22.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox22.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
                 InjectOnDeathTriggerCopyPasteAutomation2
                 (
                     checkBox141.Checked, checkBox140.Checked,
-                    checkBox143.Checked ? presets[comboBox22.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                    checkBox143.Checked ? presets[comboBox22.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                     checkBox142.Checked ? (presets[comboBox6.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox6.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                     checkBox142.Checked ? (presets[comboBox6.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox6.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox83.Checked, checkBox85.Checked, checkBox82.Checked
                 );
             #endregion
             #region Rotate
-            if (checkBox99.Checked && presets[comboBox42.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+            if (checkBox99.Checked && presets[comboBox42.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
             {
-                if (checkBox102.Checked && presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Center Group ID
+                if (checkBox102.Checked && presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Center Group ID
                 {
                     if (checkBox96.CheckState == CheckState.Checked)
                         InjectRotateTriggerCopyPasteAutomation3
@@ -2478,7 +2478,7 @@ namespace EffectSome
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                 }
-                else if (!checkBox102.Checked || presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Center Group ID
+                else if (!checkBox102.Checked || presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Center Group ID
                 {
                     if (checkBox96.CheckState == CheckState.Checked)
                         InjectRotateTriggerCopyPasteAutomation9
@@ -2506,7 +2506,7 @@ namespace EffectSome
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                 }
-                else if (presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Center Group ID
+                else if (presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Center Group ID
                 {
                     if (checkBox96.CheckState == CheckState.Checked)
                         InjectRotateTriggerCopyPasteAutomation15
@@ -2518,7 +2518,7 @@ namespace EffectSome
                             checkBox104.Checked ? (float)numericUpDown18.Value : 0, checkBox104.CheckState == CheckState.Indeterminate, checkBox55.Checked, checkBox54.Checked,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : 0) : 0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
-                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                     else
@@ -2530,14 +2530,14 @@ namespace EffectSome
                             checkBox104.Checked ? (float)numericUpDown18.Value : 0, checkBox104.CheckState == CheckState.Indeterminate, checkBox55.Checked, checkBox54.Checked,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : 0) : 0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
-                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                 }
             }
-            else if (!checkBox99.Checked || presets[comboBox42.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+            else if (!checkBox99.Checked || presets[comboBox42.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
             {
-                if (checkBox102.Checked && presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Center Group ID
+                if (checkBox102.Checked && presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Center Group ID
                 {
                     if (checkBox96.CheckState == CheckState.Checked)
                         InjectRotateTriggerCopyPasteAutomation1
@@ -2565,7 +2565,7 @@ namespace EffectSome
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                 }
-                else if (!checkBox102.Checked || presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Center Group ID
+                else if (!checkBox102.Checked || presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Center Group ID
                 {
                     if (checkBox96.CheckState == CheckState.Checked)
                         InjectRotateTriggerCopyPasteAutomation7
@@ -2595,7 +2595,7 @@ namespace EffectSome
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                 }
-                else if (presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Center Group ID
+                else if (presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Center Group ID
                 {
                     if (checkBox96.CheckState == CheckState.Checked)
                         InjectRotateTriggerCopyPasteAutomation13
@@ -2608,7 +2608,7 @@ namespace EffectSome
                             checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsAdjustment : (int)0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : 0) : 0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
-                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                     else
@@ -2621,14 +2621,14 @@ namespace EffectSome
                             checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsAdjustment : (int)0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : 0) : 0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
-                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                 }
             }
-            else if (presets[comboBox42.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+            else if (presets[comboBox42.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
             {
-                if (checkBox102.Checked && presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Center Group ID
+                if (checkBox102.Checked && presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Center Group ID
                 {
                     if (checkBox96.CheckState == CheckState.Checked)
                         InjectRotateTriggerCopyPasteAutomation2
@@ -2638,7 +2638,7 @@ namespace EffectSome
                             checkBox97.Checked ? (int)numericUpDown14.Value : 0, checkBox97.CheckState == CheckState.Indeterminate,
                             GetEasingValue((int)numericUpDown44.Value, checkBox95.Checked, checkBox61.Checked),
                             checkBox104.Checked ? (float)numericUpDown18.Value : 0, checkBox104.CheckState == CheckState.Indeterminate, checkBox55.Checked, checkBox54.Checked,
-                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
@@ -2650,13 +2650,13 @@ namespace EffectSome
                             checkBox98.Checked ? (int)numericUpDown15.Value : 0, checkBox98.CheckState == CheckState.Indeterminate,
                             checkBox97.Checked ? (int)numericUpDown14.Value : 0, checkBox97.CheckState == CheckState.Indeterminate, checkBox96.CheckState == CheckState.Indeterminate,
                             checkBox104.Checked ? (float)numericUpDown18.Value : 0, checkBox104.CheckState == CheckState.Indeterminate, checkBox55.Checked, checkBox54.Checked,
-                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                 }
-                else if (!checkBox102.Checked || presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Center Group ID
+                else if (!checkBox102.Checked || presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Center Group ID
                 {
                     if (checkBox96.CheckState == CheckState.Checked)
                         InjectRotateTriggerCopyPasteAutomation8
@@ -2666,7 +2666,7 @@ namespace EffectSome
                             checkBox97.Checked ? (int)numericUpDown14.Value : 0, checkBox97.CheckState == CheckState.Indeterminate,
                             GetEasingValue((int)numericUpDown44.Value, checkBox95.Checked, checkBox61.Checked),
                             checkBox104.Checked ? (float)numericUpDown18.Value : 0, checkBox104.CheckState == CheckState.Indeterminate, checkBox55.Checked, checkBox54.Checked,
-                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsAdjustment : (int)0,
@@ -2679,14 +2679,14 @@ namespace EffectSome
                             checkBox98.Checked ? (int)numericUpDown15.Value : 0, checkBox98.CheckState == CheckState.Indeterminate,
                             checkBox97.Checked ? (int)numericUpDown14.Value : 0, checkBox97.CheckState == CheckState.Indeterminate, checkBox96.CheckState == CheckState.Indeterminate,
                             checkBox104.Checked ? (float)numericUpDown18.Value : 0, checkBox104.CheckState == CheckState.Indeterminate, checkBox55.Checked, checkBox54.Checked,
-                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsAdjustment : (int)0,
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                 }
-                else if (presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Center Group ID
+                else if (presets[comboBox45.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Center Group ID
                 {
                     if (checkBox96.CheckState == CheckState.Checked)
                         InjectRotateTriggerCopyPasteAutomation14
@@ -2696,10 +2696,10 @@ namespace EffectSome
                             checkBox97.Checked ? (int)numericUpDown14.Value : 0, checkBox97.CheckState == CheckState.Indeterminate,
                             GetEasingValue((int)numericUpDown44.Value, checkBox95.Checked, checkBox61.Checked),
                             checkBox104.Checked ? (float)numericUpDown18.Value : 0, checkBox104.CheckState == CheckState.Indeterminate, checkBox55.Checked, checkBox54.Checked,
-                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : 0) : 0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
-                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                     else
@@ -2709,21 +2709,21 @@ namespace EffectSome
                             checkBox98.Checked ? (int)numericUpDown15.Value : 0, checkBox98.CheckState == CheckState.Indeterminate,
                             checkBox97.Checked ? (int)numericUpDown14.Value : 0, checkBox97.CheckState == CheckState.Indeterminate, checkBox96.CheckState == CheckState.Indeterminate,
                             checkBox104.Checked ? (float)numericUpDown18.Value : 0, checkBox104.CheckState == CheckState.Indeterminate, checkBox55.Checked, checkBox54.Checked,
-                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox102.Checked ? presets[comboBox42.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveX : 0) : 0,
                             checkBox99.Checked ? (presets[comboBox43.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox43.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
-                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox103.Checked ? presets[comboBox45.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox15.Checked, checkBox16.Checked, checkBox12.Checked
                         );
                 }
             }
             #endregion
             #region Collision
-            if (checkBox198.Checked && presets[comboBox55.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+            if (checkBox198.Checked && presets[comboBox55.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
             {
-                if (checkBox193.Checked && presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block A ID
+                if (checkBox193.Checked && presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block A ID
                 {
-                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block B ID
+                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation1
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
@@ -2731,7 +2731,7 @@ namespace EffectSome
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked
                         );
-                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block B ID
+                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation4
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
@@ -2740,19 +2740,19 @@ namespace EffectSome
                             checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked
                         );
-                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block B ID
+                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation7
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked
                         );
                 }
-                else if (!checkBox193.Checked || presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block A ID
+                else if (!checkBox193.Checked || presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block A ID
                 {
-                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block B ID
+                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation2
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
@@ -2761,7 +2761,7 @@ namespace EffectSome
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked
                         );
-                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block B ID
+                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation5
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
@@ -2771,55 +2771,55 @@ namespace EffectSome
                             checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked
                         );
-                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block B ID
+                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation8
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
                             checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked
                         );
                 }
-                else if (presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block A ID
+                else if (presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block A ID
                 {
-                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block B ID
+                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation3
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
-                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked
                         );
-                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block B ID
+                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation6
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
-                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked
                         );
-                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block B ID
+                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation9
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
-                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked
                         );
                 }
             }
-            else if (!checkBox198.Checked || presets[comboBox55.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+            else if (!checkBox198.Checked || presets[comboBox55.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
             {
-                if (checkBox193.Checked && presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block A ID
+                if (checkBox193.Checked && presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block A ID
                 {
-                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block B ID
+                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation10
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
@@ -2827,7 +2827,7 @@ namespace EffectSome
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block B ID
+                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation13
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
@@ -2836,19 +2836,19 @@ namespace EffectSome
                             checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block B ID
+                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation16
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsAdjustment : 0
                         );
                 }
-                else if (!checkBox193.Checked || presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block A ID
+                else if (!checkBox193.Checked || presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block A ID
                 {
-                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block B ID
+                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation11
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
@@ -2857,7 +2857,7 @@ namespace EffectSome
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block B ID
+                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation14
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
@@ -2867,93 +2867,93 @@ namespace EffectSome
                             checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block B ID
+                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation17
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
                             checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsAdjustment : 0
                         );
                 }
-                else if (presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block A ID
+                else if (presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block A ID
                 {
-                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block B ID
+                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation12
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
-                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block B ID
+                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation15
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
-                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block B ID
+                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation18
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
-                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsAdjustment : 0
                         );
                 }
             }
-            else if (presets[comboBox55.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+            else if (presets[comboBox55.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
             {
-                if (checkBox193.Checked && presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block A ID
+                if (checkBox193.Checked && presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block A ID
                 {
-                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block B ID
+                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation19
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : 0) : 0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
-                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block B ID
+                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation22
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsAdjustment : 0,
-                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block B ID
+                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation25
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
-                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
+                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
                 }
-                else if (!checkBox193.Checked || presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block A ID
+                else if (!checkBox193.Checked || presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block A ID
                 {
-                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block B ID
+                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation20
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
                             checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block B ID
+                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation23
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
@@ -2961,55 +2961,55 @@ namespace EffectSome
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsAdjustment : 0,
-                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block B ID
+                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation26
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
                             checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
-                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
+                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
                 }
-                else if (presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block A ID
+                else if (presets[comboBox54.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block A ID
                 {
-                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block B ID
+                    if (checkBox196.Checked && presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation21
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
-                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block B ID
+                    else if (!checkBox196.Checked || presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation24
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
-                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsAdjustment : 0,
-                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Block B ID
+                    else if (presets[comboBox57.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Block B ID
                         InjectCollisionTriggerCopyPasteAutomation27
                         (
                             checkBox195.Checked, checkBox194.Checked, checkBox185.Checked, checkBox184.Checked,
-                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox193.Checked ? presets[comboBox54.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox197.Checked ? (presets[comboBox56.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox56.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
-                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox196.Checked ? presets[comboBox57.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
+                            checkBox93.Checked, checkBox94.Checked, checkBox92.Checked, checkBox198.Checked ? presets[comboBox55.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
                 }
             }
             #endregion
             #region Follow Player Y
-            if (checkBox204.Checked && presets[comboBox59.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox204.Checked && presets[comboBox59.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
                 InjectFollowPlayerYTriggerCopyPasteAutomation3
                 (
                     checkBox202.Checked ? (float)numericUpDown28.Value : 0, checkBox201.Checked ? (float)numericUpDown27.Value : 0, checkBox199.Checked ? (float)numericUpDown29.Value : 0,
@@ -3018,7 +3018,7 @@ namespace EffectSome
                     checkBox203.Checked ? (presets[comboBox60.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox60.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox66.Checked, checkBox67.Checked, checkBox65.Checked
                 );
-            else if (!checkBox204.Checked || presets[comboBox59.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox204.Checked || presets[comboBox59.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
                 InjectFollowPlayerYTriggerCopyPasteAutomation1
                 (
                     checkBox202.Checked ? (float)numericUpDown28.Value : 0, checkBox201.Checked ? (float)numericUpDown27.Value : 0, checkBox199.Checked ? (float)numericUpDown29.Value : 0,
@@ -3028,12 +3028,12 @@ namespace EffectSome
                     checkBox203.Checked ? (presets[comboBox60.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox60.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox66.Checked, checkBox67.Checked, checkBox65.Checked
                 );
-            else if (presets[comboBox59.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox59.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
                 InjectFollowPlayerYTriggerCopyPasteAutomation2
                 (
                     checkBox202.Checked ? (float)numericUpDown28.Value : 0, checkBox201.Checked ? (float)numericUpDown27.Value : 0, checkBox199.Checked ? (float)numericUpDown29.Value : 0,
                     checkBox205.Checked ? (int)numericUpDown30.Value : 0, checkBox200.Checked ? (float)numericUpDown21.Value : 0,
-                    checkBox204.Checked ? presets[comboBox59.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                    checkBox204.Checked ? presets[comboBox59.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                     checkBox203.Checked ? (presets[comboBox60.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox60.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                     checkBox203.Checked ? (presets[comboBox60.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox60.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox66.Checked, checkBox67.Checked, checkBox65.Checked
@@ -3048,11 +3048,11 @@ namespace EffectSome
             );
             #endregion
             #region Pulse
-            if (checkBox174.Checked && presets[comboBox31.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Copied Color ID
+            if (checkBox174.Checked && presets[comboBox31.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Copied Color ID
             {
-                if (checkBox3.Checked && presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Color ID
+                if (checkBox3.Checked && presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Color ID
                 {
-                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation1
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3066,7 +3066,7 @@ namespace EffectSome
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked
                         );
-                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation4
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3081,7 +3081,7 @@ namespace EffectSome
                             checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked
                         );
-                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation7
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3093,13 +3093,13 @@ namespace EffectSome
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked
                         );
                 }
-                else if (!checkBox3.Checked || presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Color ID
+                else if (!checkBox3.Checked || presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Color ID
                 {
-                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation2
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3114,7 +3114,7 @@ namespace EffectSome
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked
                         );
-                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation5
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3130,7 +3130,7 @@ namespace EffectSome
                             checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked
                         );
-                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation8
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3143,13 +3143,13 @@ namespace EffectSome
                             checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked
                         );
                 }
-                else if (presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Color ID
+                else if (presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Color ID
                 {
-                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation3
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3159,12 +3159,12 @@ namespace EffectSome
                             new bool[] { checkBox59.CheckState == CheckState.Indeterminate, checkBox235.CheckState == CheckState.Indeterminate, checkBox60.CheckState == CheckState.Indeterminate },
                             new int[] { checkBox236.Checked ? (int)numericUpDown57.Value : 0, checkBox238.Checked ? (int)numericUpDown56.Value : 0, checkBox237.Checked ? (int)numericUpDown55.Value : 0 },
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
-                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked
                         );
-                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation6
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3174,13 +3174,13 @@ namespace EffectSome
                             new bool[] { checkBox59.CheckState == CheckState.Indeterminate, checkBox235.CheckState == CheckState.Indeterminate, checkBox60.CheckState == CheckState.Indeterminate },
                             new int[] { checkBox236.Checked ? (int)numericUpDown57.Value : 0, checkBox238.Checked ? (int)numericUpDown56.Value : 0, checkBox237.Checked ? (int)numericUpDown55.Value : 0 },
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
-                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked
                         );
-                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation9
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3190,19 +3190,19 @@ namespace EffectSome
                             new bool[] { checkBox59.CheckState == CheckState.Indeterminate, checkBox235.CheckState == CheckState.Indeterminate, checkBox60.CheckState == CheckState.Indeterminate },
                             new int[] { checkBox236.Checked ? (int)numericUpDown57.Value : 0, checkBox238.Checked ? (int)numericUpDown56.Value : 0, checkBox237.Checked ? (int)numericUpDown55.Value : 0 },
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
-                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked
                         );
                 }
             }
-            else if (!checkBox174.Checked || presets[comboBox31.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Copied Color ID
+            else if (!checkBox174.Checked || presets[comboBox31.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Copied Color ID
             {
-                if (checkBox3.Checked && presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Color ID
+                if (checkBox3.Checked && presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Color ID
                 {
-                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation10
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3217,7 +3217,7 @@ namespace EffectSome
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
                             checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation13
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3233,7 +3233,7 @@ namespace EffectSome
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
                             checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation16
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3245,14 +3245,14 @@ namespace EffectSome
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
                             checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsAdjustment : 0
                         );
                 }
-                else if (!checkBox3.Checked || presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Color ID
+                else if (!checkBox3.Checked || presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Color ID
                 {
-                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation11
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3268,7 +3268,7 @@ namespace EffectSome
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
                             checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation14
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3285,7 +3285,7 @@ namespace EffectSome
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
                             checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation17
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3298,14 +3298,14 @@ namespace EffectSome
                             checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
                             checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsAdjustment : 0
                         );
                 }
-                else if (presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Color ID
+                else if (presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Color ID
                 {
-                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation12
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3315,13 +3315,13 @@ namespace EffectSome
                             new bool[] { checkBox59.CheckState == CheckState.Indeterminate, checkBox235.CheckState == CheckState.Indeterminate, checkBox60.CheckState == CheckState.Indeterminate },
                             new int[] { checkBox236.Checked ? (int)numericUpDown57.Value : 0, checkBox238.Checked ? (int)numericUpDown56.Value : 0, checkBox237.Checked ? (int)numericUpDown55.Value : 0 },
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
-                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
                             checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation15
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3331,14 +3331,14 @@ namespace EffectSome
                             new bool[] { checkBox59.CheckState == CheckState.Indeterminate, checkBox235.CheckState == CheckState.Indeterminate, checkBox60.CheckState == CheckState.Indeterminate },
                             new int[] { checkBox236.Checked ? (int)numericUpDown57.Value : 0, checkBox238.Checked ? (int)numericUpDown56.Value : 0, checkBox237.Checked ? (int)numericUpDown55.Value : 0 },
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
-                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
                             checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation18
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3348,20 +3348,20 @@ namespace EffectSome
                             new bool[] { checkBox59.CheckState == CheckState.Indeterminate, checkBox235.CheckState == CheckState.Indeterminate, checkBox60.CheckState == CheckState.Indeterminate },
                             new int[] { checkBox236.Checked ? (int)numericUpDown57.Value : 0, checkBox238.Checked ? (int)numericUpDown56.Value : 0, checkBox237.Checked ? (int)numericUpDown55.Value : 0 },
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
-                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
                             checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsAdjustment : 0
                         );
                 }
             }
-            else if (presets[comboBox31.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Copied Color ID
+            else if (presets[comboBox31.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Copied Color ID
             {
-                if (checkBox3.Checked && presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Color ID
+                if (checkBox3.Checked && presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Color ID
                 {
-                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation19
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3374,9 +3374,9 @@ namespace EffectSome
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : 0) : 0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
-                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation22
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3390,9 +3390,9 @@ namespace EffectSome
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
-                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation25
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3404,14 +3404,14 @@ namespace EffectSome
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
-                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
                 }
-                else if (!checkBox3.Checked || presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Color ID
+                else if (!checkBox3.Checked || presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Color ID
                 {
-                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation20
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3425,9 +3425,9 @@ namespace EffectSome
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
-                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation23
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3442,9 +3442,9 @@ namespace EffectSome
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
-                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation26
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3457,14 +3457,14 @@ namespace EffectSome
                             checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
-                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
                 }
-                else if (presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Color ID
+                else if (presets[comboBox24.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Color ID
                 {
-                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+                    if (checkBox46.Checked && presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation21
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3474,13 +3474,13 @@ namespace EffectSome
                             new bool[] { checkBox59.CheckState == CheckState.Indeterminate, checkBox235.CheckState == CheckState.Indeterminate, checkBox60.CheckState == CheckState.Indeterminate },
                             new int[] { checkBox236.Checked ? (int)numericUpDown57.Value : 0, checkBox238.Checked ? (int)numericUpDown56.Value : 0, checkBox237.Checked ? (int)numericUpDown55.Value : 0 },
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
-                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
-                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+                    else if (!checkBox46.Checked || presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation24
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3490,14 +3490,14 @@ namespace EffectSome
                             new bool[] { checkBox59.CheckState == CheckState.Indeterminate, checkBox235.CheckState == CheckState.Indeterminate, checkBox60.CheckState == CheckState.Indeterminate },
                             new int[] { checkBox236.Checked ? (int)numericUpDown57.Value : 0, checkBox238.Checked ? (int)numericUpDown56.Value : 0, checkBox237.Checked ? (int)numericUpDown55.Value : 0 },
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
-                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsAdjustment : 0,
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
-                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
-                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+                    else if (presets[comboBox23.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
                         InjectPulseTriggerCopyPasteAutomation27
                         (
                             ToInt32(radioButton3.Checked) + 2 * ToInt32(radioButton6.Checked), new bool[] { checkBox31.Checked, checkBox32.Checked }, checkBox239.Checked,
@@ -3507,18 +3507,18 @@ namespace EffectSome
                             new bool[] { checkBox59.CheckState == CheckState.Indeterminate, checkBox235.CheckState == CheckState.Indeterminate, checkBox60.CheckState == CheckState.Indeterminate },
                             new int[] { checkBox236.Checked ? (int)numericUpDown57.Value : 0, checkBox238.Checked ? (int)numericUpDown56.Value : 0, checkBox237.Checked ? (int)numericUpDown55.Value : 0 },
                             new bool[] { checkBox236.CheckState == CheckState.Indeterminate, checkBox238.CheckState == CheckState.Indeterminate, checkBox237.CheckState == CheckState.Indeterminate },
-                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox3.Checked ? presets[comboBox24.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                             checkBox136.Checked ? (presets[comboBox3.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox3.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                            checkBox46.Checked ? presets[comboBox23.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                             checkBox30.Checked, checkBox25.Checked, checkBox29.Checked,
-                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new int[0]
+                            checkBox174.Checked ? presets[comboBox31.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>()
                         );
                 }
             }
             #endregion
             #region Pickup
-            if (checkBox208.Checked && presets[comboBox58.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs)
+            if (checkBox208.Checked && presets[comboBox58.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs)
                 InjectPickupTriggerCopyPasteAutomation3
                 (
                     checkBox211.Checked ? (int)numericUpDown31.Value : 0, checkBox211.CheckState == CheckState.Indeterminate,
@@ -3526,7 +3526,7 @@ namespace EffectSome
                     checkBox212.Checked ? (presets[comboBox62.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox62.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox4.Checked, checkBox5.Checked, checkBox2.Checked
                 );
-            else if (!checkBox208.Checked || presets[comboBox58.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs)
+            else if (!checkBox208.Checked || presets[comboBox58.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment)
                 InjectPickupTriggerCopyPasteAutomation1
                 (
                     checkBox211.Checked ? (int)numericUpDown31.Value : 0, checkBox211.CheckState == CheckState.Indeterminate,
@@ -3535,20 +3535,20 @@ namespace EffectSome
                     checkBox212.Checked ? (presets[comboBox62.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox62.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox4.Checked, checkBox5.Checked, checkBox2.Checked
                 );
-            else if (presets[comboBox58.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues)
+            else if (presets[comboBox58.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues)
                 InjectPickupTriggerCopyPasteAutomation2
                 (
                     checkBox211.Checked ? (int)numericUpDown31.Value : 0, checkBox211.CheckState == CheckState.Indeterminate,
-                    checkBox208.Checked ? presets[comboBox62.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                    checkBox208.Checked ? presets[comboBox62.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                     checkBox212.Checked ? (presets[comboBox62.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox62.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                     checkBox212.Checked ? (presets[comboBox62.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox62.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                     checkBox4.Checked, checkBox5.Checked, checkBox2.Checked
                 );
             #endregion
             #region Count
-            if (checkBox163.Checked && presets[comboBox48.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+            if (checkBox163.Checked && presets[comboBox48.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
             {
-                if (checkBox159.Checked && presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Item ID
+                if (checkBox159.Checked && presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Item ID
                     InjectCountTriggerCopyPasteAutomation3
                     (
                         checkBox180.Checked, checkBox179.Checked, checkBox183.Checked, checkBox160.Checked, checkBox161.Checked ? (int)numericUpDown20.Value : 0,
@@ -3556,7 +3556,7 @@ namespace EffectSome
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
                         checkBox38.Checked, checkBox39.Checked, checkBox36.Checked
                     );
-                else if (!checkBox159.Checked || presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Item ID
+                else if (!checkBox159.Checked || presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Item ID
                     InjectCountTriggerCopyPasteAutomation6
                     (
                         checkBox180.Checked, checkBox179.Checked, checkBox183.Checked, checkBox160.Checked, checkBox161.Checked ? (int)numericUpDown20.Value : 0,
@@ -3565,19 +3565,19 @@ namespace EffectSome
                         checkBox159.Checked ? presets[comboBox50.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox38.Checked, checkBox39.Checked, checkBox36.Checked
                     );
-                else if (presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Item ID
+                else if (presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Item ID
                     InjectCountTriggerCopyPasteAutomation9
                     (
                         checkBox180.Checked, checkBox179.Checked, checkBox183.Checked, checkBox160.Checked, checkBox161.Checked ? (int)numericUpDown20.Value : 0,
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox159.Checked ? presets[comboBox50.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox159.Checked ? presets[comboBox50.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox38.Checked, checkBox39.Checked, checkBox36.Checked
                     );
             }
-            else if (!checkBox163.Checked || presets[comboBox48.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+            else if (!checkBox163.Checked || presets[comboBox48.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
             {
-                if (checkBox159.Checked && presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Item ID
+                if (checkBox159.Checked && presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Item ID
                     InjectCountTriggerCopyPasteAutomation1
                     (
                         checkBox180.Checked, checkBox179.Checked, checkBox183.Checked, checkBox160.Checked, checkBox161.Checked ? (int)numericUpDown20.Value : 0,
@@ -3586,7 +3586,7 @@ namespace EffectSome
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox38.Checked, checkBox39.Checked, checkBox36.Checked
                     );
-                else if (!checkBox159.Checked || presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Item ID
+                else if (!checkBox159.Checked || presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Item ID
                     InjectCountTriggerCopyPasteAutomation4
                     (
                         checkBox180.Checked, checkBox179.Checked, checkBox183.Checked, checkBox160.Checked, checkBox161.Checked ? (int)numericUpDown20.Value : 0,
@@ -3596,54 +3596,54 @@ namespace EffectSome
                         checkBox159.Checked ? presets[comboBox50.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox38.Checked, checkBox39.Checked, checkBox36.Checked
                     );
-                else if (presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Item ID
+                else if (presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Item ID
                     InjectCountTriggerCopyPasteAutomation7
                     (
                         checkBox180.Checked, checkBox179.Checked, checkBox183.Checked, checkBox160.Checked, checkBox161.Checked ? (int)numericUpDown20.Value : 0,
                         checkBox163.Checked ? presets[comboBox48.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox159.Checked ? presets[comboBox50.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox159.Checked ? presets[comboBox50.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox38.Checked, checkBox39.Checked, checkBox36.Checked
                     );
             }
-            else if (presets[comboBox48.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+            else if (presets[comboBox48.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
             {
-                if (checkBox159.Checked && presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Item ID
+                if (checkBox159.Checked && presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Item ID
                     InjectCountTriggerCopyPasteAutomation2
                     (
                         checkBox180.Checked, checkBox179.Checked, checkBox183.Checked, checkBox160.Checked, checkBox161.Checked ? (int)numericUpDown20.Value : 0,
-                        checkBox163.Checked ? presets[comboBox48.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox163.Checked ? presets[comboBox48.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox38.Checked, checkBox39.Checked, checkBox36.Checked
                     );
-                else if (!checkBox159.Checked || presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Item ID
+                else if (!checkBox159.Checked || presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Item ID
                     InjectCountTriggerCopyPasteAutomation5
                     (
                         checkBox180.Checked, checkBox179.Checked, checkBox183.Checked, checkBox160.Checked, checkBox161.Checked ? (int)numericUpDown20.Value : 0,
-                        checkBox163.Checked ? presets[comboBox48.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox163.Checked ? presets[comboBox48.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox159.Checked ? presets[comboBox50.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox38.Checked, checkBox39.Checked, checkBox36.Checked
                     );
-                else if (presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Item ID
+                else if (presets[comboBox50.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Item ID
                     InjectCountTriggerCopyPasteAutomation8
                     (
                         checkBox180.Checked, checkBox179.Checked, checkBox183.Checked, checkBox160.Checked, checkBox161.Checked ? (int)numericUpDown20.Value : 0,
-                        checkBox163.Checked ? presets[comboBox48.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox163.Checked ? presets[comboBox48.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox162.Checked ? (presets[comboBox49.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox49.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox159.Checked ? presets[comboBox50.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox159.Checked ? presets[comboBox50.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox38.Checked, checkBox39.Checked, checkBox36.Checked
                     );
             }
             #endregion
             #region Instant Count
-            if (checkBox191.Checked && presets[comboBox52.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+            if (checkBox191.Checked && presets[comboBox52.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
             {
-                if (checkBox186.Checked && presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Item ID
+                if (checkBox186.Checked && presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Item ID
                     InjectInstantCountTriggerCopyPasteAutomation3
                     (
                         checkBox188.Checked, checkBox187.Checked, radioButton1.Checked, radioButton12.Checked, radioButton16.Checked, checkBox192.Checked, checkBox189.Checked ? (int)numericUpDown19.Value : 0,
@@ -3651,7 +3651,7 @@ namespace EffectSome
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
                         checkBox63.Checked, checkBox64.Checked, checkBox62.Checked
                     );
-                else if (!checkBox186.Checked || presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Item ID
+                else if (!checkBox186.Checked || presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Item ID
                     InjectInstantCountTriggerCopyPasteAutomation6
                     (
                         checkBox188.Checked, checkBox187.Checked, radioButton1.Checked, radioButton12.Checked, radioButton16.Checked, checkBox192.Checked, checkBox189.Checked ? (int)numericUpDown19.Value : 0,
@@ -3660,19 +3660,19 @@ namespace EffectSome
                         checkBox186.Checked ? presets[comboBox51.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox63.Checked, checkBox64.Checked, checkBox62.Checked
                     );
-                else if (presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Item ID
+                else if (presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Item ID
                     InjectInstantCountTriggerCopyPasteAutomation9
                     (
                         checkBox188.Checked, checkBox187.Checked, radioButton1.Checked, radioButton12.Checked, radioButton16.Checked, checkBox192.Checked, checkBox189.Checked ? (int)numericUpDown19.Value : 0,
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox186.Checked ? presets[comboBox51.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox186.Checked ? presets[comboBox51.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox63.Checked, checkBox64.Checked, checkBox62.Checked
                     );
             }
-            else if (!checkBox191.Checked || presets[comboBox52.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+            else if (!checkBox191.Checked || presets[comboBox52.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
             {
-                if (checkBox186.Checked && presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Item ID
+                if (checkBox186.Checked && presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Item ID
                     InjectInstantCountTriggerCopyPasteAutomation1
                     (
                         checkBox188.Checked, checkBox187.Checked, radioButton1.Checked, radioButton12.Checked, radioButton16.Checked, checkBox192.Checked, checkBox189.Checked ? (int)numericUpDown19.Value : 0,
@@ -3681,7 +3681,7 @@ namespace EffectSome
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox63.Checked, checkBox64.Checked, checkBox62.Checked
                     );
-                else if (!checkBox186.Checked || presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Item ID
+                else if (!checkBox186.Checked || presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Item ID
                     InjectInstantCountTriggerCopyPasteAutomation4
                     (
                         checkBox188.Checked, checkBox187.Checked, radioButton1.Checked, radioButton12.Checked, radioButton16.Checked, checkBox192.Checked, checkBox189.Checked ? (int)numericUpDown19.Value : 0,
@@ -3691,54 +3691,54 @@ namespace EffectSome
                         checkBox186.Checked ? presets[comboBox51.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox63.Checked, checkBox64.Checked, checkBox62.Checked
                     );
-                else if (presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Item ID
+                else if (presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Item ID
                     InjectInstantCountTriggerCopyPasteAutomation7
                     (
                         checkBox188.Checked, checkBox187.Checked, radioButton1.Checked, radioButton12.Checked, radioButton16.Checked, checkBox192.Checked, checkBox189.Checked ? (int)numericUpDown19.Value : 0,
                         checkBox191.Checked ? presets[comboBox52.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox186.Checked ? presets[comboBox51.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox186.Checked ? presets[comboBox51.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox63.Checked, checkBox64.Checked, checkBox62.Checked
                     );
             }
-            else if (presets[comboBox52.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+            else if (presets[comboBox52.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
             {
-                if (checkBox186.Checked && presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Item ID
+                if (checkBox186.Checked && presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Item ID
                     InjectInstantCountTriggerCopyPasteAutomation2
                     (
                         checkBox188.Checked, checkBox187.Checked, radioButton1.Checked, radioButton12.Checked, radioButton16.Checked, checkBox192.Checked, checkBox189.Checked ? (int)numericUpDown19.Value : 0,
-                        checkBox191.Checked ? presets[comboBox52.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox191.Checked ? presets[comboBox52.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox63.Checked, checkBox64.Checked, checkBox62.Checked
                     );
-                else if (!checkBox186.Checked || presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Item ID
+                else if (!checkBox186.Checked || presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Item ID
                     InjectInstantCountTriggerCopyPasteAutomation5
                     (
                         checkBox188.Checked, checkBox187.Checked, radioButton1.Checked, radioButton12.Checked, radioButton16.Checked, checkBox192.Checked, checkBox189.Checked ? (int)numericUpDown19.Value : 0,
-                        checkBox191.Checked ? presets[comboBox52.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox191.Checked ? presets[comboBox52.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox186.Checked ? presets[comboBox51.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox63.Checked, checkBox64.Checked, checkBox62.Checked
                     );
-                else if (presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Item ID
+                else if (presets[comboBox51.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Item ID
                     InjectInstantCountTriggerCopyPasteAutomation8
                     (
                         checkBox188.Checked, checkBox187.Checked, radioButton1.Checked, radioButton12.Checked, radioButton16.Checked, checkBox192.Checked, checkBox189.Checked ? (int)numericUpDown19.Value : 0,
-                        checkBox191.Checked ? presets[comboBox52.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox191.Checked ? presets[comboBox52.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox190.Checked ? (presets[comboBox53.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox53.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox186.Checked ? presets[comboBox51.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox186.Checked ? presets[comboBox51.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox63.Checked, checkBox64.Checked, checkBox62.Checked
                     );
             }
             #endregion
             #region Follow
-            if (checkBox50.Checked && presets[comboBox39.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group ID
+            if (checkBox50.Checked && presets[comboBox39.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group ID
             {
-                if (checkBox53.Checked && presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Follow Group ID
+                if (checkBox53.Checked && presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Follow Group ID
                     InjectFollowTriggerCopyPasteAutomation3
                     (
                         checkBox48.Checked ? (float)numericUpDown12.Value : 0, checkBox47.Checked ? (float)numericUpDown11.Value : 0, checkBox45.Checked ? (float)numericUpDown10.Value : 0,
@@ -3746,7 +3746,7 @@ namespace EffectSome
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
                         checkBox57.Checked, checkBox58.Checked, checkBox52.Checked
                     );
-                else if (!checkBox53.Checked || presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Follow Group ID
+                else if (!checkBox53.Checked || presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Follow Group ID
                     InjectFollowTriggerCopyPasteAutomation6
                     (
                         checkBox48.Checked ? (float)numericUpDown12.Value : 0, checkBox47.Checked ? (float)numericUpDown11.Value : 0, checkBox45.Checked ? (float)numericUpDown10.Value : 0,
@@ -3755,19 +3755,19 @@ namespace EffectSome
                         checkBox53.Checked ? presets[comboBox41.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox57.Checked, checkBox58.Checked, checkBox52.Checked
                     );
-                else if (presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Follow Group ID
+                else if (presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Follow Group ID
                     InjectFollowTriggerCopyPasteAutomation9
                     (
                         checkBox48.Checked ? (float)numericUpDown12.Value : 0, checkBox47.Checked ? (float)numericUpDown11.Value : 0, checkBox45.Checked ? (float)numericUpDown10.Value : 0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox53.Checked ? presets[comboBox41.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox53.Checked ? presets[comboBox41.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox57.Checked, checkBox58.Checked, checkBox52.Checked
                     );
             }
-            else if (!checkBox50.Checked || presets[comboBox39.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group ID
+            else if (!checkBox50.Checked || presets[comboBox39.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group ID
             {
-                if (checkBox53.Checked && presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Follow Group ID
+                if (checkBox53.Checked && presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Follow Group ID
                     InjectFollowTriggerCopyPasteAutomation1
                     (
                         checkBox48.Checked ? (float)numericUpDown12.Value : 0, checkBox47.Checked ? (float)numericUpDown11.Value : 0, checkBox45.Checked ? (float)numericUpDown10.Value : 0,
@@ -3776,7 +3776,7 @@ namespace EffectSome
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox57.Checked, checkBox58.Checked, checkBox52.Checked
                     );
-                else if (!checkBox53.Checked || presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Follow Group ID
+                else if (!checkBox53.Checked || presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Follow Group ID
                     InjectFollowTriggerCopyPasteAutomation4
                     (
                         checkBox48.Checked ? (float)numericUpDown12.Value : 0, checkBox47.Checked ? (float)numericUpDown11.Value : 0, checkBox45.Checked ? (float)numericUpDown10.Value : 0,
@@ -3786,54 +3786,54 @@ namespace EffectSome
                         checkBox53.Checked ? presets[comboBox41.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox57.Checked, checkBox58.Checked, checkBox52.Checked
                     );
-                else if (presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Follow Group ID
+                else if (presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Follow Group ID
                     InjectFollowTriggerCopyPasteAutomation7
                     (
                         checkBox48.Checked ? (float)numericUpDown12.Value : 0, checkBox47.Checked ? (float)numericUpDown11.Value : 0, checkBox45.Checked ? (float)numericUpDown10.Value : 0,
                         checkBox50.Checked ? presets[comboBox39.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox53.Checked ? presets[comboBox41.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox53.Checked ? presets[comboBox41.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox57.Checked, checkBox58.Checked, checkBox52.Checked
                     );
             }
-            else if (presets[comboBox39.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group ID
+            else if (presets[comboBox39.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group ID
             {
-                if (checkBox53.Checked && presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Follow Group ID
+                if (checkBox53.Checked && presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Follow Group ID
                     InjectFollowTriggerCopyPasteAutomation2
                     (
                         checkBox48.Checked ? (float)numericUpDown12.Value : 0, checkBox47.Checked ? (float)numericUpDown11.Value : 0, checkBox45.Checked ? (float)numericUpDown10.Value : 0,
-                        checkBox50.Checked ? presets[comboBox39.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox50.Checked ? presets[comboBox39.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox57.Checked, checkBox58.Checked, checkBox52.Checked
                     );
-                else if (!checkBox53.Checked || presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Follow Group ID
+                else if (!checkBox53.Checked || presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Follow Group ID
                     InjectFollowTriggerCopyPasteAutomation5
                     (
                         checkBox48.Checked ? (float)numericUpDown12.Value : 0, checkBox47.Checked ? (float)numericUpDown11.Value : 0, checkBox45.Checked ? (float)numericUpDown10.Value : 0,
-                        checkBox50.Checked ? presets[comboBox39.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox50.Checked ? presets[comboBox39.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox53.Checked ? presets[comboBox41.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox57.Checked, checkBox58.Checked, checkBox52.Checked
                     );
-                else if (presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Follow Group ID
+                else if (presets[comboBox41.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Follow Group ID
                     InjectFollowTriggerCopyPasteAutomation8
                     (
                         checkBox48.Checked ? (float)numericUpDown12.Value : 0, checkBox47.Checked ? (float)numericUpDown11.Value : 0, checkBox45.Checked ? (float)numericUpDown10.Value : 0,
-                        checkBox50.Checked ? presets[comboBox39.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox50.Checked ? presets[comboBox39.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox53.Checked ? presets[comboBox41.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox53.Checked ? presets[comboBox41.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox57.Checked, checkBox58.Checked, checkBox52.Checked
                     );
             }
             #endregion
             #region Color
-            if (checkBox115.Checked && presets[comboBox26.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Copied Color ID
+            if (checkBox115.Checked && presets[comboBox26.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Copied Color ID
             {
-                if (checkBox109.Checked && presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Color ID
+                if (checkBox109.Checked && presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Color ID
                     InjectColorTriggerCopyPasteAutomation1
                     (
                         checkBox112.Checked, checkBox111.Checked, checkBox117.Checked ? (float)numericUpDown24.Value : 0, checkBox117.CheckState == CheckState.Indeterminate,
@@ -3846,7 +3846,7 @@ namespace EffectSome
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : 0) : 0,
                         checkBox72.Checked, checkBox73.Checked, checkBox71.Checked
                     );
-                else if (!checkBox109.Checked || presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Color ID
+                else if (!checkBox109.Checked || presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Color ID
                     InjectColorTriggerCopyPasteAutomation4
                     (
                         checkBox112.Checked, checkBox111.Checked, checkBox117.Checked ? (float)numericUpDown24.Value : 0, checkBox117.CheckState == CheckState.Indeterminate,
@@ -3860,7 +3860,7 @@ namespace EffectSome
                         checkBox109.Checked ? presets[comboBox27.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox72.Checked, checkBox73.Checked, checkBox71.Checked
                     );
-                else if (presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Color ID
+                else if (presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Color ID
                     InjectColorTriggerCopyPasteAutomation7
                     (
                         checkBox112.Checked, checkBox111.Checked, checkBox117.Checked ? (float)numericUpDown24.Value : 0, checkBox117.CheckState == CheckState.Indeterminate,
@@ -3871,13 +3871,13 @@ namespace EffectSome
                         new bool[] { checkBox116.CheckState == CheckState.Indeterminate, checkBox120.CheckState == CheckState.Indeterminate, checkBox119.CheckState == CheckState.Indeterminate },
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox109.Checked ? presets[comboBox27.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox109.Checked ? presets[comboBox27.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox72.Checked, checkBox73.Checked, checkBox71.Checked
                     );
             }
-            else if (!checkBox115.Checked || presets[comboBox26.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Copied Color ID
+            else if (!checkBox115.Checked || presets[comboBox26.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Copied Color ID
             {
-                if (checkBox109.Checked && presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Color ID
+                if (checkBox109.Checked && presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Color ID
                     InjectColorTriggerCopyPasteAutomation3
                     (
                         checkBox112.Checked, checkBox111.Checked, checkBox117.Checked ? (float)numericUpDown24.Value : 0, checkBox117.CheckState == CheckState.Indeterminate,
@@ -3891,7 +3891,7 @@ namespace EffectSome
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox72.Checked, checkBox73.Checked, checkBox71.Checked
                     );
-                else if (!checkBox109.Checked || presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Color ID
+                else if (!checkBox109.Checked || presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Color ID
                     InjectColorTriggerCopyPasteAutomation6
                     (
                         checkBox112.Checked, checkBox111.Checked, checkBox117.Checked ? (float)numericUpDown24.Value : 0, checkBox117.CheckState == CheckState.Indeterminate,
@@ -3906,7 +3906,7 @@ namespace EffectSome
                         checkBox109.Checked ? presets[comboBox27.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox72.Checked, checkBox73.Checked, checkBox71.Checked
                     );
-                else if (presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Color ID
+                else if (presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Color ID
                     InjectColorTriggerCopyPasteAutomation9
                     (
                         checkBox112.Checked, checkBox111.Checked, checkBox117.Checked ? (float)numericUpDown24.Value : 0, checkBox117.CheckState == CheckState.Indeterminate,
@@ -3918,13 +3918,13 @@ namespace EffectSome
                         checkBox115.Checked ? presets[comboBox26.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox109.Checked ? presets[comboBox27.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox109.Checked ? presets[comboBox27.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox72.Checked, checkBox73.Checked, checkBox71.Checked
                     );
             }
-            else if (presets[comboBox26.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Copied Color ID
+            else if (presets[comboBox26.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Copied Color ID
             {
-                if (checkBox109.Checked && presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Color ID
+                if (checkBox109.Checked && presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Color ID
                     InjectColorTriggerCopyPasteAutomation2
                     (
                         checkBox112.Checked, checkBox111.Checked, checkBox117.Checked ? (float)numericUpDown24.Value : 0, checkBox117.CheckState == CheckState.Indeterminate,
@@ -3933,12 +3933,12 @@ namespace EffectSome
                         new bool[] { checkBox232.CheckState == CheckState.Indeterminate, checkBox234.CheckState == CheckState.Indeterminate, checkBox233.CheckState == CheckState.Indeterminate },
                         new int[] { checkBox116.Checked ? (int)numericUpDown26.Value : 0, checkBox120.Checked ? (int)numericUpDown25.Value : 0, checkBox119.Checked ? (int)numericUpDown23.Value : 0 },
                         new bool[] { checkBox116.CheckState == CheckState.Indeterminate, checkBox120.CheckState == CheckState.Indeterminate, checkBox119.CheckState == CheckState.Indeterminate },
-                        checkBox115.Checked ? presets[comboBox26.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox115.Checked ? presets[comboBox26.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox72.Checked, checkBox73.Checked, checkBox71.Checked
                     );
-                else if (!checkBox109.Checked || presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Color ID
+                else if (!checkBox109.Checked || presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Color ID
                     InjectColorTriggerCopyPasteAutomation5
                     (
                         checkBox112.Checked, checkBox111.Checked, checkBox117.Checked ? (float)numericUpDown24.Value : 0, checkBox117.CheckState == CheckState.Indeterminate,
@@ -3947,13 +3947,13 @@ namespace EffectSome
                         new bool[] { checkBox232.CheckState == CheckState.Indeterminate, checkBox234.CheckState == CheckState.Indeterminate, checkBox233.CheckState == CheckState.Indeterminate },
                         new int[] { checkBox116.Checked ? (int)numericUpDown26.Value : 0, checkBox120.Checked ? (int)numericUpDown25.Value : 0, checkBox119.Checked ? (int)numericUpDown23.Value : 0 },
                         new bool[] { checkBox116.CheckState == CheckState.Indeterminate, checkBox120.CheckState == CheckState.Indeterminate, checkBox119.CheckState == CheckState.Indeterminate },
-                        checkBox115.Checked ? presets[comboBox26.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox115.Checked ? presets[comboBox26.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                         checkBox109.Checked ? presets[comboBox27.SelectedIndex].AdjustIDsAdjustment : 0,
                         checkBox72.Checked, checkBox73.Checked, checkBox71.Checked
                     );
-                else if (presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Color ID
+                else if (presets[comboBox27.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Color ID
                     InjectColorTriggerCopyPasteAutomation8
                     (
                         checkBox112.Checked, checkBox111.Checked, checkBox117.Checked ? (float)numericUpDown24.Value : 0, checkBox117.CheckState == CheckState.Indeterminate,
@@ -3962,10 +3962,10 @@ namespace EffectSome
                         new bool[] { checkBox232.CheckState == CheckState.Indeterminate, checkBox234.CheckState == CheckState.Indeterminate, checkBox233.CheckState == CheckState.Indeterminate },
                         new int[] { checkBox116.Checked ? (int)numericUpDown26.Value : 0, checkBox120.Checked ? (int)numericUpDown25.Value : 0, checkBox119.Checked ? (int)numericUpDown23.Value : 0 },
                         new bool[] { checkBox116.CheckState == CheckState.Indeterminate, checkBox120.CheckState == CheckState.Indeterminate, checkBox119.CheckState == CheckState.Indeterminate },
-                        checkBox115.Checked ? presets[comboBox26.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox115.Checked ? presets[comboBox26.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveXEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveX : (float)0) : (float)0,
                         checkBox49.Checked ? (presets[comboBox40.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox40.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
-                        checkBox109.Checked ? presets[comboBox27.SelectedIndex].AdjustIDsSpecifiedValues : new int[0],
+                        checkBox109.Checked ? presets[comboBox27.SelectedIndex].AdjustIDsSpecifiedValues : new List<int>(),
                         checkBox72.Checked, checkBox73.Checked, checkBox71.Checked
                     );
             }
@@ -3974,9 +3974,9 @@ namespace EffectSome
         void WriteSpecialObjectsCopyPasteAutomation()
         {
             #region Text Objects
-            if (checkBox81.Checked && presets[comboBox9.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Used Color IDs
+            if (checkBox81.Checked && presets[comboBox9.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Used Color IDs
             {
-                if (checkBox84.Checked && presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox84.Checked && presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectTextObjectsCopyPasteAutomation1
                     (
                         textBox3.Text, customVariableNames.ToArray(), customVariablesInitialValues.ToArray(), customVariablesAdjustments.ToArray(),
@@ -3985,7 +3985,7 @@ namespace EffectSome
                         checkBox100.Checked ? (presets[comboBox19.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox19.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox84.Checked || presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox84.Checked || presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectTextObjectsCopyPasteAutomation4
                     (
                         textBox3.Text, customVariableNames.ToArray(), customVariablesInitialValues.ToArray(), customVariablesAdjustments.ToArray(),
@@ -3994,7 +3994,7 @@ namespace EffectSome
                         checkBox100.Checked ? (presets[comboBox19.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox19.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectTextObjectsCopyPasteAutomation7
                     (
                         textBox3.Text, customVariableNames.ToArray(), customVariablesInitialValues.ToArray(), customVariablesAdjustments.ToArray(),
@@ -4004,9 +4004,9 @@ namespace EffectSome
                         
                     );
             }
-            else if (!checkBox81.Checked || presets[comboBox9.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Used Color IDs
+            else if (!checkBox81.Checked || presets[comboBox9.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Used Color IDs
             {
-                if (checkBox84.Checked && presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox84.Checked && presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectTextObjectsCopyPasteAutomation2
                     (
                         textBox3.Text, customVariableNames.ToArray(), customVariablesInitialValues.ToArray(), customVariablesAdjustments.ToArray(),
@@ -4016,7 +4016,7 @@ namespace EffectSome
                         checkBox100.Checked ? (presets[comboBox19.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox19.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox84.Checked || presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox84.Checked || presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectTextObjectsCopyPasteAutomation5
                     (
                         textBox3.Text, customVariableNames.ToArray(), customVariablesInitialValues.ToArray(), customVariablesAdjustments.ToArray(),
@@ -4026,7 +4026,7 @@ namespace EffectSome
                         checkBox100.Checked ? (presets[comboBox19.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox19.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectTextObjectsCopyPasteAutomation8
                     (
                         textBox3.Text, customVariableNames.ToArray(), customVariablesInitialValues.ToArray(), customVariablesAdjustments.ToArray(),
@@ -4037,9 +4037,9 @@ namespace EffectSome
                         
                     );
             }
-            else if (presets[comboBox9.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Main Color IDs
+            else if (presets[comboBox9.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Main Color IDs
             {
-                if (checkBox84.Checked && presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox84.Checked && presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectTextObjectsCopyPasteAutomation3
                     (
                         textBox3.Text, customVariableNames.ToArray(), customVariablesInitialValues.ToArray(), customVariablesAdjustments.ToArray(),
@@ -4049,7 +4049,7 @@ namespace EffectSome
                         checkBox100.Checked ? (presets[comboBox19.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox19.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox84.Checked || presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox84.Checked || presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectTextObjectsCopyPasteAutomation6
                     (
                         textBox3.Text, customVariableNames.ToArray(), customVariablesInitialValues.ToArray(), customVariablesAdjustments.ToArray(),
@@ -4059,7 +4059,7 @@ namespace EffectSome
                         checkBox100.Checked ? (presets[comboBox19.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox19.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox8.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectTextObjectsCopyPasteAutomation9
                     (
                         textBox3.Text, customVariableNames.ToArray(), customVariablesInitialValues.ToArray(), customVariablesAdjustments.ToArray(),
@@ -4072,11 +4072,11 @@ namespace EffectSome
             }
             #endregion
             #region Pickup Objects
-            if (checkBox130.Checked && presets[comboBox14.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Item IDs
+            if (checkBox130.Checked && presets[comboBox14.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Item IDs
             {
-                if (checkBox154.Checked && presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group IDs
+                if (checkBox154.Checked && presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group IDs
                 {
-                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                         InjectPickupItemsCopyPasteAutomation1
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4085,7 +4085,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0
                             
                         );
-                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                         InjectPickupItemsCopyPasteAutomation2
                         (
                             checkBox133.Checked ? presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4094,7 +4094,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0
                             
                         );
-                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                         InjectPickupItemsCopyPasteAutomation3
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4104,9 +4104,9 @@ namespace EffectSome
                             
                         );
                 }
-                else if (!checkBox154.Checked || presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group IDs
+                else if (!checkBox154.Checked || presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group IDs
                 {
-                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                         InjectPickupItemsCopyPasteAutomation4
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4116,7 +4116,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0
                             
                         );
-                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                         InjectPickupItemsCopyPasteAutomation5
                         (
                             checkBox133.Checked ? presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4126,7 +4126,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0
                             
                         );
-                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                         InjectPickupItemsCopyPasteAutomation6
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4137,9 +4137,9 @@ namespace EffectSome
                             
                         );
                 }
-                else if (presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group IDs
+                else if (presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group IDs
                 {
-                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                         InjectPickupItemsCopyPasteAutomation7
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4149,7 +4149,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0
                             
                         );
-                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                         InjectPickupItemsCopyPasteAutomation8
                         (
                             checkBox133.Checked ? presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4159,7 +4159,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0
                             
                         );
-                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                         InjectPickupItemsCopyPasteAutomation9
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4171,11 +4171,11 @@ namespace EffectSome
                         );
                 }
             }
-            else if (!checkBox130.Checked || presets[comboBox14.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Item IDs
+            else if (!checkBox130.Checked || presets[comboBox14.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Item IDs
             {
-                if (checkBox154.Checked && presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group IDs
+                if (checkBox154.Checked && presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group IDs
                 {
-                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                         InjectPickupItemsCopyPasteAutomation10
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4184,7 +4184,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox130.Checked ? presets[comboBox14.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                         InjectPickupItemsCopyPasteAutomation11
                         (
                             checkBox133.Checked ? presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4193,7 +4193,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox130.Checked ? presets[comboBox14.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                         InjectPickupItemsCopyPasteAutomation12
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4203,9 +4203,9 @@ namespace EffectSome
                             checkBox130.Checked ? presets[comboBox14.SelectedIndex].AdjustIDsAdjustment : 0
                         );
                 }
-                else if (!checkBox154.Checked || presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group IDs
+                else if (!checkBox154.Checked || presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group IDs
                 {
-                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                         InjectPickupItemsCopyPasteAutomation13
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4215,7 +4215,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox130.Checked ? presets[comboBox14.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                         InjectPickupItemsCopyPasteAutomation14
                         (
                             checkBox133.Checked ? presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4225,7 +4225,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox130.Checked ? presets[comboBox14.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                         InjectPickupItemsCopyPasteAutomation15
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4236,9 +4236,9 @@ namespace EffectSome
                             checkBox130.Checked ? presets[comboBox14.SelectedIndex].AdjustIDsAdjustment : 0
                         );
                 }
-                else if (presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group IDs
+                else if (presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group IDs
                 {
-                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                         InjectPickupItemsCopyPasteAutomation16
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4248,7 +4248,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox130.Checked ? presets[comboBox14.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                         InjectPickupItemsCopyPasteAutomation17
                         (
                             checkBox133.Checked ? presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4258,7 +4258,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             checkBox130.Checked ? presets[comboBox14.SelectedIndex].AdjustIDsAdjustment : 0
                         );
-                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                         InjectPickupItemsCopyPasteAutomation18
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4270,11 +4270,11 @@ namespace EffectSome
                         );
                 }
             }
-            else if (presets[comboBox14.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Item IDs
+            else if (presets[comboBox14.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Item IDs
             {
-                if (checkBox154.Checked && presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group IDs
+                if (checkBox154.Checked && presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group IDs
                 {
-                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                         InjectPickupItemsCopyPasteAutomation19
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4283,7 +4283,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             presets[comboBox14.SelectedIndex].AutoAddGroupIDsSpecifiedValues
                         );
-                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                         InjectPickupItemsCopyPasteAutomation20
                         (
                             checkBox133.Checked ? presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4292,7 +4292,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             presets[comboBox14.SelectedIndex].AutoAddGroupIDsSpecifiedValues
                         );
-                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                         InjectPickupItemsCopyPasteAutomation21
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4302,9 +4302,9 @@ namespace EffectSome
                             presets[comboBox14.SelectedIndex].AutoAddGroupIDsSpecifiedValues
                         );
                 }
-                else if (!checkBox154.Checked || presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group IDs
+                else if (!checkBox154.Checked || presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group IDs
                 {
-                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                         InjectPickupItemsCopyPasteAutomation22
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4314,7 +4314,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             presets[comboBox14.SelectedIndex].AutoAddGroupIDsSpecifiedValues
                         );
-                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                         InjectPickupItemsCopyPasteAutomation23
                         (
                             checkBox133.Checked ? presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4324,7 +4324,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             presets[comboBox14.SelectedIndex].AutoAddGroupIDsSpecifiedValues
                         );
-                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                         InjectPickupItemsCopyPasteAutomation24
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4335,9 +4335,9 @@ namespace EffectSome
                             presets[comboBox14.SelectedIndex].AutoAddGroupIDsSpecifiedValues
                         );
                 }
-                else if (presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Target Group IDs
+                else if (presets[comboBox33.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Target Group IDs
                 {
-                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                    if (checkBox133.Checked && presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                         InjectPickupItemsCopyPasteAutomation25
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4347,7 +4347,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             presets[comboBox14.SelectedIndex].AutoAddGroupIDsSpecifiedValues
                         );
-                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                    else if (!checkBox133.Checked || presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                         InjectPickupItemsCopyPasteAutomation26
                         (
                             checkBox133.Checked ? presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4357,7 +4357,7 @@ namespace EffectSome
                             checkBox134.Checked ? (presets[comboBox13.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox13.SelectedIndex].AutoCopyPasteMoveY : (float)0) : (float)0,
                             presets[comboBox14.SelectedIndex].AutoAddGroupIDsSpecifiedValues
                         );
-                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                    else if (presets[comboBox15.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                         InjectPickupItemsCopyPasteAutomation27
                         (
                             presets[comboBox15.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox15.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4371,9 +4371,9 @@ namespace EffectSome
             }
             #endregion
             #region Collision Blocks
-            if (checkBox166.Checked && presets[comboBox70.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Block IDs
+            if (checkBox166.Checked && presets[comboBox70.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Block IDs
             {
-                if (checkBox220.Checked && presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox220.Checked && presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectCollisionBlocksCopyPasteAutomation3
                     (
                         presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox219.Checked, checkBox167.Checked,
@@ -4381,7 +4381,7 @@ namespace EffectSome
                         checkBox224.Checked ? (presets[comboBox68.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox68.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox220.Checked || presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox220.Checked || presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectCollisionBlocksCopyPasteAutomation1
                     (
                         checkBox220.Checked ? presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox219.Checked, checkBox167.Checked,
@@ -4389,7 +4389,7 @@ namespace EffectSome
                         checkBox224.Checked ? (presets[comboBox68.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox68.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectCollisionBlocksCopyPasteAutomation2
                     (
                         presets[comboBox69.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox219.Checked, checkBox167.Checked,
@@ -4398,9 +4398,9 @@ namespace EffectSome
                         
                     );
             }
-            else if (!checkBox166.Checked || presets[comboBox70.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Block IDs
+            else if (!checkBox166.Checked || presets[comboBox70.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Block IDs
             {
-                if (checkBox220.Checked && presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox220.Checked && presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectCollisionBlocksCopyPasteAutomation6
                     (
                         presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4409,7 +4409,7 @@ namespace EffectSome
                         checkBox224.Checked ? (presets[comboBox68.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox68.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox220.Checked || presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox220.Checked || presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectCollisionBlocksCopyPasteAutomation4
                     (
                         checkBox220.Checked ? presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4418,7 +4418,7 @@ namespace EffectSome
                         checkBox224.Checked ? (presets[comboBox68.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox68.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectCollisionBlocksCopyPasteAutomation5
                     (
                         presets[comboBox69.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4428,9 +4428,9 @@ namespace EffectSome
                         
                     );
             }
-            else if (presets[comboBox70.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Main Block IDs
+            else if (presets[comboBox70.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Main Block IDs
             {
-                if (checkBox220.Checked && presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox220.Checked && presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectCollisionBlocksCopyPasteAutomation9
                     (
                         presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4439,7 +4439,7 @@ namespace EffectSome
                         checkBox224.Checked ? (presets[comboBox68.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox68.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox220.Checked || presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox220.Checked || presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectCollisionBlocksCopyPasteAutomation7
                     (
                         checkBox220.Checked ? presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4448,7 +4448,7 @@ namespace EffectSome
                         checkBox224.Checked ? (presets[comboBox68.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox68.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox69.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectCollisionBlocksCopyPasteAutomation8
                     (
                         presets[comboBox69.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox69.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4460,9 +4460,9 @@ namespace EffectSome
             }
             #endregion
             #region Trigger Orbs
-            if (checkBox138.Checked && presets[comboBox10.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Target Group IDs
+            if (checkBox138.Checked && presets[comboBox10.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Target Group IDs
             {
-                if (checkBox131.Checked && presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox131.Checked && presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectTriggerOrbsCopyPasteAutomation3
                     (
                         presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox137.Checked, checkBox135.Checked,
@@ -4470,7 +4470,7 @@ namespace EffectSome
                         checkBox132.Checked ? (presets[comboBox12.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox12.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox131.Checked || presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox131.Checked || presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectTriggerOrbsCopyPasteAutomation1
                     (
                         checkBox131.Checked ? presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox137.Checked, checkBox135.Checked,
@@ -4478,7 +4478,7 @@ namespace EffectSome
                         checkBox132.Checked ? (presets[comboBox12.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox12.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectTriggerOrbsCopyPasteAutomation2
                     (
                         presets[comboBox11.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox137.Checked, checkBox135.Checked,
@@ -4487,9 +4487,9 @@ namespace EffectSome
                         
                     );
             }
-            else if (!checkBox138.Checked || presets[comboBox10.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Target Group IDs
+            else if (!checkBox138.Checked || presets[comboBox10.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Target Group IDs
             {
-                if (checkBox131.Checked && presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox131.Checked && presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectTriggerOrbsCopyPasteAutomation6
                     (
                         presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4498,7 +4498,7 @@ namespace EffectSome
                         checkBox132.Checked ? (presets[comboBox12.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox12.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox131.Checked || presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox131.Checked || presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectTriggerOrbsCopyPasteAutomation4
                     (
                         checkBox131.Checked ? presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4507,7 +4507,7 @@ namespace EffectSome
                         checkBox132.Checked ? (presets[comboBox12.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox12.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectTriggerOrbsCopyPasteAutomation5
                     (
                         presets[comboBox11.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4517,9 +4517,9 @@ namespace EffectSome
                         
                     );
             }
-            else if (presets[comboBox10.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Main Target Group IDs
+            else if (presets[comboBox10.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Main Target Group IDs
             {
-                if (checkBox131.Checked && presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox131.Checked && presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectTriggerOrbsCopyPasteAutomation9
                     (
                         presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4528,7 +4528,7 @@ namespace EffectSome
                         checkBox132.Checked ? (presets[comboBox12.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox12.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox131.Checked || presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox131.Checked || presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectTriggerOrbsCopyPasteAutomation7
                     (
                         checkBox131.Checked ? presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4537,7 +4537,7 @@ namespace EffectSome
                         checkBox132.Checked ? (presets[comboBox12.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox12.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox11.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectTriggerOrbsCopyPasteAutomation8
                     (
                         presets[comboBox11.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox11.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4549,7 +4549,7 @@ namespace EffectSome
             }
             #endregion
             #region Pulsating Animation Objects
-            if (checkBox139.Checked && presets[comboBox18.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+            if (checkBox139.Checked && presets[comboBox18.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                 InjectPulsatingAnimationObjectsCopyPasteAutomation3
                 (
                     presets[comboBox18.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4558,7 +4558,7 @@ namespace EffectSome
                     checkBox144.Checked ? (presets[comboBox16.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox16.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                     
                 );
-            else if (!checkBox139.Checked || presets[comboBox18.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+            else if (!checkBox139.Checked || presets[comboBox18.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                 InjectPulsatingAnimationObjectsCopyPasteAutomation1
                 (
                     checkBox139.Checked ? presets[comboBox18.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox18.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4567,7 +4567,7 @@ namespace EffectSome
                     checkBox144.Checked ? (presets[comboBox16.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox16.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                     
                 );
-            else if (presets[comboBox18.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+            else if (presets[comboBox18.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                 InjectPulsatingAnimationObjectsCopyPasteAutomation2
                 (
                     presets[comboBox18.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox18.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4578,7 +4578,7 @@ namespace EffectSome
                 );
             #endregion
             #region Manipulation Portals
-            if (checkBox221.Checked && presets[comboBox65.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+            if (checkBox221.Checked && presets[comboBox65.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                 InjectManipulationPortalsCopyPasteAutomation3
                 (
                     presets[comboBox65.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox218.Checked, checkBox217.Checked, 
@@ -4586,7 +4586,7 @@ namespace EffectSome
                     checkBox222.Checked ? (presets[comboBox64.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox64.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                     
                 );
-            else if (!checkBox221.Checked || presets[comboBox65.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+            else if (!checkBox221.Checked || presets[comboBox65.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                 InjectManipulationPortalsCopyPasteAutomation1
                 (
                     checkBox221.Checked ? presets[comboBox65.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox65.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox218.Checked, checkBox217.Checked, 
@@ -4594,7 +4594,7 @@ namespace EffectSome
                     checkBox222.Checked ? (presets[comboBox64.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox64.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                     
                 );
-            else if (presets[comboBox65.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+            else if (presets[comboBox65.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                 InjectManipulationPortalsCopyPasteAutomation2
                 (
                     presets[comboBox65.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox65.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox218.Checked, checkBox217.Checked, 
@@ -4604,7 +4604,7 @@ namespace EffectSome
                 );
             #endregion
             #region Speed Portals
-            if (checkBox226.Checked && presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+            if (checkBox226.Checked && presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                 InjectSpeedPortalsCopyPasteAutomation3
                 (
                     presets[comboBox67.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox223.Checked, checkBox216.Checked,
@@ -4612,7 +4612,7 @@ namespace EffectSome
                     checkBox227.Checked ? (presets[comboBox66.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox66.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                     
                 );
-            else if (!checkBox226.Checked || presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+            else if (!checkBox226.Checked || presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                 InjectSpeedPortalsCopyPasteAutomation1
                 (
                     checkBox226.Checked ? presets[comboBox67.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox67.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox223.Checked, checkBox216.Checked,
@@ -4620,7 +4620,7 @@ namespace EffectSome
                     checkBox227.Checked ? (presets[comboBox66.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox66.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                     
                 );
-            else if (presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+            else if (presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                 InjectSpeedPortalsCopyPasteAutomation2
                 (
                     presets[comboBox67.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox67.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox223.Checked, checkBox216.Checked,
@@ -4630,7 +4630,7 @@ namespace EffectSome
                 );
             #endregion
             #region Orbs
-            if (checkBox149.Checked && presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+            if (checkBox149.Checked && presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                 InjectOrbsCopyPasteAutomation3
                 (
                     presets[comboBox67.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox150.Checked, checkBox145.Checked,
@@ -4638,7 +4638,7 @@ namespace EffectSome
                     checkBox151.Checked ? (presets[comboBox66.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox66.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                     
                 );
-            else if (!checkBox149.Checked || presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+            else if (!checkBox149.Checked || presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                 InjectOrbsCopyPasteAutomation1
                 (
                     checkBox149.Checked ? presets[comboBox67.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox67.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox150.Checked, checkBox145.Checked,
@@ -4646,7 +4646,7 @@ namespace EffectSome
                     checkBox151.Checked ? (presets[comboBox66.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox66.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                     
                 );
-            else if (presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+            else if (presets[comboBox67.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                 InjectOrbsCopyPasteAutomation2
                 (
                     presets[comboBox67.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox67.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs, checkBox150.Checked, checkBox145.Checked,
@@ -4656,9 +4656,9 @@ namespace EffectSome
                 );
             #endregion
             #region Count Objects
-            if (checkBox225.Checked && presets[comboBox71.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Item IDs
+            if (checkBox225.Checked && presets[comboBox71.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Item IDs
             {
-                if (checkBox230.Checked && presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox230.Checked && presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectCountObjectsCopyPasteAutomation3
                     (
                         presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4666,7 +4666,7 @@ namespace EffectSome
                         checkBox231.Checked ? (presets[comboBox72.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox72.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox230.Checked || presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox230.Checked || presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectCountObjectsCopyPasteAutomation1
                     (
                         checkBox230.Checked ? presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4674,7 +4674,7 @@ namespace EffectSome
                         checkBox231.Checked ? (presets[comboBox72.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox72.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectCountObjectsCopyPasteAutomation2
                     (
                         presets[comboBox73.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4683,9 +4683,9 @@ namespace EffectSome
                         
                     );
             }
-            else if (!checkBox225.Checked || presets[comboBox71.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Item IDs
+            else if (!checkBox225.Checked || presets[comboBox71.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Item IDs
             {
-                if (checkBox230.Checked && presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox230.Checked && presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectCountObjectsCopyPasteAutomation6
                     (
                         presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4694,7 +4694,7 @@ namespace EffectSome
                         checkBox231.Checked ? (presets[comboBox72.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox72.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox230.Checked || presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox230.Checked || presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectCountObjectsCopyPasteAutomation4
                     (
                         checkBox230.Checked ? presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4703,7 +4703,7 @@ namespace EffectSome
                         checkBox231.Checked ? (presets[comboBox72.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox72.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectCountObjectsCopyPasteAutomation5
                     (
                         presets[comboBox73.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4713,9 +4713,9 @@ namespace EffectSome
                         
                     );
             }
-            else if (presets[comboBox71.SelectedIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Item IDs
+            else if (presets[comboBox71.SelectedIndex].AdjustIDAdjustmentMode == AdjustmentMode.SpecificValues) // Item IDs
             {
-                if (checkBox230.Checked && presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
+                if (checkBox230.Checked && presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.UnusedIDs) // Group IDs
                     InjectCountObjectsCopyPasteAutomation9
                     (
                         presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4724,7 +4724,7 @@ namespace EffectSome
                         checkBox231.Checked ? (presets[comboBox72.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox72.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (!checkBox230.Checked || presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
+                else if (!checkBox230.Checked || presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.FlatAdjustment) // Group IDs
                     InjectCountObjectsCopyPasteAutomation7
                     (
                         checkBox230.Checked ? presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustment : 0, presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4733,7 +4733,7 @@ namespace EffectSome
                         checkBox231.Checked ? (presets[comboBox72.SelectedIndex].AutoCopyPasteMoveYEnabled ? presets[comboBox72.SelectedIndex].AutoCopyPasteMoveY : 0) : 0
                         
                     );
-                else if (presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
+                else if (presets[comboBox73.SelectedIndex].AutoAddGroupIDAdjustmentMode == AdjustmentMode.SpecificValues) // Group IDs
                     InjectCountObjectsCopyPasteAutomation8
                     (
                         presets[comboBox73.SelectedIndex].AutoAddGroupIDsSpecifiedValues, presets[comboBox73.SelectedIndex].AutoAddGroupIDsAdjustedGroupIDs,
@@ -4753,878 +4753,84 @@ namespace EffectSome
         }
         void WriteObjectsCopyPasteAutomation()
         {
-            if (applyForSpecifiedObjectIDs) // Selected Object IDs
-            {
-                if (groupIDPresetIndex > -1 && presets[groupIDPresetIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
-                {
-                    if (mainColorIDPresetIndex > -1 && presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation28
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation37
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation46
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (mainColorIDPresetIndex == -1 || presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation31
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation40
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation49
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation34
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation43
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation52
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                }
-                else if (groupIDPresetIndex == -1 || presets[groupIDPresetIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
-                {
-                    if (mainColorIDPresetIndex > -1 && presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation29
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation38
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation47
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (mainColorIDPresetIndex == -1 || presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation32
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation41
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation50
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation35
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation44
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation53
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                }
-                else if (presets[groupIDPresetIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
-                {
-                    if (mainColorIDPresetIndex > -1 && presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation30
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation39
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation48
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (mainColorIDPresetIndex == -1 || presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation33
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation42
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation51
-                            (
-                                listBox1.Items.ToInt32Array(),
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation36
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation45
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation54
-                            (
-                                listBox1.Items.ToInt32Array(), 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                }
-            }
-            else // Apply to all objects or only selected objects
-            {
-                if (groupIDPresetIndex > -1 && presets[groupIDPresetIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Group IDs
-                {
-                    if (mainColorIDPresetIndex > -1 && presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation1
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation10
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation19
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (mainColorIDPresetIndex == -1 || presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation4
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation13
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation22
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation7
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation16
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation25
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                }
-                else if (groupIDPresetIndex == -1 || presets[groupIDPresetIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Group IDs
-                {
-                    if (mainColorIDPresetIndex > -1 && presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation2
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation11
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation20
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (mainColorIDPresetIndex == -1 || presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation5
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation14
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation23
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation8
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation17
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation26
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment : 0, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                }
-                else if (presets[groupIDPresetIndex].AutoAddGroupIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Group IDs
-                {
-                    if (mainColorIDPresetIndex > -1 && presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation3
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation12
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation21
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (mainColorIDPresetIndex == -1 || presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation6
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation15
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation24
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDsAdjustment : 0,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                    else if (presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Main Color IDs
-                    {
-                        if (detailColorIDPresetIndex > -1 && presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.OnlyUseUnusedIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation9
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj
-                                
-                            );
-                        else if (detailColorIDPresetIndex == -1 || presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.AdjustIDs) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation18
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDsAdjustment : 0
-                            );
-                        else if (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode == PropertyAdjustmentMode.SetIDsToSpecifiedValues) // Detail Color IDs
-                            WriteGeneralObjectCopyPasteAutomation27
-                            (
-                                applyForAllObjects, 
-                                hue1Adj, sat1Adj, val1Adj,
-                                hue2Adj, sat2Adj, val2Adj,
-                                rotationAdj, scalingAdj,
-                                presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues, groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
-                                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
-                                presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues,
-                                ZOrderAdj, ZLayerAdj,
-                                EL1Adj, EL2Adj,
-                                presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues
-                            );
-                    }
-                }
-            }
+            WriteGeneralObjectCopyPasteAutomation
+            (
+                GetObjectIDList(),
+                hue1Adj, sat1Adj, val1Adj,
+                hue2Adj, sat2Adj, val2Adj,
+                rotationAdj, scalingAdj,
+                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDsAdjustedGroupIDs : new bool[10],
+                GetGroupIDList(), GetColor1IDList(), GetColor2IDList(),
+                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveXEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveX : 0) : 0,
+                autoCopyPastePresetIndex > -1 ? (presets[autoCopyPastePresetIndex].AutoCopyPasteMoveYEnabled ? presets[autoCopyPastePresetIndex].AutoCopyPasteMoveY : 0) : 0,
+                ZOrderAdj, ZLayerAdj,
+                EL1Adj, EL2Adj,
+                mainColorIDPresetIndex > -1 ? presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode : AdjustmentMode.FlatAdjustment,
+                detailColorIDPresetIndex > -1 ? presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode : AdjustmentMode.FlatAdjustment,
+                groupIDPresetIndex > -1 ? presets[groupIDPresetIndex].AutoAddGroupIDAdjustmentMode : AdjustmentMode.FlatAdjustment
+            );
         }
-        
+        List<int> GetObjectIDList()
+        {
+            if (applyForAllObjects)
+                return new List<int> { -1 };
+            else if (applyForSpecifiedObjectIDs)
+                return listBox1.Items.ToInt32List();
+            else
+                return GetCurrentlySelectedObjectIDs();
+        }
+        List<int> GetColor1IDList()
+        {
+            if (mainColorIDPresetIndex > -1)
+                switch (presets[mainColorIDPresetIndex].AdjustIDAdjustmentMode)
+                {
+                    case AdjustmentMode.UnusedIDs:
+                        return new List<int> { -1 };
+                    case AdjustmentMode.FlatAdjustment:
+                        return new List<int> { presets[mainColorIDPresetIndex].AdjustIDsAdjustment };
+                    case AdjustmentMode.SpecificValues:
+                        return presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues;
+                    default:
+                        return new List<int>();
+                }
+            else
+                return new List<int> { 0 };
+        }
+        List<int> GetColor2IDList()
+        {
+            if (detailColorIDPresetIndex > -1)
+                switch (presets[detailColorIDPresetIndex].AdjustIDAdjustmentMode)
+                {
+                    case AdjustmentMode.UnusedIDs:
+                        return new List<int> { -1 };
+                    case AdjustmentMode.FlatAdjustment:
+                        return new List<int> { presets[detailColorIDPresetIndex].AdjustIDsAdjustment };
+                    case AdjustmentMode.SpecificValues:
+                        return presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues;
+                    default:
+                        return new List<int>();
+                }
+            else
+                return new List<int> { 0 };
+        }
+        List<int> GetGroupIDList()
+        {
+            if (groupIDPresetIndex > -1)
+                switch (presets[groupIDPresetIndex].AutoAddGroupIDAdjustmentMode)
+                {
+                    case AdjustmentMode.UnusedIDs:
+                        return new List<int> { -1 };
+                    case AdjustmentMode.FlatAdjustment:
+                        return new List<int> { presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment };
+                    case AdjustmentMode.SpecificValues:
+                        return presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues;
+                    default:
+                        return new List<int>();
+                }
+            else
+                return new List<int> { 0 };
+        }
+
         int GetEasingValue(int easingType, bool enableIn, bool enableOut)
         {
             if (easingType > 0 && easingType < 7)
