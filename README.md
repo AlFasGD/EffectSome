@@ -47,7 +47,10 @@ If we were to also take UI into account, we wouldn't ever get done with the prog
 ### What if I can't contribute with code?
 You can always post an issue about what concerns you. A missing feature, a suggestion or a bug are good reasons for posting an issue.
 
-## Webpage
+## Connections
+Discord server: https://discord.gg/KtcMrxr
+
+### Webpage
 Webpage my ass, but here you go if you like it: http://someeffect.altervista.org/
 
-And if you also wanna contribute, contact me on Discord at: AlFas#2783 (should hopefully not change my name)
+In the case you want to contribute to the project, you should take a look at the Discord server.
