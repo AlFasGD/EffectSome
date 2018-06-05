@@ -45,13 +45,13 @@ namespace EffectSome
         #region RadioButtons
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            tempPreset.AdjustIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton2.Checked) + ToInt32(radioButton9.Checked) * 2);
+            UpdateAdjustIDsAdjustmentMode();
             CheckPresetUpdateAbility(comboBox2, button12, Tab.AdjustIDs);
         }
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown2.Enabled = radioButton2.Checked;
-            tempPreset.AdjustIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton2.Checked) + ToInt32(radioButton9.Checked) * 2);
+            UpdateAdjustIDsAdjustmentMode();
             CheckPresetUpdateAbility(comboBox2, button12, Tab.AdjustIDs);
         }
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
@@ -63,24 +63,24 @@ namespace EffectSome
         private void radioButton9_CheckedChanged(object sender, EventArgs e)
         {
             button7.Enabled = (listBox1.Enabled = numericUpDown28.Enabled = button4.Enabled = radioButton9.Checked) && listBox1.SelectedItems.Count != 0;
-            tempPreset.AdjustIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton2.Checked) + ToInt32(radioButton9.Checked) * 2);
+            UpdateAdjustIDsAdjustmentMode();
             CheckPresetUpdateAbility(comboBox2, button12, Tab.AdjustIDs);
         }
         private void radioButton10_CheckedChanged(object sender, EventArgs e)
         {
             button8.Enabled = (listBox2.Enabled = numericUpDown29.Enabled = button9.Enabled = radioButton10.Checked) && listBox2.SelectedItems.Count != 0;
-            tempPreset.AutoAddGroupIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton11.Checked) + ToInt32(radioButton10.Checked) * 2);
+            UpdateAutoAddGroupIDsAdjustmentMode();
             CheckPresetUpdateAbility(comboBox4, button18, Tab.AutoAddGroupIDs);
         }
         private void radioButton11_CheckedChanged(object sender, EventArgs e)
         {
             numericUpDown30.Enabled = radioButton11.Checked;
-            tempPreset.AutoAddGroupIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton11.Checked) + ToInt32(radioButton10.Checked) * 2);
+            UpdateAutoAddGroupIDsAdjustmentMode();
             CheckPresetUpdateAbility(comboBox4, button18, Tab.AutoAddGroupIDs);
         }
         private void radioButton12_CheckedChanged(object sender, EventArgs e)
         {
-            tempPreset.AutoAddGroupIDAdjustmentMode = (AdjustmentMode)(ToInt32(radioButton11.Checked) + ToInt32(radioButton10.Checked) * 2);
+            UpdateAutoAddGroupIDsAdjustmentMode();
             CheckPresetUpdateAbility(comboBox4, button18, Tab.AutoAddGroupIDs);
         }
         private void radioButton14_CheckedChanged(object sender, EventArgs e)
@@ -105,7 +105,7 @@ namespace EffectSome
         #region Buttons
         private void button4_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Add(numericUpDown28.Value);
+            listBox1.Items.Add((int)numericUpDown28.Value);
             tempPreset.AdjustIDsSpecifiedValues = listBox1.Items.ToInt32List();
             CheckPresetUpdateAbility(comboBox2, button12, Tab.AdjustIDs);
         }
@@ -127,7 +127,7 @@ namespace EffectSome
         }
         private void button9_Click(object sender, EventArgs e)
         {
-            listBox2.Items.Add(numericUpDown29.Value);
+            listBox2.Items.Add((int)numericUpDown29.Value);
             tempPreset.AutoAddGroupIDsSpecifiedValues = listBox2.Items.ToInt32List();
             CheckPresetUpdateAbility(comboBox4, button18, Tab.AutoAddGroupIDs);
         }
@@ -346,6 +346,24 @@ namespace EffectSome
             IsOpen = false;
         }
 
+        void UpdateAdjustIDsAdjustmentMode()
+        {
+            if (radioButton1.Checked)
+                tempPreset.AdjustIDAdjustmentMode = AdjustmentMode.UnusedIDs;
+            else if (radioButton2.Checked)
+                tempPreset.AdjustIDAdjustmentMode = AdjustmentMode.FlatAdjustment;
+            else
+                tempPreset.AdjustIDAdjustmentMode = AdjustmentMode.SpecificValues;
+        }
+        void UpdateAutoAddGroupIDsAdjustmentMode()
+        {
+            if (radioButton12.Checked)
+                tempPreset.AutoAddGroupIDAdjustmentMode = AdjustmentMode.UnusedIDs;
+            else if (radioButton11.Checked)
+                tempPreset.AutoAddGroupIDAdjustmentMode = AdjustmentMode.FlatAdjustment;
+            else
+                tempPreset.AutoAddGroupIDAdjustmentMode = AdjustmentMode.SpecificValues;
+        }
         void AddItem(decimal ID, ListBox listBox)
         {
             if (listBox.Items.Contains(ID) == false)
@@ -701,6 +719,7 @@ namespace EffectSome
         {
             b.Enabled = !presets[c.SelectedIndex].Equals(tempPreset, t);
         }
+
         void UpdatePreset(int presetIndex, Tab tab)
         {
             if (presets.Count > 0)

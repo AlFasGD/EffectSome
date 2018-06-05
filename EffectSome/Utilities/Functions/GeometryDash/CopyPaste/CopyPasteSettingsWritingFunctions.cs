@@ -19,7 +19,7 @@ namespace EffectSome
         {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < param.Length; i++)
-                builder = builder.Append($"{Convert.ToInt32(param[i])}_");
+                builder = builder.Append($"{Convert.ToInt32(param[i])}:");
             builder = builder.Remove(builder.Length - 1, 1);
             return builder.ToString();
         }
@@ -27,7 +27,7 @@ namespace EffectSome
         {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < param.Length; i++)
-                builder = builder.Append($"{param[i]}_");
+                builder = builder.Append($"{param[i]}:");
             builder = builder.Remove(builder.Length - 1, 1);
             return builder.ToString();
         }
@@ -35,7 +35,7 @@ namespace EffectSome
         {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < param.Length; i++)
-                builder = builder.Append($"{(int)param[i]}_");
+                builder = builder.Append($"{(int)param[i]}:");
             builder = builder.Remove(builder.Length - 1, 1);
             return builder.ToString();
         }
@@ -43,7 +43,7 @@ namespace EffectSome
         {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < param.Count; i++)
-                builder = builder.Append($"{Convert.ToInt32(param[i])}_");
+                builder = builder.Append($"{Convert.ToInt32(param[i])}:");
             builder = builder.Remove(builder.Length - 1, 1);
             return builder.ToString();
         }
@@ -51,7 +51,7 @@ namespace EffectSome
         {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < param.Count; i++)
-                builder = builder.Append($"{param[i]}_");
+                builder = builder.Append($"{param[i]}:");
             builder = builder.Remove(builder.Length - 1, 1);
             return builder.ToString();
         }
@@ -59,7 +59,7 @@ namespace EffectSome
         {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < param.Count; i++)
-                builder = builder.Append($"{param[i]}_");
+                builder = builder.Append($"{param[i]}:");
             builder = builder.Remove(builder.Length - 1, 1);
             return builder.ToString();
         }
@@ -67,7 +67,7 @@ namespace EffectSome
         {
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < param.Count; i++)
-                builder = builder.Append($"{(int)param[i]}_");
+                builder = builder.Append($"{(int)param[i]}:");
             builder = builder.Remove(builder.Length - 1, 1);
             return builder.ToString();
         }
@@ -171,31 +171,31 @@ namespace EffectSome
             }
             for (int i = 0; i < EffectSome.CopyPasteSettings.Count; i++)
             {
-                toWrite[0].Append($"{EffectSome.CopyPasteSettings[i].X}:");
-                toWrite[1].Append($"{EffectSome.CopyPasteSettings[i].Y}:");
-                toWrite[2].Append($"{EffectSome.CopyPasteSettings[i].Scaling}:");
-                toWrite[3].Append($"{EffectSome.CopyPasteSettings[i].Rotation}:");
-                toWrite[4].Append($"{EffectSome.CopyPasteSettings[i].EL1}:");
-                toWrite[5].Append($"{EffectSome.CopyPasteSettings[i].EL2}:");
-                toWrite[6].Append($"{EffectSome.CopyPasteSettings[i].ZOrder}:");
-                toWrite[7].Append($"{EffectSome.CopyPasteSettings[i].ZLayer}:");
-                toWrite[8].Append($"{GenerateStringFromList(EffectSome.CopyPasteSettings[i].Color1IDs)}:");
-                toWrite[9].Append($"{GenerateStringFromList(EffectSome.CopyPasteSettings[i].Color2IDs)}:");
-                toWrite[10].Append($"{EffectSome.CopyPasteSettings[i].Hue1}:");
-                toWrite[11].Append($"{EffectSome.CopyPasteSettings[i].Saturation1}:");
-                toWrite[12].Append($"{EffectSome.CopyPasteSettings[i].Brightness1}:");
-                toWrite[13].Append($"{EffectSome.CopyPasteSettings[i].Hue2}:");
-                toWrite[14].Append($"{EffectSome.CopyPasteSettings[i].Saturation2}:");
-                toWrite[15].Append($"{EffectSome.CopyPasteSettings[i].Brightness2}:");
-                toWrite[16].Append($"{EffectSome.CopyPasteSettings[i].Color1IDValueCounter}:");
-                toWrite[17].Append($"{EffectSome.CopyPasteSettings[i].Color2IDValueCounter}:");
-                toWrite[18].Append($"{(int)EffectSome.CopyPasteSettings[i].Color1IDValueAdjustmentMode}:");
-                toWrite[19].Append($"{(int)EffectSome.CopyPasteSettings[i].Color2IDValueAdjustmentMode}:");
+                toWrite[0].Append($"{EffectSome.CopyPasteSettings[i].X}_");
+                toWrite[1].Append($"{EffectSome.CopyPasteSettings[i].Y}_");
+                toWrite[2].Append($"{EffectSome.CopyPasteSettings[i].Scaling}_");
+                toWrite[3].Append($"{EffectSome.CopyPasteSettings[i].Rotation}_");
+                toWrite[4].Append($"{EffectSome.CopyPasteSettings[i].EL1}_");
+                toWrite[5].Append($"{EffectSome.CopyPasteSettings[i].EL2}_");
+                toWrite[6].Append($"{EffectSome.CopyPasteSettings[i].ZOrder}_");
+                toWrite[7].Append($"{EffectSome.CopyPasteSettings[i].ZLayer}_");
+                toWrite[8].Append($"{GenerateStringFromList(EffectSome.CopyPasteSettings[i].Color1IDs)}_");
+                toWrite[9].Append($"{GenerateStringFromList(EffectSome.CopyPasteSettings[i].Color2IDs)}_");
+                toWrite[10].Append($"{EffectSome.CopyPasteSettings[i].Hue1}_");
+                toWrite[11].Append($"{EffectSome.CopyPasteSettings[i].Saturation1}_");
+                toWrite[12].Append($"{EffectSome.CopyPasteSettings[i].Brightness1}_");
+                toWrite[13].Append($"{EffectSome.CopyPasteSettings[i].Hue2}_");
+                toWrite[14].Append($"{EffectSome.CopyPasteSettings[i].Saturation2}_");
+                toWrite[15].Append($"{EffectSome.CopyPasteSettings[i].Brightness2}_");
+                toWrite[16].Append($"{EffectSome.CopyPasteSettings[i].Color1IDValueCounter}_");
+                toWrite[17].Append($"{EffectSome.CopyPasteSettings[i].Color2IDValueCounter}_");
+                toWrite[18].Append($"{(int)EffectSome.CopyPasteSettings[i].Color1IDValueAdjustmentMode}_");
+                toWrite[19].Append($"{(int)EffectSome.CopyPasteSettings[i].Color2IDValueAdjustmentMode}_");
                 for (int j = 0; j < 10; j++)
                 {
-                    toWrite[20 + 3 * j].Append($"{GenerateStringFromList(EffectSome.CopyPasteSettings[i].GroupIDs)}:");
-                    toWrite[21 + 3 * j].Append($"{EffectSome.CopyPasteSettings[i].GroupIDValueCounters[j]}:");
-                    toWrite[22 + 3 * j].Append($"{(int)EffectSome.CopyPasteSettings[i].GroupIDValueAdjustmentModes[j]}:");
+                    toWrite[20 + 3 * j].Append($"{GenerateStringFromList(EffectSome.CopyPasteSettings[i].GroupIDs)}_");
+                    toWrite[21 + 3 * j].Append($"{EffectSome.CopyPasteSettings[i].GroupIDValueCounters[j]}_");
+                    toWrite[22 + 3 * j].Append($"{(int)EffectSome.CopyPasteSettings[i].GroupIDValueAdjustmentModes[j]}_");
                 }
             }
             for (int i = 0; i < toWrite.Count; i++)
