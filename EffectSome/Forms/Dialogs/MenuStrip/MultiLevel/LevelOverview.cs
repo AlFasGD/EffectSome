@@ -24,10 +24,10 @@ namespace EffectSome
             IsOpen = true;
             InitializeComponent();
             LoadLevels();
-            dataGridView1.Columns[3].ReadOnly = !Options.BoolDictionary["allowEditLevelRevisions"];
-            dataGridView1.Columns[6].ReadOnly = !Options.BoolDictionary["allowEditSongIDs"];
-            dataGridView1.Columns[11].ReadOnly = !Options.BoolDictionary["allowEditLevelVersions"];
-            dataGridView1.Columns[12].ReadOnly = !Options.BoolDictionary["allowEditLevelIDs"];
+            dataGridView1.Columns["LevelRevision"].ReadOnly = !Options.BoolDictionary["allowEditLevelRevisions"];
+            dataGridView1.Columns["LevelSong"].ReadOnly = !Options.BoolDictionary["allowEditSongIDs"];
+            dataGridView1.Columns["LevelVersion"].ReadOnly = !Options.BoolDictionary["allowEditLevelVersions"];
+            dataGridView1.Columns["LevelID"].ReadOnly = !Options.BoolDictionary["allowEditLevelIDs"];
             UpdateTitle();
         }
         
@@ -51,7 +51,7 @@ namespace EffectSome
             DialogResult result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
                 Gamesave.ExportLevels(selectedLevelIndices.ToArray(), folderBrowserDialog1.SelectedPath); // Export the levels to the specifed folder
-            EffectSome.notification.ShowBalloonTip(5000, "Export Successful", "The levels have been successfully exported!", ToolTipIcon.Info);
+            EffectSome.notification.ShowBalloonTip(5000, "Export Successful", "The levels have been successfully exported.", ToolTipIcon.Info);
         }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -82,20 +82,20 @@ namespace EffectSome
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++) // Temporarily commit changes to the level data for all the values in the levels that were changed
             {
-                if (Convert.ToInt32(dataGridView1[1, i].Value.ToString()) != EffectSome.UserLevels[i].LevelFolder) // Change the name of the level
-                    Gamesave.TemporarilySetLevelFolder(i, dataGridView1[1, i].Value.ToString());
-                if (dataGridView1[2, i].Value.ToString() != EffectSome.UserLevels[i].LevelName) // Change the name of the level
-                    Gamesave.TemporarilySetLevelName(i, dataGridView1[2, i].Value.ToString());
-                if (Convert.ToInt32(dataGridView1[3, i].Value.ToString()) != EffectSome.UserLevels[i].LevelRevision) // Change the revision of the level
-                    Gamesave.TemporarilySetLevelRevision(i, dataGridView1[3, i].Value.ToString());
-                if (((string)dataGridView1[4, i].Value ?? "") != EffectSome.UserLevels[i].LevelDescription) // Change the description of the level
-                    Gamesave.TemporarilySetLevelDescription(i, ((string)dataGridView1[4, i].Value ?? ""));
-                if (Convert.ToInt32(dataGridView1[6, i].Value.ToString()) != EffectSome.UserLevels[i].LevelCustomSongID) // Change the Song ID of the level
-                    Gamesave.TemporarilySetCustomSongID(i, dataGridView1[6, i].Value.ToString());
-                if (Convert.ToInt32(dataGridView1[11, i].Value.ToString()) != EffectSome.UserLevels[i].LevelVersion) // Change the level version of the level
-                    Gamesave.TemporarilySetLevelVersion(i, dataGridView1[11, i].Value.ToString());
-                if (Convert.ToInt32(dataGridView1[12, i].Value.ToString()) != EffectSome.UserLevels[i].LevelID) // Change the Level ID of the level
-                    Gamesave.TemporarilySetLevelID(i, dataGridView1[12, i].Value.ToString());
+                if (Convert.ToInt32(dataGridView1["LevelFolder", i].Value.ToString()) != EffectSome.UserLevels[i].LevelFolder) // Change the name of the level
+                    Gamesave.TemporarilySetLevelFolder(i, dataGridView1["LevelFolder", i].Value.ToString());
+                if (dataGridView1["LevelName", i].Value.ToString() != EffectSome.UserLevels[i].LevelName) // Change the name of the level
+                    Gamesave.TemporarilySetLevelName(i, dataGridView1["LevelName", i].Value.ToString());
+                if (Convert.ToInt32(dataGridView1["LevelRevision", i].Value.ToString()) != EffectSome.UserLevels[i].LevelRevision) // Change the revision of the level
+                    Gamesave.TemporarilySetLevelRevision(i, dataGridView1["LevelRevision", i].Value.ToString());
+                if (((string)dataGridView1["LevelDescription", i].Value ?? "") != EffectSome.UserLevels[i].LevelDescription) // Change the description of the level
+                    Gamesave.TemporarilySetLevelDescription(i, ((string)dataGridView1["LevelDescription", i].Value ?? ""));
+                if (Convert.ToInt32(dataGridView1["LevelSong", i].Value.ToString()) != EffectSome.UserLevels[i].LevelCustomSongID) // Change the Song ID of the level
+                    Gamesave.TemporarilySetCustomSongID(i, dataGridView1["LevelSong", i].Value.ToString());
+                if (Convert.ToInt32(dataGridView1["LevelVersion", i].Value.ToString()) != EffectSome.UserLevels[i].LevelVersion) // Change the level version of the level
+                    Gamesave.TemporarilySetLevelVersion(i, dataGridView1["LevelVersion", i].Value.ToString());
+                if (Convert.ToInt32(dataGridView1["LevelID", i].Value.ToString()) != EffectSome.UserLevels[i].LevelID) // Change the Level ID of the level
+                    Gamesave.TemporarilySetLevelID(i, dataGridView1["LevelID", i].Value.ToString());
             }
             Gamesave.UpdateLevelData(); // Write the new data to the file
             button6.Enabled = requiresChangeCommission = false;
@@ -216,7 +216,7 @@ namespace EffectSome
             {
                 if (e.ColumnIndex == 0)
                 {
-                    DataGridViewCheckBoxCell a = dataGridView1[0, e.RowIndex] as DataGridViewCheckBoxCell;
+                    DataGridViewCheckBoxCell a = dataGridView1["Selected", e.RowIndex] as DataGridViewCheckBoxCell;
                     try
                     {
                         if (Convert.ToBoolean(a.Value)) selectedLevelIndices.Add(e.RowIndex);
@@ -226,39 +226,39 @@ namespace EffectSome
                 }
                 else if (e.ColumnIndex == 1)
                 {
-                    if (!int.TryParse(dataGridView1[1, e.RowIndex].Value.ToString(), out int folder)) // Avoid non-numeral entries
-                        dataGridView1[1, e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelFolder;
+                    if (!int.TryParse(dataGridView1["LevelFolder", e.RowIndex].Value.ToString(), out int folder)) // Avoid non-numeral entries
+                        dataGridView1["LevelFolder", e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelFolder;
                 }
                 else if (e.ColumnIndex == 2)
                 {
-                    if (dataGridView1[2, e.RowIndex].Value == null)
-                        dataGridView1[2, e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelName;
+                    if (dataGridView1["LevelName", e.RowIndex].Value == null)
+                        dataGridView1["LevelName", e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelName;
                 }
                 else if (e.ColumnIndex == 3)
                 {
-                    if (!int.TryParse(dataGridView1[3, e.RowIndex].Value.ToString(), out int rev)) // Avoid non-numeral entries
-                        dataGridView1[3, e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelRevision;
+                    if (!int.TryParse(dataGridView1["LevelRevision", e.RowIndex].Value.ToString(), out int rev)) // Avoid non-numeral entries
+                        dataGridView1["LevelRevision", e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelRevision;
                     else if (rev < 0) // Avoid negative entires
-                        dataGridView1[3, e.RowIndex].Value = "0";
+                        dataGridView1["LevelRevision", e.RowIndex].Value = "0";
                 }
                 else if (e.ColumnIndex == 6)
                 {
-                    if (!int.TryParse(dataGridView1[6, e.RowIndex].Value.ToString(), out int songID)) // Avoid non-numeral entries
-                        dataGridView1[6, e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelCustomSongID;
+                    if (!int.TryParse(dataGridView1["LevelSong", e.RowIndex].Value.ToString(), out int songID)) // Avoid non-numeral entries
+                        dataGridView1["LevelSong", e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelCustomSongID;
                     else if (songID < 0) // Avoid negative entires
-                        dataGridView1[6, e.RowIndex].Value = "0";
+                        dataGridView1["LevelSong", e.RowIndex].Value = "0";
                 }
                 else if (e.ColumnIndex == 11)
                 {
-                    if (!int.TryParse(dataGridView1[11, e.RowIndex].Value.ToString(), out int version)) // Avoid non-numeral entries
-                        dataGridView1[11, e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelVersion;
+                    if (!int.TryParse(dataGridView1["LevelVersion", e.RowIndex].Value.ToString(), out int version)) // Avoid non-numeral entries
+                        dataGridView1["LevelVersion", e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelVersion;
                 }
                 else if (e.ColumnIndex == 12)
                 {
-                    if (!int.TryParse(dataGridView1[12, e.RowIndex].Value.ToString(), out int levelID)) // Avoid non-numeral entries
-                        dataGridView1[12, e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelID;
+                    if (!int.TryParse(dataGridView1["LevelID", e.RowIndex].Value.ToString(), out int levelID)) // Avoid non-numeral entries
+                        dataGridView1["LevelID", e.RowIndex].Value = EffectSome.UserLevels[e.RowIndex].LevelID;
                     else if (levelID < 128 && levelID != 0) // Avoid invalid Level IDs (at least 128, otherwise 0)
-                        dataGridView1[12, e.RowIndex].Value = "0";
+                        dataGridView1["LevelID", e.RowIndex].Value = "0";
                 }
             }
             CheckForCommissionRequirement();
@@ -302,78 +302,79 @@ namespace EffectSome
         void ShowLevel(int index)
         {
             dataGridView1.Rows.Insert(0);
-            dataGridView1[1, 0].Value = EffectSome.UserLevels[index].LevelFolder;
-            dataGridView1[1, 0].ToolTipText = EffectSome.FolderNames[EffectSome.UserLevels[index].LevelFolder];
-            dataGridView1[2, 0].Value = EffectSome.UserLevels[index].LevelName;
-            dataGridView1[3, 0].Value = EffectSome.UserLevels[index].LevelRevision.ToString();
-            dataGridView1[4, 0].Value = EffectSome.UserLevels[index].LevelDescription;
-            dataGridView1[5, 0].Value = Gamesave.levelLengthNames[EffectSome.UserLevels[index].LevelLength];
-            dataGridView1[6, 0].Value = EffectSome.UserLevels[index].LevelCustomSongID.ToString();
+            dataGridView1["LevelFolder", 0].Value = EffectSome.UserLevels[index].LevelFolder;
+            dataGridView1["LevelFolder", 0].ToolTipText = EffectSome.FolderNames[EffectSome.UserLevels[index].LevelFolder];
+            dataGridView1["LevelName", 0].Value = EffectSome.UserLevels[index].LevelName;
+            dataGridView1["LevelRevision", 0].Value = EffectSome.UserLevels[index].LevelRevision.ToString();
+            dataGridView1["LevelDescription", 0].Value = EffectSome.UserLevels[index].LevelDescription;
+            dataGridView1["LevelBuildTIme", 0].Value = $"{EffectSome.UserLevels[index].TotalBuildTime:hh\\:mm\\:ss}";
+            dataGridView1["LevelLength", 0].Value = Gamesave.levelLengthNames[EffectSome.UserLevels[index].LevelLength];
+            dataGridView1["LevelSong", 0].Value = EffectSome.UserLevels[index].LevelCustomSongID.ToString();
             if (EffectSome.UserLevels[index].LevelCustomSongID == 0)
-                dataGridView1[6, 0].ToolTipText = "Official Song: " + (EffectSome.UserLevels[index].LevelOfficialSongID + 1).ToString("D2") + " - " + EffectSome.OfficialSongNames[EffectSome.UserLevels[index].LevelOfficialSongID];
-            dataGridView1[7, 0].Value = EffectSome.UserLevels[index].LevelObjectCount.ToString();
+                dataGridView1["LevelSong", 0].ToolTipText = "Official Song: " + (EffectSome.UserLevels[index].LevelOfficialSongID + 1).ToString("D2") + " - " + EffectSome.OfficialSongNames[EffectSome.UserLevels[index].LevelOfficialSongID];
+            dataGridView1["LevelObjects", 0].Value = EffectSome.UserLevels[index].LevelObjectCount.ToString();
             if (Options.BoolDictionary["analyzeObjectCount"])
-                dataGridView1[7, 0].ToolTipText = "Different Object Count: " + EffectSome.UserLevels[index].LevelDifferentObjectIDs.Length + " (" + ((double)EffectSome.UserLevels[index].LevelDifferentObjectIDs.Length / Gamesave.totalDifferentObjectCount).ToString("P5") + ")";
+                dataGridView1["LevelObjects", 0].ToolTipText = "Different Object Count: " + EffectSome.UserLevels[index].LevelDifferentObjectIDs.Length + " (" + ((double)EffectSome.UserLevels[index].LevelDifferentObjectIDs.Length / Gamesave.totalDifferentObjectCount).ToString("P5") + ")";
             if (Options.BoolDictionary["analyzeUsedGroupIDs"])
             {
-                dataGridView1[8, 0].Value = EffectSome.UserLevels[index]?.LevelUsedGroupIDs.Length.ToString();
-                dataGridView1[8, 0].ToolTipText = GenerateUsedGroupIDsAnalyticsToolTipText(index);
+                dataGridView1["LevelGroups", 0].Value = EffectSome.UserLevels[index]?.LevelUsedGroupIDs.Length.ToString();
+                dataGridView1["LevelGroups", 0].ToolTipText = GenerateUsedGroupIDsAnalyticsToolTipText(index);
             }
             if (Options.BoolDictionary["analyzeObjectCount"])
             {
-                dataGridView1[9, 0].Value = EffectSome.UserLevels[index]?.LevelTriggerCount.ToString();
-                dataGridView1[9, 0].ToolTipText = GenerateTriggerAnalyticsToolTipText(index);
+                dataGridView1["LevelTriggers", 0].Value = EffectSome.UserLevels[index]?.LevelTriggerCount.ToString();
+                dataGridView1["LevelTriggers", 0].ToolTipText = GenerateTriggerAnalyticsToolTipText(index);
             }
-            dataGridView1[10, 0].Value = EffectSome.UserLevels[index].LevelAttempts.ToString();
-            dataGridView1[11, 0].Value = EffectSome.UserLevels[index].LevelVersion.ToString();
-            dataGridView1[12, 0].Value = EffectSome.UserLevels[index].LevelID.ToString();
+            dataGridView1["LevelAttempts", 0].Value = EffectSome.UserLevels[index].LevelAttempts.ToString();
+            dataGridView1["LevelVersion", 0].Value = EffectSome.UserLevels[index].LevelVersion.ToString();
+            dataGridView1["LevelID", 0].Value = EffectSome.UserLevels[index].LevelID.ToString();
             if (EffectSome.UserLevels[index].LevelVerifiedStatus)
             {
                 if (EffectSome.UserLevels[index].LevelUploadedStatus)
-                    dataGridView1[13, 0].Value = "Uploaded";
+                    dataGridView1["LevelStatus", 0].Value = "Uploaded";
                 else
-                    dataGridView1[13, 0].Value = "Verified";
+                    dataGridView1["LevelStatus", 0].Value = "Verified";
             }
             else
-                dataGridView1[13, 0].Value = "Unverified";
+                dataGridView1["LevelStatus", 0].Value = "Unverified";
             UpdateTitle();
         }
         void ShowLevel(int levelIndex, int rowIndex)
         {
-            dataGridView1[1, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelFolder;
-            dataGridView1[1, rowIndex].ToolTipText = EffectSome.FolderNames[EffectSome.UserLevels[levelIndex].LevelFolder];
-            dataGridView1[2, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelName;
-            dataGridView1[3, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelRevision.ToString();
-            dataGridView1[4, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelDescription;
-            dataGridView1[5, rowIndex].Value = Gamesave.levelLengthNames[EffectSome.UserLevels[levelIndex].LevelLength];
-            dataGridView1[6, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelCustomSongID.ToString();
+            dataGridView1["LevelFolder", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelFolder;
+            dataGridView1["LevelFolder", rowIndex].ToolTipText = EffectSome.FolderNames[EffectSome.UserLevels[levelIndex].LevelFolder];
+            dataGridView1["LevelName", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelName;
+            dataGridView1["LevelRevision", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelRevision.ToString();
+            dataGridView1["LevelDescription", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelDescription;
+            dataGridView1["LevelLength", rowIndex].Value = Gamesave.levelLengthNames[EffectSome.UserLevels[levelIndex].LevelLength];
+            dataGridView1["LevelSong", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelCustomSongID.ToString();
             if (EffectSome.UserLevels[levelIndex].LevelCustomSongID == 0)
-                dataGridView1[6, rowIndex].ToolTipText = "Official Song: " + EffectSome.UserLevels[levelIndex].LevelOfficialSongID.ToString("D2") + " - " + EffectSome.OfficialSongNames[EffectSome.UserLevels[levelIndex].LevelOfficialSongID];
-            dataGridView1[7, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelObjectCount.ToString();
+                dataGridView1["LevelSong", rowIndex].ToolTipText = "Official Song: " + EffectSome.UserLevels[levelIndex].LevelOfficialSongID.ToString("D2") + " - " + EffectSome.OfficialSongNames[EffectSome.UserLevels[levelIndex].LevelOfficialSongID];
+            dataGridView1["LevelObjects", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelObjectCount.ToString();
             if (Options.BoolDictionary["analyzeObjectCount"])
-                dataGridView1[7, rowIndex].ToolTipText = "Different Object Count: " + EffectSome.UserLevels[levelIndex].LevelDifferentObjectIDs.Length + " (" + ((double)EffectSome.UserLevels[levelIndex].LevelDifferentObjectIDs.Length / Gamesave.totalDifferentObjectCount).ToString("P5") + ")";
+                dataGridView1["LevelObjects", rowIndex].ToolTipText = "Different Object Count: " + EffectSome.UserLevels[levelIndex].LevelDifferentObjectIDs.Length + " (" + ((double)EffectSome.UserLevels[levelIndex].LevelDifferentObjectIDs.Length / Gamesave.totalDifferentObjectCount).ToString("P5") + ")";
             if (Options.BoolDictionary["analyzeUsedGroupIDs"])
             {
-                dataGridView1[8, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelUsedGroupIDs.Length.ToString();
-                dataGridView1[8, rowIndex].ToolTipText = GenerateUsedGroupIDsAnalyticsToolTipText(rowIndex);
+                dataGridView1["LevelGroups", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelUsedGroupIDs.Length.ToString();
+                dataGridView1["LevelGroups", rowIndex].ToolTipText = GenerateUsedGroupIDsAnalyticsToolTipText(rowIndex);
             }
             if (Options.BoolDictionary["analyzeObjectCount"])
             {
-                dataGridView1[9, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelTriggerCount.ToString();
-                dataGridView1[9, rowIndex].ToolTipText = GenerateTriggerAnalyticsToolTipText(rowIndex);
+                dataGridView1["LevelTriggers", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelTriggerCount.ToString();
+                dataGridView1["LevelTriggers", rowIndex].ToolTipText = GenerateTriggerAnalyticsToolTipText(rowIndex);
             }
-            dataGridView1[10, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelAttempts.ToString();
-            dataGridView1[11, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelVersion.ToString();
-            dataGridView1[12, rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelID.ToString();
+            dataGridView1["LevelAttempts", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelAttempts.ToString();
+            dataGridView1["LevelVersion", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelVersion.ToString();
+            dataGridView1["LevelID", rowIndex].Value = EffectSome.UserLevels[levelIndex].LevelID.ToString();
             if (EffectSome.UserLevels[levelIndex].LevelVerifiedStatus)
             {
                 if (EffectSome.UserLevels[levelIndex].LevelUploadedStatus)
-                    dataGridView1[13, rowIndex].Value = "Uploaded";
+                    dataGridView1["LevelStatus", rowIndex].Value = "Uploaded";
                 else
-                    dataGridView1[13, rowIndex].Value = "Verified";
+                    dataGridView1["LevelStatus", rowIndex].Value = "Verified";
             }
             else
-                dataGridView1[13, rowIndex].Value = "Unverified";
+                dataGridView1["LevelStatus", rowIndex].Value = "Unverified";
             UpdateTitle();
         }
         void LoadLevels()
@@ -404,28 +405,39 @@ namespace EffectSome
         void UpdateSelection()
         {
             for (int i = 0; i < EffectSome.UserLevelCount; i++)
-                dataGridView1[0, i].Value = selectedLevelIndices.Contains(i);
+                dataGridView1["Selected", i].Value = selectedLevelIndices.Contains(i);
         }
         void UpdateTitle()
         {
-            Text = "Level Overview - " + EffectSome.UserLevelCount + " Levels";
+            Text = $"Level Overview - {EffectSome.UserLevelCount} Levels";
         }
 
         private void KeyDownCheck(object sender, KeyEventArgs e)
         {
             if (sender != dataGridView1 || !isInEditMode)
             {
-                if (e.Shift && e.KeyCode == Keys.A) button14_Click(sender, e);
-                else if (e.Shift && e.KeyCode == Keys.B) button15_Click(sender, e);
-                else if (e.Shift && e.KeyCode == Keys.C) button4_Click(sender, e);
-                else if (e.Shift && e.KeyCode == Keys.D) button12_Click(sender, e);
-                else if (e.Shift && e.KeyCode == Keys.S) button11_Click(sender, e);
-                else if (e.Shift && e.KeyCode == Keys.Home) button10_Click(sender, e);
-                else if (e.Shift && e.KeyCode == Keys.End) button9_Click(sender, e);
-                else if (e.Shift && e.KeyCode == Keys.Up) button7_Click(sender, e);
-                else if (e.Shift && e.KeyCode == Keys.Down) button8_Click(sender, e);
-                else if (e.Shift && e.KeyCode == Keys.Delete) button3_Click(sender, e);
-                else if (e.KeyCode == Keys.S) button13_Click(sender, e);
+                if (e.Shift && e.KeyCode == Keys.A)
+                    button14_Click(sender, e);
+                else if (e.Shift && e.KeyCode == Keys.B)
+                    button15_Click(sender, e);
+                else if (e.Shift && e.KeyCode == Keys.C)
+                    button4_Click(sender, e);
+                else if (e.Shift && e.KeyCode == Keys.D)
+                    button12_Click(sender, e);
+                else if (e.Shift && e.KeyCode == Keys.S)
+                    button11_Click(sender, e);
+                else if (e.Shift && e.KeyCode == Keys.Home)
+                    button10_Click(sender, e);
+                else if (e.Shift && e.KeyCode == Keys.End)
+                    button9_Click(sender, e);
+                else if (e.Shift && e.KeyCode == Keys.Up)
+                    button7_Click(sender, e);
+                else if (e.Shift && e.KeyCode == Keys.Down)
+                    button8_Click(sender, e);
+                else if (e.Shift && e.KeyCode == Keys.Delete)
+                    button3_Click(sender, e);
+                else if (e.Control && e.KeyCode == Keys.S)
+                    button13_Click(sender, e);
             }
         }
     }

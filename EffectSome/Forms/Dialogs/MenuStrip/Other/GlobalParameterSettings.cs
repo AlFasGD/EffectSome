@@ -375,8 +375,8 @@ namespace EffectSome
         }
         void SavePreset(string presetName, Tab tab)
         {
-            if (presetName.Contains('?') || presetName.Contains('/') || presetName.Contains('|') || presetName.Contains('<') || presetName.Contains('>') || presetName.Contains('\\') || presetName.Contains('"') || presetName.Contains(':'))
-                MessageBox.Show("The name you entered contains an invalid character. If the name contains any of the following invalid characters, please remove them.\n\n\", ?, |, <, >, :, \\, /, *");
+            if (presetName.Contains('?', '/', '|', '<', '>', '\\', '"', ':'))
+                MessageBox.Show("The name you entered contains invalid characters. If the name contains any of the following invalid characters, please remove them.\n\n\", ?, |, <, >, :, \\, /, *", "Invalid Characters", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 string fileData = tempPreset.ToString(tab);

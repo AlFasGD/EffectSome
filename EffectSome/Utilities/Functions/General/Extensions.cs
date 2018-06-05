@@ -201,6 +201,14 @@ namespace EffectSome
             }
             return result;
         }
+        public static bool Contains(this string s, params char[] c)
+        {
+            for (int i = 0; i < s.Length; i++)
+                for (int j = 0; j < c.Length; j++)
+                    if (s[i] == c[j])
+                        return true;
+            return false;
+        }
         public static bool ContainsWholeWord(this string s, string match)
         {
             for (int i = s.Length - match.Length; i >= 0; i--)

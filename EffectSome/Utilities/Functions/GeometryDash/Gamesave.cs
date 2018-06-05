@@ -987,6 +987,9 @@ namespace EffectSome
                             case 2: // Level Name
                                 UserLevels[index].LevelName = parameterValue;
                                 break;
+                            case 3: // Level Description
+                                UserLevels[index].LevelDescription = Encoding.UTF8.GetString(Base64Decrypt(parameterValue));
+                                break;
                             case 4: // Level String
                                 UserLevels[index].LevelString = parameterValue;
                                 break;
@@ -1013,6 +1016,9 @@ namespace EffectSome
                                 break;
                             case 46: // Level Revision
                                 UserLevels[index].LevelRevision = ToInt32(parameterValue);
+                                break;
+                            case 80: // Time Spent
+                                UserLevels[index].BuildTime = ToInt32(parameterValue);
                                 break;
                             case 84: // Level Folder
                                 UserLevels[index].LevelFolder = ToInt32(parameterValue);
@@ -1041,7 +1047,7 @@ namespace EffectSome
                             string type = e.GetType().ToString();
                             throw new DataException($"An unknown error has occured while attempting to decrypt the level string of the level with index {index + 1} (zero-based index: {index}). Contact us immediately about this occurence and provide us the details as stated in this message. Your level data file may be asked for debugging and (manual) examination.");
                         }
-                        UserLevels[index].LevelGuidelines = GetGuidelineString(index);
+                        UserLevels[index].LevelGuidelinesString = GetGuidelineString(index);
                         if (Options.BoolDictionary["analyzeDifferentObjectIDs"] || Options.BoolDictionary["analyzeUsedGroupIDs"] || Options.BoolDictionary["analyzeObjectCount"])
                         {
                             UserLevels[index].LevelObjects = GetObjects(GetObjectString(UserLevels[index].DecryptedLevelString));
@@ -1164,14 +1170,14 @@ namespace EffectSome
         }
         public static void SetGuidelineString(string newGuidelines, int levelIndex)
         {
-            string oldGS = UserLevels[levelIndex].LevelGuidelines;
+            string oldGS = UserLevels[levelIndex].LevelGuidelinesString;
             int gsStartIndex = GetGuidelineStringStartIndex(levelIndex);
             string newLS;
             if (oldGS.Length == 0)
                 newLS = UserLevels[levelIndex].LevelString.Insert(gsStartIndex, newGuidelines);
             else
                 newLS = UserLevels[levelIndex].LevelString.Replace(oldGS, newGuidelines);
-            UserLevels[levelIndex].LevelGuidelines = newGuidelines;
+            UserLevels[levelIndex].LevelGuidelinesString = newGuidelines;
             SetLevelString(newLS, levelIndex);
         }
         public static void SetGuidelineStrings(string[] newGuidelineStrings, int[] levelIndices)
@@ -1181,7 +1187,7 @@ namespace EffectSome
             int[] gsStartIndices = new int[levelIndices.Length];
             for (int i = 0; i < levelIndices.Length; i++)
             {
-                oldGS[i] = UserLevels[levelIndices[i]].LevelGuidelines;
+                oldGS[i] = UserLevels[levelIndices[i]].LevelGuidelinesString;
                 gsStartIndices[i] = GetGuidelineStringStartIndex(levelIndices[i]);
             }
             for (int i = 0; i < levelIndices.Length; i++)
@@ -1190,7 +1196,7 @@ namespace EffectSome
                     newLS[i] = UserLevels[levelIndices[i]].LevelString.Insert(gsStartIndices[i], newGuidelineStrings[i]);
                 else
                     newLS[i] = UserLevels[levelIndices[i]].LevelString.Replace(oldGS[i], newGuidelineStrings[i]);
-                UserLevels[levelIndices[i]].LevelGuidelines = newGuidelineStrings[i];
+                UserLevels[levelIndices[i]].LevelGuidelinesString = newGuidelineStrings[i];
             }
             SetLevelStrings(newLS, levelIndices);
         }
@@ -1201,7 +1207,7 @@ namespace EffectSome
             int[] gsStartIndices = new int[levelIndices.Length];
             for (int i = 0; i < levelIndices.Length; i++)
             {
-                oldGS[i] = UserLevels[levelIndices[i]].LevelGuidelines;
+                oldGS[i] = UserLevels[levelIndices[i]].LevelGuidelinesString;
                 gsStartIndices[i] = GetGuidelineStringStartIndex(levelIndices[i]);
             }
             for (int i = 0; i < levelIndices.Length; i++)
@@ -1210,7 +1216,7 @@ namespace EffectSome
                     newLS[i] = UserLevels[levelIndices[i]].LevelString.Insert(gsStartIndices[i], newGuidelines);
                 else
                     newLS[i] = UserLevels[levelIndices[i]].LevelString.Replace(oldGS[i], newGuidelines);
-                UserLevels[levelIndices[i]].LevelGuidelines = newGuidelines;
+                UserLevels[levelIndices[i]].LevelGuidelinesString = newGuidelines;
             }
             SetLevelStrings(newLS, levelIndices);
         }

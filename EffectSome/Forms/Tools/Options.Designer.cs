@@ -115,6 +115,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox35 = new System.Windows.Forms.CheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
@@ -124,8 +126,8 @@
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -146,9 +148,9 @@
             this.tabPage4.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox14.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -814,6 +816,8 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.textBox18);
+            this.groupBox10.Controls.Add(this.checkBox4);
             this.groupBox10.Controls.Add(this.textBox16);
             this.groupBox10.Controls.Add(this.checkBox41);
             this.groupBox10.Controls.Add(this.textBox17);
@@ -930,7 +934,7 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(100, 20);
             this.textBox13.TabIndex = 18;
-            this.textBox13.Text = "S";
+            this.textBox13.Text = "Ctrl+S";
             // 
             // checkBox38
             // 
@@ -1139,6 +1143,27 @@
             this.tabPage5.Text = "Notifications";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkBox3);
+            this.groupBox2.Location = new System.Drawing.Point(6, 148);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(602, 100);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Notification Details";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(9, 19);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(133, 17);
+            this.checkBox3.TabIndex = 1;
+            this.checkBox3.Text = "Show Operation Times";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.groupBox13);
@@ -1238,26 +1263,25 @@
             this.radioButton5.Text = "Light";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // textBox18
             // 
-            this.groupBox2.Controls.Add(this.checkBox3);
-            this.groupBox2.Location = new System.Drawing.Point(6, 148);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(602, 100);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Notification Details";
+            this.textBox18.Enabled = false;
+            this.textBox18.Location = new System.Drawing.Point(192, 270);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(100, 20);
+            this.textBox18.TabIndex = 28;
+            this.textBox18.Text = "Shift+I";
             // 
-            // checkBox3
+            // checkBox4
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(9, 19);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(133, 17);
-            this.checkBox3.TabIndex = 1;
-            this.checkBox3.Text = "Show Operation Times";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(9, 272);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(100, 17);
+            this.checkBox4.TabIndex = 27;
+            this.checkBox4.Text = "Invert Selection";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // Options
             // 
@@ -1303,11 +1327,11 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1412,5 +1436,7 @@
         private System.Windows.Forms.CheckBox checkBox51;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.CheckBox checkBox4;
     }
 }

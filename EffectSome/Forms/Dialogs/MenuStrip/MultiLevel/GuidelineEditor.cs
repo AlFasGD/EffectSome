@@ -181,7 +181,7 @@ namespace EffectSome
             DownloadMainLevelGuidelinesOnStore.RunWorkerAsync();
             CurrentLevelIndex = comboBox3.SelectedIndex;
             SelectedGuidelineIndices.Clear();
-            GuidelinesString = UserLevels[CurrentLevelIndex].LevelGuidelines;
+            GuidelinesString = UserLevels[CurrentLevelIndex].LevelGuidelinesString;
             LevelGuidelines = Gamesave.GetGuidelines(GuidelinesString);
             SetInitialBPM();
             CheckSongType(CurrentLevelIndex);
@@ -204,15 +204,17 @@ namespace EffectSome
         }
         private void comboBox5_Leave(object sender, EventArgs e)
         {
-            try { File.Move(appLocation + @"\EffectSome\Presets\Guideline Editor\" + comboBox5.Items[CurrentPresetIndex] + ".esf", appLocation + @"\EffectSome\Presets\Guideline Editor\" + comboBox5.Text + ".esf"); }
-            catch
+            // This will be triggered when exiting the Guideline Editor and the name has been still not edited to something not illegal - Needs to be fixed sometime
+            // An even better solution would be a better approach and splitting all this work into several functions or compacting the code altogether
+            string name = comboBox5.Text;
+            if (name.Contains('?', '/', '|', '<', '>', '\\', '"', ':'))
+                MessageBox.Show("The name you entered contains invalid characters. If the name contains any of the following invalid characters, please remove them.\n\n\", ?, |, <, >, :, \\, /, *", "Invalid Characters", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                string name = comboBox5.Text;
-                bool containsNumberAtEnd = false;
-                if (name.Contains('?') || name.Contains('/') || name.Contains('|') || name.Contains('<') || name.Contains('>') || name.Contains('\\') || name.Contains('"') || name.Contains(':'))
-                    MessageBox.Show("The name you entered contains an invalid character. If the name contains any of the following invalid characters, please remove them.\n\n\", ?, |, <, >, :, \\, /, *");
-                else
+                try { File.Move(appLocation + @"\EffectSome\Presets\Guideline Editor\" + comboBox5.Items[CurrentPresetIndex] + ".esf", appLocation + @"\EffectSome\Presets\Guideline Editor\" + comboBox5.Text + ".esf"); }
+                catch
                 {
+                    bool containsNumberAtEnd = false;
                     for (int i = 0; i < name.Length; i++)
                     {
                         string sub = name.Substring(i);
@@ -244,16 +246,16 @@ namespace EffectSome
                             }
                         }
                 }
-            }
-            comboBox5.Items[CurrentPresetIndex] = comboBox5.Text;
-            Presets[CurrentPresetIndex].Name = comboBox5.Text;
-            comboBox5.SelectedIndex = CurrentPresetIndex;
-            comboBox5.SelectionStart = comboBox5.Text.Length;
-            for (int i = 0; i < dataGridView2.Rows.Count; i++)
-            {
-                int selectedPreset = (dataGridView2[0, i] as DataGridViewComboBoxCell).GetSelectedIndex();
-                (dataGridView2[0, i] as DataGridViewComboBoxCell).Items[CurrentPresetIndex] = comboBox5.Items[CurrentPresetIndex];
-                (dataGridView2[0, i] as DataGridViewComboBoxCell).Value = (dataGridView2[0, i] as DataGridViewComboBoxCell).Items[selectedPreset];
+                comboBox5.Items[CurrentPresetIndex] = comboBox5.Text;
+                Presets[CurrentPresetIndex].Name = comboBox5.Text;
+                comboBox5.SelectedIndex = CurrentPresetIndex;
+                comboBox5.SelectionStart = comboBox5.Text.Length;
+                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                {
+                    int selectedPreset = (dataGridView2[0, i] as DataGridViewComboBoxCell).GetSelectedIndex();
+                    (dataGridView2[0, i] as DataGridViewComboBoxCell).Items[CurrentPresetIndex] = comboBox5.Items[CurrentPresetIndex];
+                    (dataGridView2[0, i] as DataGridViewComboBoxCell).Value = (dataGridView2[0, i] as DataGridViewComboBoxCell).Items[selectedPreset];
+                }
             }
         }
         #endregion
@@ -442,7 +444,7 @@ namespace EffectSome
         {
             Gamesave.SetGuidelineStrings("", SelectedLevelIndices.ToArray());
             GuidelinesCount = Gamesave.GetNumberOfGuidelines(CurrentLevelIndex);
-            GuidelinesString = UserLevels[CurrentLevelIndex].LevelGuidelines;
+            GuidelinesString = UserLevels[CurrentLevelIndex].LevelGuidelinesString;
             LevelGuidelines = Gamesave.GetGuidelines(GuidelinesString);
             CheckForGuidelineExistence();
         }
@@ -713,7 +715,7 @@ namespace EffectSome
             comboBox3.SelectedIndexChanged += new EventHandler(comboBox3_SelectedIndexChanged);
             comboBox3.SelectedIndex = 0;
             numericUpDown14.Maximum = UserLevelCount;
-            GuidelinesString = UserLevels[CurrentLevelIndex].LevelGuidelines;
+            GuidelinesString = UserLevels[CurrentLevelIndex].LevelGuidelinesString;
             LevelGuidelines = Gamesave.GetGuidelines(GuidelinesString);
             GuidelinesCount = LevelGuidelines.Count;
             if (GuidelinesCount > 0)

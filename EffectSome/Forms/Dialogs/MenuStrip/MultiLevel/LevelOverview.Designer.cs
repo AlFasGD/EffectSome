@@ -31,20 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelOverview));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Folder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Revision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Length = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Song = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Objects = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Groups = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Triggers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Attempts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Verified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button6 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -61,9 +47,24 @@
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button16 = new System.Windows.Forms.Button();
+            this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.LevelFolder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelRevision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelBuildTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelSong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelObjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelGroups = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelTriggers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelAttempts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,19 +77,20 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Selected,
-            this.Folder,
+            this.LevelFolder,
             this.LevelName,
-            this.Revision,
-            this.LevelDesc,
-            this.Length,
-            this.Song,
-            this.Objects,
-            this.Groups,
-            this.Triggers,
-            this.Attempts,
-            this.Version,
-            this.ID,
-            this.Verified});
+            this.LevelRevision,
+            this.LevelDescription,
+            this.LevelBuildTime,
+            this.LevelLength,
+            this.LevelSong,
+            this.LevelObjects,
+            this.LevelGroups,
+            this.LevelTriggers,
+            this.LevelAttempts,
+            this.LevelVersion,
+            this.LevelID,
+            this.LevelStatus});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -96,129 +98,13 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(1050, 551);
+            this.dataGridView1.Size = new System.Drawing.Size(1125, 551);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownCheck);
-            // 
-            // Selected
-            // 
-            this.Selected.HeaderText = "";
-            this.Selected.Name = "Selected";
-            this.Selected.Width = 22;
-            // 
-            // Folder
-            // 
-            this.Folder.HeaderText = "Folder";
-            this.Folder.Name = "Folder";
-            this.Folder.Width = 45;
-            // 
-            // LevelName
-            // 
-            this.LevelName.HeaderText = "Name";
-            this.LevelName.MaxInputLength = 32;
-            this.LevelName.Name = "LevelName";
-            this.LevelName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelName.Width = 150;
-            // 
-            // Revision
-            // 
-            this.Revision.HeaderText = "Rev.";
-            this.Revision.MaxInputLength = 3;
-            this.Revision.Name = "Revision";
-            this.Revision.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Revision.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Revision.Width = 40;
-            // 
-            // LevelDesc
-            // 
-            this.LevelDesc.HeaderText = "Description";
-            this.LevelDesc.MaxInputLength = 256;
-            this.LevelDesc.Name = "LevelDesc";
-            this.LevelDesc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelDesc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelDesc.Width = 283;
-            // 
-            // Length
-            // 
-            this.Length.HeaderText = "Length";
-            this.Length.Name = "Length";
-            this.Length.ReadOnly = true;
-            this.Length.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Length.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Length.Width = 52;
-            // 
-            // Song
-            // 
-            this.Song.HeaderText = "Song";
-            this.Song.MaxInputLength = 7;
-            this.Song.Name = "Song";
-            this.Song.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Song.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Song.Width = 50;
-            // 
-            // Objects
-            // 
-            this.Objects.HeaderText = "Objects";
-            this.Objects.Name = "Objects";
-            this.Objects.ReadOnly = true;
-            this.Objects.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Objects.Width = 51;
-            // 
-            // Groups
-            // 
-            this.Groups.HeaderText = "Groups";
-            this.Groups.Name = "Groups";
-            this.Groups.ReadOnly = true;
-            this.Groups.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Groups.Width = 50;
-            // 
-            // Triggers
-            // 
-            this.Triggers.HeaderText = "Triggers";
-            this.Triggers.Name = "Triggers";
-            this.Triggers.ReadOnly = true;
-            this.Triggers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Triggers.Width = 53;
-            // 
-            // Attempts
-            // 
-            this.Attempts.HeaderText = "Attempts";
-            this.Attempts.Name = "Attempts";
-            this.Attempts.ReadOnly = true;
-            this.Attempts.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Attempts.Width = 63;
-            // 
-            // Version
-            // 
-            this.Version.HeaderText = "Version";
-            this.Version.MaxInputLength = 7;
-            this.Version.Name = "Version";
-            this.Version.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Version.Width = 51;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MaxInputLength = 9;
-            this.ID.Name = "ID";
-            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ID.Width = 62;
-            // 
-            // Verified
-            // 
-            this.Verified.HeaderText = "Status";
-            this.Verified.MaxInputLength = 50;
-            this.Verified.Name = "Verified";
-            this.Verified.ReadOnly = true;
-            this.Verified.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Verified.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Verified.Width = 56;
             // 
             // button6
             // 
@@ -227,7 +113,7 @@
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button6.Location = new System.Drawing.Point(12, 569);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(1126, 23);
+            this.button6.Size = new System.Drawing.Size(1201, 23);
             this.button6.TabIndex = 12;
             this.button6.Text = "Apply Changes";
             this.toolTip1.SetToolTip(this.button6, "Apply all changes.");
@@ -239,7 +125,7 @@
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
-            this.button9.Location = new System.Drawing.Point(1106, 50);
+            this.button9.Location = new System.Drawing.Point(1181, 50);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(32, 32);
             this.button9.TabIndex = 4;
@@ -253,7 +139,7 @@
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.Location = new System.Drawing.Point(1106, 12);
+            this.button10.Location = new System.Drawing.Point(1181, 12);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(32, 32);
             this.button10.TabIndex = 3;
@@ -267,7 +153,7 @@
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(1068, 50);
+            this.button8.Location = new System.Drawing.Point(1143, 50);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(32, 32);
             this.button8.TabIndex = 2;
@@ -281,7 +167,7 @@
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(1068, 12);
+            this.button7.Location = new System.Drawing.Point(1143, 12);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(32, 32);
             this.button7.TabIndex = 1;
@@ -295,7 +181,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(1068, 455);
+            this.button5.Location = new System.Drawing.Point(1143, 455);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(32, 32);
             this.button5.TabIndex = 7;
@@ -310,7 +196,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(1068, 531);
+            this.button4.Location = new System.Drawing.Point(1143, 531);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(32, 32);
             this.button4.TabIndex = 9;
@@ -326,7 +212,7 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(1068, 493);
+            this.button3.Location = new System.Drawing.Point(1143, 493);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(32, 32);
             this.button3.TabIndex = 8;
@@ -340,7 +226,7 @@
             this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(1106, 531);
+            this.button2.Location = new System.Drawing.Point(1181, 531);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 32);
             this.button2.TabIndex = 11;
@@ -353,7 +239,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1106, 493);
+            this.button1.Location = new System.Drawing.Point(1181, 493);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 32);
             this.button1.TabIndex = 10;
@@ -367,7 +253,7 @@
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button11.Image = ((System.Drawing.Image)(resources.GetObject("button11.Image")));
-            this.button11.Location = new System.Drawing.Point(1068, 202);
+            this.button11.Location = new System.Drawing.Point(1143, 202);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(32, 32);
             this.button11.TabIndex = 5;
@@ -381,7 +267,7 @@
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
-            this.button12.Location = new System.Drawing.Point(1068, 240);
+            this.button12.Location = new System.Drawing.Point(1143, 240);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(32, 32);
             this.button12.TabIndex = 6;
@@ -396,7 +282,7 @@
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button13.Image = ((System.Drawing.Image)(resources.GetObject("button13.Image")));
-            this.button13.Location = new System.Drawing.Point(1068, 126);
+            this.button13.Location = new System.Drawing.Point(1143, 126);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(32, 32);
             this.button13.TabIndex = 13;
@@ -411,7 +297,7 @@
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
-            this.button14.Location = new System.Drawing.Point(1106, 202);
+            this.button14.Location = new System.Drawing.Point(1181, 202);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(32, 32);
             this.button14.TabIndex = 14;
@@ -426,7 +312,7 @@
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button15.Image = ((System.Drawing.Image)(resources.GetObject("button15.Image")));
-            this.button15.Location = new System.Drawing.Point(1106, 240);
+            this.button15.Location = new System.Drawing.Point(1181, 240);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(32, 32);
             this.button15.TabIndex = 15;
@@ -435,17 +321,12 @@
             this.button15.Click += new System.EventHandler(this.button15_Click);
             this.button15.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownCheck);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.Multiselect = true;
-            this.openFileDialog1.Title = "Import levels from files";
-            // 
             // button16
             // 
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button16.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button16.Image = ((System.Drawing.Image)(resources.GetObject("button16.Image")));
-            this.button16.Location = new System.Drawing.Point(1068, 278);
+            this.button16.Location = new System.Drawing.Point(1143, 278);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(32, 32);
             this.button16.TabIndex = 16;
@@ -453,11 +334,149 @@
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Multiselect = true;
+            this.openFileDialog1.Title = "Import levels from files";
+            // 
+            // Selected
+            // 
+            this.Selected.HeaderText = "";
+            this.Selected.Name = "Selected";
+            this.Selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Selected.Width = 22;
+            // 
+            // LevelFolder
+            // 
+            this.LevelFolder.HeaderText = "Folder";
+            this.LevelFolder.Name = "LevelFolder";
+            this.LevelFolder.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelFolder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelFolder.Width = 45;
+            // 
+            // LevelName
+            // 
+            this.LevelName.HeaderText = "Name";
+            this.LevelName.MaxInputLength = 32;
+            this.LevelName.Name = "LevelName";
+            this.LevelName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelName.Width = 150;
+            // 
+            // LevelRevision
+            // 
+            this.LevelRevision.HeaderText = "Rev.";
+            this.LevelRevision.MaxInputLength = 3;
+            this.LevelRevision.Name = "LevelRevision";
+            this.LevelRevision.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelRevision.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelRevision.Width = 40;
+            // 
+            // LevelDescription
+            // 
+            this.LevelDescription.HeaderText = "Description";
+            this.LevelDescription.MaxInputLength = 256;
+            this.LevelDescription.Name = "LevelDescription";
+            this.LevelDescription.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelDescription.Width = 283;
+            // 
+            // LevelBuildTime
+            // 
+            this.LevelBuildTime.HeaderText = "Build Time";
+            this.LevelBuildTime.Name = "LevelBuildTime";
+            this.LevelBuildTime.ReadOnly = true;
+            this.LevelBuildTime.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelBuildTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelBuildTime.Width = 75;
+            // 
+            // LevelLength
+            // 
+            this.LevelLength.HeaderText = "Length";
+            this.LevelLength.Name = "LevelLength";
+            this.LevelLength.ReadOnly = true;
+            this.LevelLength.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelLength.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelLength.Width = 52;
+            // 
+            // LevelSong
+            // 
+            this.LevelSong.HeaderText = "Song";
+            this.LevelSong.MaxInputLength = 7;
+            this.LevelSong.Name = "LevelSong";
+            this.LevelSong.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelSong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelSong.Width = 50;
+            // 
+            // LevelObjects
+            // 
+            this.LevelObjects.HeaderText = "Objects";
+            this.LevelObjects.Name = "LevelObjects";
+            this.LevelObjects.ReadOnly = true;
+            this.LevelObjects.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelObjects.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelObjects.Width = 51;
+            // 
+            // LevelGroups
+            // 
+            this.LevelGroups.HeaderText = "Groups";
+            this.LevelGroups.Name = "LevelGroups";
+            this.LevelGroups.ReadOnly = true;
+            this.LevelGroups.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelGroups.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelGroups.Width = 50;
+            // 
+            // LevelTriggers
+            // 
+            this.LevelTriggers.HeaderText = "Triggers";
+            this.LevelTriggers.Name = "LevelTriggers";
+            this.LevelTriggers.ReadOnly = true;
+            this.LevelTriggers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelTriggers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelTriggers.Width = 53;
+            // 
+            // LevelAttempts
+            // 
+            this.LevelAttempts.HeaderText = "Attempts";
+            this.LevelAttempts.Name = "LevelAttempts";
+            this.LevelAttempts.ReadOnly = true;
+            this.LevelAttempts.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelAttempts.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelAttempts.Width = 63;
+            // 
+            // LevelVersion
+            // 
+            this.LevelVersion.HeaderText = "Version";
+            this.LevelVersion.MaxInputLength = 7;
+            this.LevelVersion.Name = "LevelVersion";
+            this.LevelVersion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelVersion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelVersion.Width = 51;
+            // 
+            // LevelID
+            // 
+            this.LevelID.HeaderText = "ID";
+            this.LevelID.MaxInputLength = 9;
+            this.LevelID.Name = "LevelID";
+            this.LevelID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelID.Width = 62;
+            // 
+            // LevelStatus
+            // 
+            this.LevelStatus.HeaderText = "Status";
+            this.LevelStatus.MaxInputLength = 50;
+            this.LevelStatus.Name = "LevelStatus";
+            this.LevelStatus.ReadOnly = true;
+            this.LevelStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelStatus.Width = 56;
+            // 
             // LevelOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 604);
+            this.ClientSize = new System.Drawing.Size(1225, 604);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button15);
@@ -506,20 +525,21 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Folder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LevelName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Revision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LevelDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Length;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Song;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Objects;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Groups;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Triggers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Attempts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Version;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Verified;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Selected;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelFolder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelRevision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelBuildTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelLength;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelSong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelObjects;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelGroups;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelTriggers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelAttempts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelVersion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelStatus;
     }
 }

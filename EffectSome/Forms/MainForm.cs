@@ -2168,6 +2168,7 @@ namespace EffectSome
             updateResourcesToolStripMenuItem.Enabled = true;
         }
         
+        // Section of code that needs to be rewritten to only take up 100 lines instead of 2500
         void WriteTriggersCopyPasteAutomation()
         {
             #region Move

@@ -13,8 +13,16 @@ namespace EffectSome
         public string LevelName;
         public string LevelString;
         public string DecryptedLevelString;
-        public string LevelGuidelines;
-        public string LevelDescription;
+        public string LevelGuidelinesString
+        {
+            get => levelGuidelinesString;
+            set
+            {
+                levelGuidelines = null; // Reset and only analyze if requested
+                levelGuidelinesString = value;
+            }
+        }
+        public string LevelDescription = "";
         public string RawLevel;
         public int LevelRevision;
         public int LevelOfficialSongID;
@@ -59,6 +67,12 @@ namespace EffectSome
         public int LevelVersion;
         public int LevelLength;
         public int LevelFolder;
+        public int BuildTime; // This is in seconds
+        public TimeSpan TotalBuildTime
+        {
+            get => new TimeSpan(0, 0, BuildTime);
+            set => BuildTime = (int)value.TotalSeconds;
+        }
         public bool LevelVerifiedStatus;
         public bool LevelUploadedStatus;
         public List<LevelObject> LevelObjects
@@ -70,6 +84,20 @@ namespace EffectSome
                 levelObjectCount = -1;
                 levelTriggerCount = -1;
                 colorTriggerCount = -1;
+            }
+        }
+        public List<Guideline> LevelGuidelines
+        {
+            get
+            {
+                if (levelGuidelines == null)
+                    levelGuidelines = Gamesave.GetGuidelines(LevelGuidelinesString);
+                return levelGuidelines;
+            }
+            set
+            {
+                levelGuidelines = value;
+                LevelGuidelinesString = GetGuidelineString(levelGuidelines);
             }
         }
         public int[] LevelDifferentObjectIDs = new int[0];
@@ -125,6 +153,8 @@ namespace EffectSome
         private int levelTriggerCount = -1;
         private int colorTriggerCount = -1;
         private List<LevelObject> levelObjects;
+        private List<Guideline> levelGuidelines;
+        private string levelGuidelinesString;
         #endregion
 
         #region Constructors
@@ -135,6 +165,16 @@ namespace EffectSome
         public Level(string level)
         {
             RawLevel = level;
+        }
+        #endregion
+
+        #region Functions
+        public static string GetGuidelineString(List<Guideline> guidelines)
+        {
+            StringBuilder result = new StringBuilder();
+            foreach (var g in guidelines)
+                result.Append(g.ToString() + "~");
+            return result.ToString();
         }
         #endregion
     }
