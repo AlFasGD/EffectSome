@@ -60,10 +60,12 @@ namespace EffectSome
         private void checkBox2_CheckedChanged(object sender, EventArgs e) => BoolDictionary["autoSaveSettings"] = checkBox2.Checked;
         private void checkBox3_CheckedChanged(object sender, EventArgs e) => BoolDictionary["showOperationTimes"] = checkBox3.Checked;
         private void checkBox4_CheckedChanged(object sender, EventArgs e) => BoolDictionary["invertLevelSelectionShortcut"] = checkBox4.Checked;
+        private void checkBox5_CheckedChanged(object sender, EventArgs e) => BoolDictionary["applyChangesShortcut"] = checkBox5.Checked;
         private void checkBox6_CheckedChanged(object sender, EventArgs e) => BoolDictionary["objLimWarnings"] = checkBox6.Checked;
         private void checkBox7_CheckedChanged(object sender, EventArgs e) => BoolDictionary["customObjLimWarnings"] = checkBox7.Checked;
         private void checkBox8_CheckedChanged(object sender, EventArgs e) => BoolDictionary["customObjObjsLimWarnings"] = checkBox8.Checked;
-        private void checkBox10_CheckedChanged(object sender, EventArgs e) => BoolDictionary["exitProgramUnsavedChangesWarnings"] = checkBox10.Checked;
+        private void checkBox10_CheckedChanged(object sender, EventArgs e) => BoolDictionary["DLLErrorWarnings"] = checkBox10.Checked;
+        private void checkBox11_CheckedChanged(object sender, EventArgs e) => BoolDictionary["showDeleteLevelsPrompt"] = checkBox11.Checked;
         private void checkBox12_CheckedChanged(object sender, EventArgs e)
         {
             BoolDictionary["objLimWarnings"] = checkBox6.Checked || checkBox12.Checked;
@@ -162,6 +164,7 @@ namespace EffectSome
             BoolDictionary.Add("objLimWarnings", true);
             BoolDictionary.Add("customObjLimWarnings", true);
             BoolDictionary.Add("DLLErrorWarnings", true);
+            BoolDictionary.Add("showDeleteLevelsPrompt", true);
             BoolDictionary.Add("allowEditLevelIDs", false);
             BoolDictionary.Add("allowEditSongIDs", true);
             BoolDictionary.Add("allowEditLevelVersions", true);
@@ -185,6 +188,8 @@ namespace EffectSome
             BoolDictionary.Add("deselectAllLevelsShortcut", true);
             BoolDictionary.Add("selectAllLevelsAboveShortcut", true);
             BoolDictionary.Add("selectAllLevelsBelowShortcut", true);
+            BoolDictionary.Add("invertLevelSelectionShortcut", true);
+            BoolDictionary.Add("applyChangesShortcut", true);
             BoolDictionary.Add("checkForUpdatesOnStartup", true);
             BoolDictionary.Add("checkForResourceUpdatesOnStartup", true);
             BoolDictionary.Add("gamesaveDecryptedNotifications", true);
@@ -205,12 +210,13 @@ namespace EffectSome
             StringDictionary.Add("moveLevelsDownShortcutKey", "Shift+Down Arrow");
             StringDictionary.Add("moveLevelsToTopShortcutKey", "Shift+Home");
             StringDictionary.Add("moveLevelsToBottomShortcutKey", "Shift+End");
-            StringDictionary.Add("swapLevelsShortcutKey", "Ctrl+S");
+            StringDictionary.Add("swapLevelsShortcutKey", "Alt+S");
             StringDictionary.Add("selectAllLevelsShortcutKey", "Shift+S");
             StringDictionary.Add("deselectAllLevelsShortcutKey", "Shift+D");
             StringDictionary.Add("selectAllLevelsAboveShortcutKey", "Shift+A");
             StringDictionary.Add("selectAllLevelsBelowShortcutKey", "Shift+B");
             StringDictionary.Add("invertLevelSelectionShortcutKey", "Shift+I");
+            StringDictionary.Add("applyChangesShortcutKey", "Ctrl+S");
             IntDictionary.Add("maxUndoRedoActions", 256);
             IntDictionary.Add("locationMeasurementUnit", 0);
             IntDictionary.Add("filterOptions", 0);
@@ -226,10 +232,12 @@ namespace EffectSome
             checkBox2.Checked = BoolDictionary["autoSaveSettings"];
             checkBox3.Checked = BoolDictionary["showOperationTimes"];
             checkBox4.Checked = BoolDictionary["invertLevelSelectionShortcut"];
+            checkBox5.Checked = BoolDictionary["applyChangesShortcut"];
             checkBox6.Checked = BoolDictionary["objLimWarnings"];
             checkBox7.Checked = BoolDictionary["customObjLimWarnings"];
             checkBox8.Checked = BoolDictionary["customObjObjsLimWarnings"];
             checkBox10.Checked = BoolDictionary["exitProgramUnsavedChangesWarnings"];
+            checkBox11.Checked = BoolDictionary["showDeleteLevelsPrompt"];
             checkBox12.Checked = BoolDictionary["allWarnings"];
             checkBox14.Checked = BoolDictionary["orangeGuidelineShortcut"];
             checkBox15.Checked = BoolDictionary["yellowGuidelineShortcut"];
@@ -269,7 +277,6 @@ namespace EffectSome
             radioButton4.Checked = IntDictionary["filterOptions"] == (int)FilterOptions.Exclusive;
             numericUpDown1.Value = IntDictionary["maxUndoRedoActions"];
         }
-
     }
 
     public enum LocationMeasurementUnit

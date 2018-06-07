@@ -31,6 +31,21 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelOverview));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.LevelFolder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelRevision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelBuildTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelSong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelObjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelGroups = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelTriggers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelAttempts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button6 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -50,21 +65,6 @@
             this.button16 = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.Selected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.LevelFolder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelRevision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelBuildTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelSong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelObjects = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelGroups = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelTriggers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelAttempts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +105,139 @@
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownCheck);
+            // 
+            // Selected
+            // 
+            this.Selected.HeaderText = "";
+            this.Selected.Name = "Selected";
+            this.Selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Selected.Width = 22;
+            // 
+            // LevelFolder
+            // 
+            this.LevelFolder.HeaderText = "Folder";
+            this.LevelFolder.Name = "LevelFolder";
+            this.LevelFolder.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelFolder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelFolder.Width = 45;
+            // 
+            // LevelName
+            // 
+            this.LevelName.HeaderText = "Name";
+            this.LevelName.MaxInputLength = 32;
+            this.LevelName.Name = "LevelName";
+            this.LevelName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelName.Width = 150;
+            // 
+            // LevelRevision
+            // 
+            this.LevelRevision.HeaderText = "Rev.";
+            this.LevelRevision.MaxInputLength = 3;
+            this.LevelRevision.Name = "LevelRevision";
+            this.LevelRevision.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelRevision.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelRevision.Width = 40;
+            // 
+            // LevelDescription
+            // 
+            this.LevelDescription.HeaderText = "Description";
+            this.LevelDescription.MaxInputLength = 256;
+            this.LevelDescription.Name = "LevelDescription";
+            this.LevelDescription.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelDescription.Width = 283;
+            // 
+            // LevelBuildTime
+            // 
+            this.LevelBuildTime.HeaderText = "Build Time";
+            this.LevelBuildTime.Name = "LevelBuildTime";
+            this.LevelBuildTime.ReadOnly = true;
+            this.LevelBuildTime.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelBuildTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelBuildTime.Width = 75;
+            // 
+            // LevelLength
+            // 
+            this.LevelLength.HeaderText = "Length";
+            this.LevelLength.Name = "LevelLength";
+            this.LevelLength.ReadOnly = true;
+            this.LevelLength.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelLength.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelLength.Width = 52;
+            // 
+            // LevelSong
+            // 
+            this.LevelSong.HeaderText = "Song";
+            this.LevelSong.MaxInputLength = 7;
+            this.LevelSong.Name = "LevelSong";
+            this.LevelSong.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelSong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelSong.Width = 50;
+            // 
+            // LevelObjects
+            // 
+            this.LevelObjects.HeaderText = "Objects";
+            this.LevelObjects.Name = "LevelObjects";
+            this.LevelObjects.ReadOnly = true;
+            this.LevelObjects.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelObjects.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelObjects.Width = 51;
+            // 
+            // LevelGroups
+            // 
+            this.LevelGroups.HeaderText = "Groups";
+            this.LevelGroups.Name = "LevelGroups";
+            this.LevelGroups.ReadOnly = true;
+            this.LevelGroups.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelGroups.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelGroups.Width = 50;
+            // 
+            // LevelTriggers
+            // 
+            this.LevelTriggers.HeaderText = "Triggers";
+            this.LevelTriggers.Name = "LevelTriggers";
+            this.LevelTriggers.ReadOnly = true;
+            this.LevelTriggers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelTriggers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelTriggers.Width = 53;
+            // 
+            // LevelAttempts
+            // 
+            this.LevelAttempts.HeaderText = "Attempts";
+            this.LevelAttempts.Name = "LevelAttempts";
+            this.LevelAttempts.ReadOnly = true;
+            this.LevelAttempts.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelAttempts.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelAttempts.Width = 63;
+            // 
+            // LevelVersion
+            // 
+            this.LevelVersion.HeaderText = "Version";
+            this.LevelVersion.MaxInputLength = 7;
+            this.LevelVersion.Name = "LevelVersion";
+            this.LevelVersion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelVersion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelVersion.Width = 51;
+            // 
+            // LevelID
+            // 
+            this.LevelID.HeaderText = "ID";
+            this.LevelID.MaxInputLength = 9;
+            this.LevelID.Name = "LevelID";
+            this.LevelID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelID.Width = 62;
+            // 
+            // LevelStatus
+            // 
+            this.LevelStatus.HeaderText = "Status";
+            this.LevelStatus.MaxInputLength = 50;
+            this.LevelStatus.Name = "LevelStatus";
+            this.LevelStatus.ReadOnly = true;
+            this.LevelStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LevelStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LevelStatus.Width = 56;
             // 
             // button6
             // 
@@ -339,141 +472,9 @@
             this.openFileDialog1.Multiselect = true;
             this.openFileDialog1.Title = "Import levels from files";
             // 
-            // Selected
-            // 
-            this.Selected.HeaderText = "";
-            this.Selected.Name = "Selected";
-            this.Selected.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Selected.Width = 22;
-            // 
-            // LevelFolder
-            // 
-            this.LevelFolder.HeaderText = "Folder";
-            this.LevelFolder.Name = "LevelFolder";
-            this.LevelFolder.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelFolder.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelFolder.Width = 45;
-            // 
-            // LevelName
-            // 
-            this.LevelName.HeaderText = "Name";
-            this.LevelName.MaxInputLength = 32;
-            this.LevelName.Name = "LevelName";
-            this.LevelName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelName.Width = 150;
-            // 
-            // LevelRevision
-            // 
-            this.LevelRevision.HeaderText = "Rev.";
-            this.LevelRevision.MaxInputLength = 3;
-            this.LevelRevision.Name = "LevelRevision";
-            this.LevelRevision.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelRevision.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelRevision.Width = 40;
-            // 
-            // LevelDescription
-            // 
-            this.LevelDescription.HeaderText = "Description";
-            this.LevelDescription.MaxInputLength = 256;
-            this.LevelDescription.Name = "LevelDescription";
-            this.LevelDescription.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelDescription.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelDescription.Width = 283;
-            // 
-            // LevelBuildTime
-            // 
-            this.LevelBuildTime.HeaderText = "Build Time";
-            this.LevelBuildTime.Name = "LevelBuildTime";
-            this.LevelBuildTime.ReadOnly = true;
-            this.LevelBuildTime.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelBuildTime.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelBuildTime.Width = 75;
-            // 
-            // LevelLength
-            // 
-            this.LevelLength.HeaderText = "Length";
-            this.LevelLength.Name = "LevelLength";
-            this.LevelLength.ReadOnly = true;
-            this.LevelLength.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelLength.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelLength.Width = 52;
-            // 
-            // LevelSong
-            // 
-            this.LevelSong.HeaderText = "Song";
-            this.LevelSong.MaxInputLength = 7;
-            this.LevelSong.Name = "LevelSong";
-            this.LevelSong.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelSong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelSong.Width = 50;
-            // 
-            // LevelObjects
-            // 
-            this.LevelObjects.HeaderText = "Objects";
-            this.LevelObjects.Name = "LevelObjects";
-            this.LevelObjects.ReadOnly = true;
-            this.LevelObjects.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelObjects.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelObjects.Width = 51;
-            // 
-            // LevelGroups
-            // 
-            this.LevelGroups.HeaderText = "Groups";
-            this.LevelGroups.Name = "LevelGroups";
-            this.LevelGroups.ReadOnly = true;
-            this.LevelGroups.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelGroups.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelGroups.Width = 50;
-            // 
-            // LevelTriggers
-            // 
-            this.LevelTriggers.HeaderText = "Triggers";
-            this.LevelTriggers.Name = "LevelTriggers";
-            this.LevelTriggers.ReadOnly = true;
-            this.LevelTriggers.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelTriggers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelTriggers.Width = 53;
-            // 
-            // LevelAttempts
-            // 
-            this.LevelAttempts.HeaderText = "Attempts";
-            this.LevelAttempts.Name = "LevelAttempts";
-            this.LevelAttempts.ReadOnly = true;
-            this.LevelAttempts.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelAttempts.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelAttempts.Width = 63;
-            // 
-            // LevelVersion
-            // 
-            this.LevelVersion.HeaderText = "Version";
-            this.LevelVersion.MaxInputLength = 7;
-            this.LevelVersion.Name = "LevelVersion";
-            this.LevelVersion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelVersion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelVersion.Width = 51;
-            // 
-            // LevelID
-            // 
-            this.LevelID.HeaderText = "ID";
-            this.LevelID.MaxInputLength = 9;
-            this.LevelID.Name = "LevelID";
-            this.LevelID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelID.Width = 62;
-            // 
-            // LevelStatus
-            // 
-            this.LevelStatus.HeaderText = "Status";
-            this.LevelStatus.MaxInputLength = 50;
-            this.LevelStatus.Name = "LevelStatus";
-            this.LevelStatus.ReadOnly = true;
-            this.LevelStatus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.LevelStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LevelStatus.Width = 56;
-            // 
             // LevelOverview
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1225, 604);
@@ -496,8 +497,10 @@
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LevelOverview";
+            this.ShowIcon = false;
             this.Text = "Level Overview";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LevelOverview_FormClosing);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.LevelOverview_DragDrop);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownCheck);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -86,6 +86,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.checkBox41 = new System.Windows.Forms.CheckBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -126,8 +128,10 @@
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -151,6 +155,7 @@
             this.groupBox2.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.groupBox14.SuspendLayout();
+            this.groupBox17.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -395,7 +400,7 @@
             this.groupBox6.Controls.Add(this.checkBox14);
             this.groupBox6.Location = new System.Drawing.Point(6, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(298, 313);
+            this.groupBox6.Size = new System.Drawing.Size(298, 319);
             this.groupBox6.TabIndex = 7;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Guideline Editor";
@@ -649,7 +654,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(622, 351);
+            this.tabControl1.Size = new System.Drawing.Size(622, 357);
             this.tabControl1.TabIndex = 11;
             // 
             // tabPage1
@@ -664,7 +669,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(614, 325);
+            this.tabPage1.Size = new System.Drawing.Size(614, 331);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -794,13 +799,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox17);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(614, 325);
+            this.tabPage2.Size = new System.Drawing.Size(614, 331);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Warnings";
+            this.tabPage2.Text = "Dialog Messages";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
@@ -809,13 +815,15 @@
             this.tabPage3.Controls.Add(this.groupBox6);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(614, 325);
+            this.tabPage3.Size = new System.Drawing.Size(614, 331);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Shortcuts";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.textBox19);
+            this.groupBox10.Controls.Add(this.checkBox5);
             this.groupBox10.Controls.Add(this.textBox18);
             this.groupBox10.Controls.Add(this.checkBox4);
             this.groupBox10.Controls.Add(this.textBox16);
@@ -842,10 +850,30 @@
             this.groupBox10.Controls.Add(this.checkBox31);
             this.groupBox10.Location = new System.Drawing.Point(310, 6);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(298, 313);
+            this.groupBox10.Size = new System.Drawing.Size(298, 319);
             this.groupBox10.TabIndex = 8;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Level Overview";
+            // 
+            // textBox18
+            // 
+            this.textBox18.Enabled = false;
+            this.textBox18.Location = new System.Drawing.Point(192, 270);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(100, 20);
+            this.textBox18.TabIndex = 28;
+            this.textBox18.Text = "Shift+I";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(9, 272);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(100, 17);
+            this.checkBox4.TabIndex = 27;
+            this.checkBox4.Text = "Invert Selection";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // textBox16
             // 
@@ -934,7 +962,7 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(100, 20);
             this.textBox13.TabIndex = 18;
-            this.textBox13.Text = "Ctrl+S";
+            this.textBox13.Text = "Alt+S";
             // 
             // checkBox38
             // 
@@ -1073,7 +1101,7 @@
             this.tabPage4.Controls.Add(this.groupBox7);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(614, 325);
+            this.tabPage4.Size = new System.Drawing.Size(614, 331);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Updates";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1138,7 +1166,7 @@
             this.tabPage5.Controls.Add(this.groupBox8);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(614, 325);
+            this.tabPage5.Size = new System.Drawing.Size(614, 331);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Notifications";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1170,7 +1198,7 @@
             this.tabPage6.Controls.Add(this.groupBox14);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(614, 325);
+            this.tabPage6.Size = new System.Drawing.Size(614, 331);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Appearance";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1263,31 +1291,52 @@
             this.radioButton5.Text = "Light";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
-            // textBox18
+            // textBox19
             // 
-            this.textBox18.Enabled = false;
-            this.textBox18.Location = new System.Drawing.Point(192, 270);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(100, 20);
-            this.textBox18.TabIndex = 28;
-            this.textBox18.Text = "Shift+I";
+            this.textBox19.Enabled = false;
+            this.textBox19.Location = new System.Drawing.Point(192, 293);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(100, 20);
+            this.textBox19.TabIndex = 30;
+            this.textBox19.Text = "Ctrl+S";
             // 
-            // checkBox4
+            // checkBox5
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(9, 272);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(100, 17);
-            this.checkBox4.TabIndex = 27;
-            this.checkBox4.Text = "Invert Selection";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(9, 295);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(97, 17);
+            this.checkBox5.TabIndex = 29;
+            this.checkBox5.Text = "Apply Changes";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.checkBox11);
+            this.groupBox17.Location = new System.Drawing.Point(6, 148);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(602, 136);
+            this.groupBox17.TabIndex = 5;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Prompts";
+            // 
+            // checkBox11
+            // 
+            this.checkBox11.AutoSize = true;
+            this.checkBox11.Location = new System.Drawing.Point(9, 19);
+            this.checkBox11.Name = "checkBox11";
+            this.checkBox11.Size = new System.Drawing.Size(91, 17);
+            this.checkBox11.TabIndex = 6;
+            this.checkBox11.Text = "Delete Levels";
+            this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox11_CheckedChanged);
             // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 375);
+            this.ClientSize = new System.Drawing.Size(646, 381);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -1332,6 +1381,8 @@
             this.tabPage6.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1438,5 +1489,9 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.CheckBox checkBox11;
     }
 }
