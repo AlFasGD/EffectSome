@@ -177,7 +177,6 @@ namespace EffectSome
             Gamesave.SwapLevels(selectedLevelIndices[0], selectedLevelIndices[1]);
             ShowLevel(selectedLevelIndices[0], selectedLevelIndices[0]);
             ShowLevel(selectedLevelIndices[1], selectedLevelIndices[1]);
-            selectedLevelIndices.Sort(); // Might be useless
         }
         private void button14_Click(object sender, EventArgs e)
         {
