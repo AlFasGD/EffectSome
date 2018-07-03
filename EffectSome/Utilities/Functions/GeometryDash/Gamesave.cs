@@ -290,7 +290,7 @@ namespace EffectSome
         }
         public static int GetGuidelineStringStartIndex(int index)
         {
-            return GetGuidelineStringStartIndex(UserLevels[index].LevelString);
+            return GetGuidelineStringStartIndex(UserLevels[index].DecryptedLevelString);
         }
         public static int GetLevelCount()
         {
@@ -507,24 +507,12 @@ namespace EffectSome
             {
                 if (index <= UserLevelCount - 1)
                 {
-                    int parameterStartIndex;
-                    int parameterEndIndex;
-                    int parameterLength;
-                    if (index < UserLevelCount - 1)
-                    {
-                        parameterStartIndex = DecryptedLevelData.Find(startKeyString, LevelKeyStartIndices[index], LevelKeyStartIndices[index + 1]) + startKeyString.Length;
-                        parameterEndIndex = DecryptedLevelData.Find(endKeyString, parameterStartIndex, LevelKeyStartIndices[index + 1]);
-                    }
-                    else
-                    {
-                        parameterStartIndex = DecryptedLevelData.Find(startKeyString, LevelKeyStartIndices[index], DecryptedLevelData.Length - 1) + startKeyString.Length;
-                        parameterEndIndex = DecryptedLevelData.Find(endKeyString, parameterStartIndex, DecryptedLevelData.Length - 1);
-                    }
-                    parameterLength = parameterEndIndex - parameterStartIndex;
+                    int parameterStartIndex = UserLevels[index].RawLevel.Find(startKeyString, 0, UserLevels[index].RawLevel.Length - 1) + startKeyString.Length;
                     if (parameterStartIndex == startKeyString.Length - 1)
                         throw new KeyNotFoundException();
-                    else
-                        return DecryptedLevelData.Substring(parameterStartIndex, parameterLength);
+                    int parameterEndIndex = UserLevels[index].RawLevel.Find(endKeyString, parameterStartIndex, UserLevels[index].RawLevel.Length - 1);
+                    int parameterLength = parameterEndIndex - parameterStartIndex;
+                    return UserLevels[index].RawLevel.Substring(parameterStartIndex, parameterLength);
                 }
                 else
                     throw new ArgumentOutOfRangeException();
@@ -1036,7 +1024,13 @@ namespace EffectSome
                     {
                         try
                         {
-                            TryDecryptLevelString(index, out UserLevels[index].DecryptedLevelString);
+                            bool isEncrypted = TryDecryptLevelString(index, out UserLevels[index].DecryptedLevelString);
+                            if (isEncrypted)
+                            {
+                                UserLevels[index].RawLevel.Replace(UserLevels[index].LevelString, UserLevels[index].DecryptedLevelString);
+                                // TODO: Probably refactor
+                                UserLevels[index].LevelString = UserLevels[index].DecryptedLevelString;
+                            }
                         }
                         catch (Exception ex) when (ex.GetType() == typeof(ArgumentException) || ex.GetType() == typeof(KeyNotFoundException) || ex.GetType() == typeof(FormatException))
                         {
@@ -1246,6 +1240,7 @@ namespace EffectSome
         {
             string oldLS = GetLevelString(levelIndex);
             UserLevels[levelIndex].LevelString = newLS; // Set the new level strings in the memory
+
             string newLevel = UserLevels[levelIndex].RawLevel.Replace("<k>k4</k><s>" + GetLevelString(levelIndex) + "</s>", "<k>k4</k><s>" + newLS + "</s>");
             SetLevel(newLevel, levelIndex);
         }
