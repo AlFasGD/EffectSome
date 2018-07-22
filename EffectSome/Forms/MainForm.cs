@@ -29,6 +29,7 @@ using static EffectSome.Gamesave;
 using static EffectSome.GlobalParameterSettings;
 using static EffectSome.GlobalParameterSettingsPreset;
 using static EffectSome.MemoryEdit;
+using static EffectSome.Utilities.Functions.GeometryDash.Easing;
 using static System.Convert;
 using static System.IO.Directory;
 using static System.IO.File;
@@ -4830,19 +4831,6 @@ namespace EffectSome
                 }
             else
                 return new List<int> { 0 };
-        }
-
-        int GetEasingValue(int easingType, bool enableIn, bool enableOut)
-        {
-            if (easingType > 0 && easingType < 7)
-            {
-                if (enableIn && enableOut) return easingType * 3 - 2;
-                else if (enableIn && !enableOut) return easingType * 3 - 1;
-                else if (!enableIn && enableOut) return easingType * 3;
-                else throw new ArgumentException("The easing in and out parameters were both false which is invalid.");
-            }
-            else if (easingType == 0) return 0;
-            else throw new ArgumentException("The easing type value was beyond the easing type range.");
         }
     }
 }
