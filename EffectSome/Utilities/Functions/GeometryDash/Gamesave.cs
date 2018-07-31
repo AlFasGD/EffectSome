@@ -932,7 +932,14 @@ namespace EffectSome
         public static void GetAllLevelInfo()
         {
             for (int i = 0; i < UserLevelCount; i++)
-                GetLevelInfo(i);
+                try
+                {
+                    GetLevelInfo(i);
+                }
+                catch (Exception ex)
+                {
+                    throw new DataException($"Unable to properly analyze the data of the level at index {i}.", ex);
+                }
         }
         /// <summary>Gets the level info for a level in the specified index in the gamesave.</summary>
         public static void GetLevelInfo(int index)
