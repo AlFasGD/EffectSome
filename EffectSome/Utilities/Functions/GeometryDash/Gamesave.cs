@@ -909,7 +909,7 @@ namespace EffectSome
         {
             LevelKeyStartIndices = new List<int>();
             int count = GetLevelCount();
-            for (int i = 0; i < GetLevelCount(); i++)
+            for (int i = 0; i < count; i++)
             {
                 if (i > 0)
                     LevelKeyStartIndices.Add(DecryptedLevelData.Find("<k>k_" + i + "</k><d>", LevelKeyStartIndices[i - 1], DecryptedLevelData.Length) + ("<k>k_" + i + "</k>").Length);

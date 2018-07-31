@@ -17,7 +17,6 @@ namespace EffectSome
             List<int> objectIDs, float hue1, float saturation1, float brightness1, float hue2, float saturation2, float brightness2, float rotation, float scaling,
             bool[] groupIDs, List<int> groupIDValues, List<int> color1IDValues, List<int> color2IDValues, float x, float y, int zOrder, int zLayer, int el1, int el2,
             AdjustmentMode color1IDAdjustmentMode, AdjustmentMode color2IDAdjustmentMode, AdjustmentMode groupIDAdjustmentMode
-            // TODO: Reorder arguments once migrated since it's needless to keep the ordering that was used when overloading was a thing
         )
         {
             ApplyNewSettings(objectIDs, x, y, hue1, saturation1, brightness1, hue2, saturation2, brightness2, scaling, rotation, zOrder, zLayer, el1, el2, color1IDValues, color2IDValues, groupIDValues, groupIDs,
