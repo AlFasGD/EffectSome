@@ -897,13 +897,15 @@ namespace EffectSome
         }
         public static void GetCustomObjects()
         {
+            CustomObjects = new List<CustomLevelObject>();
             int startIndex = DecryptedGamesave.Find("<k>customObjectDict</k><d>") + 26;
+            if (startIndex < 26)
+                return;
+
             int endIndex = DecryptedGamesave.Find("</d>", startIndex, DecryptedGamesave.Length);
-            List<CustomLevelObject> customObjs = new List<CustomLevelObject>();
             int currentIndex = startIndex;
             while ((currentIndex = DecryptedGamesave.Find("</k><s>", currentIndex, endIndex) + 7) > 6)
-                customObjs.Add(new CustomLevelObject(GetObjects(DecryptedGamesave.Substring(currentIndex, DecryptedGamesave.Find("</s>", currentIndex, DecryptedGamesave.Length) - currentIndex))));
-            CustomObjects = customObjs;
+                CustomObjects.Add(new CustomLevelObject(GetObjects(DecryptedGamesave.Substring(currentIndex, DecryptedGamesave.Find("</s>", currentIndex, DecryptedGamesave.Length) - currentIndex))));
         }
         public static void GetKeyIndices()
         {
