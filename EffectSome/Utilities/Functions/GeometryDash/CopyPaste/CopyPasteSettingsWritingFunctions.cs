@@ -128,14 +128,14 @@ namespace EffectSome.Utilities.Functions.GeometryDash.CopyPaste
                     }
                 }
                 RemoveEmptySettings();
-                EffectSome.CopyPasteSettings.Insert(0, new CopyPasteSettings { ObjectIDs = newObjectIDs.Clone() }); // Add the list before the Object ID list containing -1
+                EffectSome.CopyPasteSettings.Insert(0, new GeneralCopyPasteSettings { ObjectIDs = newObjectIDs.Clone() }); // Add the list before the Object ID list containing -1
                 return 0;
             }
         }
 
         public static void InitializeCopyPasteAutomationSettings()
         {
-            EffectSome.CopyPasteSettings = new List<CopyPasteSettings> { new CopyPasteSettings() };
+            EffectSome.CopyPasteSettings = new List<GeneralCopyPasteSettings> { new GeneralCopyPasteSettings() };
         }
         
         public static void WriteCopyPasteAutomationSettings()

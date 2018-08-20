@@ -6,58 +6,17 @@ using System.Threading.Tasks;
 
 namespace EffectSome.Objects.CopyPasteSettings
 {
-    public class CopyPasteSettings
+    public class TriggerCopyPasteSettings : GeneralCopyPasteSettings
     {
-        #region Copy-Paste Automation Settings
-        // General parameters that apply to every object type
-        // When the array only contains -1 then the settings are to be applied for all objects except triggers and special objects
-        // When the value of the Group/Item/Block ID adjustment is -1,
-        // the Color/Group/Item/Block IDs of the new objects are to be set to the next free
-
-        // TODO: Migrate non-general settings to other specific classes
-        // This is important to make the project more organized and not bamboozle it with millions of fucking parameters in one single class
-
-        // The counters for the arrays
         #region Counters
-        public int Color1IDValueCounter;
-        public int Color2IDValueCounter;
         public int BlockAIDValueCounter;
         public int BlockBIDValueCounter;
-        public int ItemIDValueCounter;
-        public int[] GroupIDValueCounters = new int[10];
-        #endregion Counters
-        
-        // The adjustment modes of the values
+        #endregion
+
         #region Adjustment Modes
-        public AdjustmentMode Color1IDValueAdjustmentMode;
-        public AdjustmentMode Color2IDValueAdjustmentMode;
         public AdjustmentMode BlockAIDValueAdjustmentMode;
         public AdjustmentMode BlockBIDValueAdjustmentMode;
-        public AdjustmentMode ItemIDValueAdjustmentMode;
-        public AdjustmentMode[] GroupIDValueAdjustmentModes = new AdjustmentMode[10];
-        #endregion Adjustment Modes
-
-        // The values for the general object parameters
-        #region General Objects Parameters
-        public List<int> ObjectIDs;
-        public float X;
-        public float Y;
-        public float Scaling;
-        public float Rotation;
-        public float Hue1;
-        public float Saturation1;
-        public float Brightness1;
-        public float Hue2;
-        public float Saturation2;
-        public float Brightness2;
-        public int EL1;
-        public int EL2;
-        public int ZOrder;
-        public int ZLayer;
-        public List<int> Color1IDs;
-        public List<int> Color2IDs;
-        public List<int> GroupIDs;
-        #endregion General Objects Parameters
+        #endregion
 
         // Incomplete
         #region Trigger-Specific Parameters
@@ -120,37 +79,10 @@ namespace EffectSome.Objects.CopyPasteSettings
         #endregion Count Trigger Exclusive Parameters
         #endregion Trigger-Specific Parameters
 
-        // The values for the special object parameters
-        #region Special Object Exclusive Parameters
-        public bool RandomizeStart;
-        public float AnimationSpeed; // The duration of each loop of the animation in seconds
-        public bool DynamicBlock;
-        public List<int> BlockIDs;
-        #endregion Special Object Exclusive Parameters
-        #endregion Copy-Paste Automation Settings
-
-        public CopyPasteSettings()
+        public TriggerCopyPasteSettings()
         {
-            ObjectIDs = new List<int> { -1 };
-            Color1IDs = new List<int> { 0 };
-            Color2IDs = new List<int> { 0 };
-            GroupIDs = new List<int> { 0 };
-            BlockIDs = new List<int> { 0 };
             BlockAIDs = new List<int> { 0 };
             BlockBIDs = new List<int> { 0 };
-            for (int i = 0; i < 10; i++)
-            {
-                GroupIDValueCounters[i] = 0;
-                GroupIDValueAdjustmentModes[i] = AdjustmentMode.FlatAdjustment;
-            }
         }
-    }
-
-    // FOR ACTUAL FUCK'S SAKE USE A FUCKING ENUM TO DISTINGUISH THE VALUES PROPERLY
-    public enum AdjustmentMode
-    {
-        FlatAdjustment = 0,
-        SpecificValues = 1,
-        UnusedIDs = 2,
     }
 }

@@ -140,10 +140,12 @@
     <Compile Include="Forms\Other\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Objects\CopyPasteSettings\SpecialObjectCopyPasteSettings.cs" />
+    <Compile Include="Objects\CopyPasteSettings\TriggerCopyPasteSettings.cs" />
     <Compile Include="Objects\GeometryDash\CustomLevelObject.cs" />
     <Compile Include="Objects\GeometryDash\GuidelineEditorPreset.cs" />
     <Compile Include="Utilities\Enumerations\GeometryDash\EasingType.cs" />
-    <Compile Include="Objects\CopyPasteSettings\CopyPasteSettings.cs" />
+    <Compile Include="Objects\CopyPasteSettings\GeneralCopyPasteSettings.cs" />
     <Compile Include="Utilities\Functions\GeometryDash\CopyPaste\CopyPasteSettingsWriting.cs" />
     <Compile Include="Utilities\Functions\GeometryDash\CopyPaste\CopyPasteSettingsWritingFunctions.cs" />
     <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\CustomObjectEditor.cs">

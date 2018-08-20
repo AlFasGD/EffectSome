@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EffectSome.Objects.CopyPasteSettings;
-using static EffectSome.Objects.CopyPasteSettings.CopyPasteSettings;
+using static EffectSome.Objects.CopyPasteSettings.GeneralCopyPasteSettings;
 using static EffectSome.Utilities.Functions.GeometryDash.CopyPaste.CopyPasteSettingsWritingFunctions;
 using static EffectSome.Editor;
 
@@ -1675,7 +1675,7 @@ namespace EffectSome
                     gIDs[i] = 0;
                     adjModes[i] = groupIDs[i] ? AdjustmentMode.FlatAdjustment : groupIDAdjustmentMode;
                 }
-                EffectSome.CopyPasteSettings[EffectSome.CopyPasteSettings.Count - 1] = new CopyPasteSettings
+                EffectSome.CopyPasteSettings[EffectSome.CopyPasteSettings.Count - 1] = new GeneralCopyPasteSettings
                 {
                     X = x,
                     Y = y,

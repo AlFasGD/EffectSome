@@ -109,7 +109,7 @@ namespace EffectSome
         public static bool canRegisterActions = false;
         #endregion
 
-        public static List<CopyPasteSettings> CopyPasteSettings;
+        public static List<GeneralCopyPasteSettings> CopyPasteSettings;
         public static Dictionary<int, double> CustomSongBPMs;
 
         public static NotifyIcon notification;
