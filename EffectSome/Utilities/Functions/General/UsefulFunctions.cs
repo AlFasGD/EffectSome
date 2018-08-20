@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.IO.File;
 
-namespace EffectSome
+namespace EffectSome.Utilities.Functions.General
 {
     public static class UsefulFunctions
     {

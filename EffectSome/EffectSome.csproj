@@ -165,6 +165,7 @@
     </Compile>
     <Compile Include="Objects\General\Pair.cs" />
     <Compile Include="Objects\GeometryDash\Level.cs" />
+    <Compile Include="Utilities\Functions\GeometryDash\CopyPaste\LegacyCopyPasteSettingsWriting.cs" />
     <Compile Include="Utilities\Functions\GeometryDash\Easing.cs" />
     <Compile Include="Utilities\Functions\GeometryDash\Editor.cs" />
     <Compile Include="Forms\Dialogs\MenuStrip\SelectionEdit\EditSpecialObjectParameters.cs">

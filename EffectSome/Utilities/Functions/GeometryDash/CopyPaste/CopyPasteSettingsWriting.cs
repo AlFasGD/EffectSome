@@ -7,6 +7,7 @@ using EffectSome.Objects.CopyPasteSettings;
 using static EffectSome.Objects.CopyPasteSettings.GeneralCopyPasteSettings;
 using static EffectSome.Utilities.Functions.GeometryDash.CopyPaste.CopyPasteSettingsWritingFunctions;
 using static EffectSome.Editor;
+using static EffectSome.EffectSome;
 
 namespace EffectSome
 {
@@ -22,7 +23,7 @@ namespace EffectSome
         {
             ApplyNewSettings(objectIDs, x, y, hue1, saturation1, brightness1, hue2, saturation2, brightness2, scaling, rotation, zOrder, zLayer, el1, el2, color1IDValues, color2IDValues, groupIDValues, groupIDs,
                              color1IDAdjustmentMode, color2IDAdjustmentMode, groupIDAdjustmentMode);
-            WriteAllObjectCopyPasteAutomationSettings();
+            WriteObjectCopyPasteAutomationSettings();
         }
         #region Special Objects
         #region Orbs
@@ -1702,6 +1703,49 @@ namespace EffectSome
                     GroupIDValueAdjustmentModes = adjModes,
                 };
             }
+        }
+        
+        public static void RemoveEmptySettings()
+        {
+            for (int i = CopyPasteSettings.Count - 1; i >= 0; i--)
+                if (CopyPasteSettings[i].ObjectIDs.Count == 0)
+                    CopyPasteSettings.RemoveAt(i);
+        }
+
+        public static int ChangeCopyPasteAutomationSettings(List<int> newObjectIDs)
+        {
+            // TODO: Work on this
+            if (newObjectIDs[0] == -1)
+            {
+                return -1;
+            }
+            else // Else if the new settings are just for the selected Object IDs
+            {
+                for (int i = 0; i < CopyPasteSettings.Count; i++)
+                {
+                    if (newObjectIDs.ContainsAll(CopyPasteSettings[i].ObjectIDs))
+                        return i;
+                }
+                for (int a = 0; a < newObjectIDs.Count; a++)
+                {
+                    bool found = false;
+                    for (int i = 0; i < CopyPasteSettings.Count && !found; i++)
+                    {
+                        int index = CopyPasteSettings[i].ObjectIDs.FindIndexInList(newObjectIDs[a]);
+                        found = index > -1;
+                        if (found)
+                            CopyPasteSettings[i].ObjectIDs.RemoveAt(index);
+                    }
+                }
+                RemoveEmptySettings();
+                CopyPasteSettings.Insert(0, new GeneralCopyPasteSettings { ObjectIDs = newObjectIDs.Clone() }); // Add the list before the Object ID list containing -1
+                return 0;
+            }
+        }
+
+        public static void InitializeCopyPasteAutomationSettings()
+        {
+            CopyPasteSettings = new List<GeneralCopyPasteSettings> { new GeneralCopyPasteSettings() };
         }
     }
 }

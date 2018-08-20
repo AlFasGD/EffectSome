@@ -126,7 +126,7 @@ namespace EffectSome
         public EffectSome()
         {
             CreateFolders();
-            CopyPasteSettingsWritingFunctions.InitializeCopyPasteAutomationSettings();
+            CopyPasteSettingsWriting.InitializeCopyPasteAutomationSettings();
             SetupWebObjects();
             appLocation = GetCurrentDirectory();
             InitializeNotificationIcon();
