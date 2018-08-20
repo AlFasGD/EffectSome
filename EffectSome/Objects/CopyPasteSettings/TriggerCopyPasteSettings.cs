@@ -8,6 +8,8 @@ namespace EffectSome.Objects.CopyPasteSettings
 {
     public class TriggerCopyPasteSettings : GeneralCopyPasteSettings
     {
+        // TODO: Create specific classes for each individual object type
+
         #region Counters
         public int BlockAIDValueCounter;
         public int BlockBIDValueCounter;

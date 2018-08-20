@@ -9,6 +9,7 @@ namespace EffectSome.Objects.CopyPasteSettings
     public class SpecialObjectCopyPasteSettings : GeneralCopyPasteSettings
     {
         // TODO: Create specific classes for each individual object type
+
         public int ItemIDValueCounter;
 
         public AdjustmentMode ItemIDValueAdjustmentMode;
