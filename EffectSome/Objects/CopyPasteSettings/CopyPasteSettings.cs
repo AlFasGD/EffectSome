@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EffectSome
+namespace EffectSome.Objects.CopyPasteSettings
 {
     public class CopyPasteSettings
     {
@@ -27,7 +27,6 @@ namespace EffectSome
         public int[] GroupIDValueCounters = new int[10];
         #endregion Counters
         
-
         // The adjustment modes of the values
         #region Adjustment Modes
         public AdjustmentMode Color1IDValueAdjustmentMode;

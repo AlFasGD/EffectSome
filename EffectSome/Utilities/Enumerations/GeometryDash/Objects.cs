@@ -1,4 +1,4 @@
-﻿namespace EffectSome
+﻿namespace EffectSome.Utilities.Enumerations
 {
     class Objects
     {

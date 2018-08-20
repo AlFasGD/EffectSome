@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using EffectSome.Objects.CopyPasteSettings;
 using static EffectSome.EffectSome;
 using static EffectSome.Gamesave;
 using static EffectSome.UsefulFunctions;
 using static System.IO.File;
 
-namespace EffectSome
+namespace EffectSome.Utilities.Functions.GeometryDash.CopyPaste
 {
     public static class CopyPasteSettingsWritingFunctions
     {

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static EffectSome.CopyPasteSettings;
-using static EffectSome.CopyPasteSettingsWritingFunctions;
+using EffectSome.Objects.CopyPasteSettings;
+using static EffectSome.Objects.CopyPasteSettings.CopyPasteSettings;
+using static EffectSome.Utilities.Functions.GeometryDash.CopyPaste.CopyPasteSettingsWritingFunctions;
 using static EffectSome.Editor;
 
 namespace EffectSome

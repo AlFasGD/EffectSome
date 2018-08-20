@@ -1,33 +1,21 @@
+using EffectSome.Objects.CopyPasteSettings;
+using EffectSome.Utilities.Functions.GeometryDash.CopyPaste;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Media;
 using System.Net;
-using System.Runtime.InteropServices;
-using System.Security;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Timers;
-using System.Windows;
-using System.Windows.Forms;
 using System.Reflection;
-using Microsoft.WindowsAPICodePack.Shell;
-using Microsoft.WindowsAPICodePack.ShellExtensions;
-using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
-using static EffectSome.DLLs;
-using static EffectSome.CopyPasteSettings;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows.Forms;
 using static EffectSome.CopyPasteSettingsWriting;
 using static EffectSome.Editor;
 using static EffectSome.Gamesave;
 using static EffectSome.GlobalParameterSettings;
-using static EffectSome.GlobalParameterSettingsPreset;
 using static EffectSome.MemoryEdit;
 using static EffectSome.Utilities.Functions.GeometryDash.Easing;
 using static System.Convert;
@@ -4792,11 +4780,8 @@ namespace EffectSome
                         return new List<int> { presets[mainColorIDPresetIndex].AdjustIDsAdjustment };
                     case AdjustmentMode.SpecificValues:
                         return presets[mainColorIDPresetIndex].AdjustIDsSpecifiedValues;
-                    default:
-                        return new List<int>();
                 }
-            else
-                return new List<int> { 0 };
+            return new List<int> { 0 };
         }
         List<int> GetColor2IDList()
         {
@@ -4809,11 +4794,8 @@ namespace EffectSome
                         return new List<int> { presets[detailColorIDPresetIndex].AdjustIDsAdjustment };
                     case AdjustmentMode.SpecificValues:
                         return presets[detailColorIDPresetIndex].AdjustIDsSpecifiedValues;
-                    default:
-                        return new List<int>();
                 }
-            else
-                return new List<int> { 0 };
+            return new List<int> { 0 };
         }
         List<int> GetGroupIDList()
         {
@@ -4826,11 +4808,8 @@ namespace EffectSome
                         return new List<int> { presets[groupIDPresetIndex].AutoAddGroupIDsAdjustment };
                     case AdjustmentMode.SpecificValues:
                         return presets[groupIDPresetIndex].AutoAddGroupIDsSpecifiedValues;
-                    default:
-                        return new List<int>();
                 }
-            else
-                return new List<int> { 0 };
+            return new List<int> { 0 };
         }
     }
 }

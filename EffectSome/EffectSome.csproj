@@ -143,7 +143,7 @@
     <Compile Include="Objects\GeometryDash\CustomLevelObject.cs" />
     <Compile Include="Objects\GeometryDash\GuidelineEditorPreset.cs" />
     <Compile Include="Utilities\Enumerations\GeometryDash\EasingType.cs" />
-    <Compile Include="Utilities\Functions\GeometryDash\CopyPaste\CopyPasteSettings.cs" />
+    <Compile Include="Objects\CopyPasteSettings\CopyPasteSettings.cs" />
     <Compile Include="Utilities\Functions\GeometryDash\CopyPaste\CopyPasteSettingsWriting.cs" />
     <Compile Include="Utilities\Functions\GeometryDash\CopyPaste\CopyPasteSettingsWritingFunctions.cs" />
     <Compile Include="Forms\Dialogs\MenuStrip\GeneralEditor\CustomObjectEditor.cs">
