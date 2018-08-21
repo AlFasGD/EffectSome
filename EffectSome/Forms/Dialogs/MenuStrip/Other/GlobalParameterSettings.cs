@@ -12,6 +12,7 @@ using static System.IO.File;
 using static System.IO.Directory;
 using static System.Convert;
 using static EffectSome.GlobalParameterSettingsPreset;
+using EffectSome.Objects.CopyPasteSettings;
 
 namespace EffectSome
 {
