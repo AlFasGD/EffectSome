@@ -136,9 +136,9 @@
             this.groupBox19.Controls.Add(this.numericUpDown30);
             this.groupBox19.Controls.Add(this.radioButton11);
             this.groupBox19.Controls.Add(this.radioButton12);
-            this.groupBox19.Location = new System.Drawing.Point(6, 142);
+            this.groupBox19.Location = new System.Drawing.Point(6, 140);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(403, 137);
+            this.groupBox19.Size = new System.Drawing.Size(403, 163);
             this.groupBox19.TabIndex = 17;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Settings";
@@ -147,7 +147,7 @@
             // 
             this.checkBox9.AutoSize = true;
             this.checkBox9.Enabled = false;
-            this.checkBox9.Location = new System.Drawing.Point(6, 114);
+            this.checkBox9.Location = new System.Drawing.Point(6, 138);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(157, 17);
             this.checkBox9.TabIndex = 38;
@@ -160,9 +160,9 @@
             this.button8.Enabled = false;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button8.Location = new System.Drawing.Point(297, 48);
+            this.button8.Location = new System.Drawing.Point(343, 87);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(55, 22);
+            this.button8.Size = new System.Drawing.Size(55, 45);
             this.button8.TabIndex = 11;
             this.button8.Text = "Remove";
             this.button8.UseVisualStyleBackColor = true;
@@ -184,7 +184,7 @@
             "8",
             "9",
             "10"});
-            this.listBox6.Location = new System.Drawing.Point(198, 114);
+            this.listBox6.Location = new System.Drawing.Point(198, 138);
             this.listBox6.MultiColumn = true;
             this.listBox6.Name = "listBox6";
             this.listBox6.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
@@ -195,7 +195,7 @@
             // numericUpDown29
             // 
             this.numericUpDown29.Enabled = false;
-            this.numericUpDown29.Location = new System.Drawing.Point(198, 88);
+            this.numericUpDown29.Location = new System.Drawing.Point(261, 65);
             this.numericUpDown29.Maximum = new decimal(new int[] {
             999,
             0,
@@ -207,7 +207,7 @@
             0,
             0});
             this.numericUpDown29.Name = "numericUpDown29";
-            this.numericUpDown29.Size = new System.Drawing.Size(96, 20);
+            this.numericUpDown29.Size = new System.Drawing.Size(80, 20);
             this.numericUpDown29.TabIndex = 9;
             this.numericUpDown29.Value = new decimal(new int[] {
             1,
@@ -220,9 +220,9 @@
             this.button9.Enabled = false;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button9.Location = new System.Drawing.Point(297, 72);
+            this.button9.Location = new System.Drawing.Point(343, 64);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(55, 37);
+            this.button9.Size = new System.Drawing.Size(55, 22);
             this.button9.TabIndex = 8;
             this.button9.Text = "Add";
             this.button9.UseVisualStyleBackColor = true;
@@ -232,29 +232,29 @@
             // 
             this.listBox2.Enabled = false;
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(355, 13);
+            this.listBox2.Location = new System.Drawing.Point(6, 88);
             this.listBox2.Name = "listBox2";
             this.listBox2.ScrollAlwaysVisible = true;
             this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox2.Size = new System.Drawing.Size(42, 95);
+            this.listBox2.Size = new System.Drawing.Size(335, 43);
             this.listBox2.TabIndex = 7;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.groupIDList_SelectedIndexChanged);
             // 
             // radioButton10
             // 
             this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(6, 78);
+            this.radioButton10.Location = new System.Drawing.Point(6, 65);
             this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(186, 30);
+            this.radioButton10.Size = new System.Drawing.Size(194, 17);
             this.radioButton10.TabIndex = 5;
-            this.radioButton10.Text = "Set the Group IDs on the selected\r\nobjects to chosen values";
+            this.radioButton10.Text = "Set the Group IDs to chosen values";
             this.radioButton10.UseVisualStyleBackColor = true;
             this.radioButton10.CheckedChanged += new System.EventHandler(this.radioButton10_CheckedChanged);
             // 
             // numericUpDown30
             // 
             this.numericUpDown30.Enabled = false;
-            this.numericUpDown30.Location = new System.Drawing.Point(198, 49);
+            this.numericUpDown30.Location = new System.Drawing.Point(261, 42);
             this.numericUpDown30.Maximum = new decimal(new int[] {
             999,
             0,
@@ -266,7 +266,7 @@
             0,
             -2147483648});
             this.numericUpDown30.Name = "numericUpDown30";
-            this.numericUpDown30.Size = new System.Drawing.Size(96, 20);
+            this.numericUpDown30.Size = new System.Drawing.Size(80, 20);
             this.numericUpDown30.TabIndex = 4;
             this.numericUpDown30.ValueChanged += new System.EventHandler(this.numericUpDown30_ValueChanged);
             // 
@@ -275,9 +275,9 @@
             this.radioButton11.AutoSize = true;
             this.radioButton11.Location = new System.Drawing.Point(6, 42);
             this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(138, 30);
+            this.radioButton11.Size = new System.Drawing.Size(137, 17);
             this.radioButton11.TabIndex = 2;
-            this.radioButton11.Text = "Adjust the Group IDs on\r\nthe selected objects by";
+            this.radioButton11.Text = "Adjust the Group IDs by";
             this.radioButton11.UseVisualStyleBackColor = true;
             this.radioButton11.CheckedChanged += new System.EventHandler(this.radioButton11_CheckedChanged);
             // 
@@ -304,9 +304,9 @@
             this.groupBox4.Controls.Add(this.numericUpDown2);
             this.groupBox4.Controls.Add(this.radioButton2);
             this.groupBox4.Controls.Add(this.radioButton1);
-            this.groupBox4.Location = new System.Drawing.Point(6, 142);
+            this.groupBox4.Location = new System.Drawing.Point(6, 140);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(403, 114);
+            this.groupBox4.Size = new System.Drawing.Size(403, 163);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Settings";
@@ -316,9 +316,9 @@
             this.button7.Enabled = false;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button7.Location = new System.Drawing.Point(297, 48);
+            this.button7.Location = new System.Drawing.Point(343, 87);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(55, 22);
+            this.button7.Size = new System.Drawing.Size(55, 45);
             this.button7.TabIndex = 11;
             this.button7.Text = "Remove";
             this.button7.UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@
             // numericUpDown28
             // 
             this.numericUpDown28.Enabled = false;
-            this.numericUpDown28.Location = new System.Drawing.Point(198, 88);
+            this.numericUpDown28.Location = new System.Drawing.Point(261, 65);
             this.numericUpDown28.Maximum = new decimal(new int[] {
             999,
             0,
@@ -339,7 +339,7 @@
             0,
             0});
             this.numericUpDown28.Name = "numericUpDown28";
-            this.numericUpDown28.Size = new System.Drawing.Size(96, 20);
+            this.numericUpDown28.Size = new System.Drawing.Size(80, 20);
             this.numericUpDown28.TabIndex = 9;
             this.numericUpDown28.Value = new decimal(new int[] {
             1,
@@ -352,9 +352,9 @@
             this.button4.Enabled = false;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button4.Location = new System.Drawing.Point(297, 72);
+            this.button4.Location = new System.Drawing.Point(343, 64);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(55, 37);
+            this.button4.Size = new System.Drawing.Size(55, 22);
             this.button4.TabIndex = 8;
             this.button4.Text = "Add";
             this.button4.UseVisualStyleBackColor = true;
@@ -365,29 +365,29 @@
             this.listBox1.ColumnWidth = 20;
             this.listBox1.Enabled = false;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(355, 13);
+            this.listBox1.Location = new System.Drawing.Point(6, 88);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox1.Size = new System.Drawing.Size(42, 95);
+            this.listBox1.Size = new System.Drawing.Size(335, 43);
             this.listBox1.TabIndex = 7;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.targetGroupIDList_SelectedIndexChanged);
             // 
             // radioButton9
             // 
             this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(6, 78);
+            this.radioButton9.Location = new System.Drawing.Point(6, 65);
             this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(154, 30);
+            this.radioButton9.Size = new System.Drawing.Size(162, 17);
             this.radioButton9.TabIndex = 5;
-            this.radioButton9.Text = "Set the IDs on the selected\r\nobjects to chosen values";
+            this.radioButton9.Text = "Set the IDs to chosen values";
             this.radioButton9.UseVisualStyleBackColor = true;
             this.radioButton9.CheckedChanged += new System.EventHandler(this.radioButton9_CheckedChanged);
             // 
             // numericUpDown2
             // 
             this.numericUpDown2.Enabled = false;
-            this.numericUpDown2.Location = new System.Drawing.Point(198, 49);
+            this.numericUpDown2.Location = new System.Drawing.Point(261, 42);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             999,
             0,
@@ -399,7 +399,7 @@
             0,
             -2147483648});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(96, 20);
+            this.numericUpDown2.Size = new System.Drawing.Size(80, 20);
             this.numericUpDown2.TabIndex = 4;
             this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
@@ -408,9 +408,9 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(6, 42);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(124, 30);
+            this.radioButton2.Size = new System.Drawing.Size(105, 17);
             this.radioButton2.TabIndex = 2;
-            this.radioButton2.Text = "Adjust the IDs on the\r\nselected objects by";
+            this.radioButton2.Text = "Adjust the IDs by";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
@@ -447,9 +447,9 @@
             this.checkBox17.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox17.Location = new System.Drawing.Point(12, 138);
             this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(127, 17);
+            this.checkBox17.Size = new System.Drawing.Size(131, 17);
             this.checkBox17.TabIndex = 6;
-            this.checkBox17.Text = "Move new objects by";
+            this.checkBox17.Text = "Move New Objects by";
             this.checkBox17.UseVisualStyleBackColor = true;
             this.checkBox17.CheckedChanged += new System.EventHandler(this.checkBox17_CheckedChanged);
             // 
@@ -742,7 +742,7 @@
             this.groupBox10.Controls.Add(this.numericUpDown7);
             this.groupBox10.Controls.Add(this.numericUpDown6);
             this.groupBox10.Controls.Add(this.checkBox17);
-            this.groupBox10.Location = new System.Drawing.Point(6, 142);
+            this.groupBox10.Location = new System.Drawing.Point(6, 140);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(403, 163);
             this.groupBox10.TabIndex = 16;
@@ -766,7 +766,7 @@
             this.groupBox3.Size = new System.Drawing.Size(391, 113);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "On Copy-Paste Settings Appliance Copy-Paste Until";
+            this.groupBox3.Text = "On Copy-Paste Settings Appliance Keep Copy-Pasting Until";
             // 
             // tabControl1
             // 
@@ -777,7 +777,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(423, 337);
+            this.tabControl1.Size = new System.Drawing.Size(423, 335);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 20;
             // 
@@ -788,7 +788,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(415, 311);
+            this.tabPage1.Size = new System.Drawing.Size(415, 309);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Auto Copy-Paste";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -805,7 +805,7 @@
             this.groupBox5.Controls.Add(this.label1);
             this.groupBox5.Location = new System.Drawing.Point(6, 6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(403, 130);
+            this.groupBox5.Size = new System.Drawing.Size(403, 128);
             this.groupBox5.TabIndex = 17;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Presets";
@@ -815,9 +815,9 @@
             this.button24.Enabled = false;
             this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button24.Location = new System.Drawing.Point(109, 72);
+            this.button24.Location = new System.Drawing.Point(107, 99);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(288, 23);
+            this.button24.Size = new System.Drawing.Size(290, 23);
             this.button24.TabIndex = 7;
             this.button24.Text = "Create New Preset";
             this.button24.UseVisualStyleBackColor = true;
@@ -828,9 +828,9 @@
             this.button11.Enabled = false;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button11.Location = new System.Drawing.Point(109, 101);
+            this.button11.Location = new System.Drawing.Point(107, 72);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(288, 23);
+            this.button11.Size = new System.Drawing.Size(290, 23);
             this.button11.TabIndex = 6;
             this.button11.Text = "Update Preset Settings";
             this.button11.UseVisualStyleBackColor = true;
@@ -841,9 +841,9 @@
             this.button10.Enabled = false;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button10.Location = new System.Drawing.Point(6, 101);
+            this.button10.Location = new System.Drawing.Point(5, 99);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(97, 23);
+            this.button10.Size = new System.Drawing.Size(99, 23);
             this.button10.TabIndex = 5;
             this.button10.Text = "Delete Preset";
             this.button10.UseVisualStyleBackColor = true;
@@ -854,9 +854,9 @@
             this.button6.Enabled = false;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.Olive;
-            this.button6.Location = new System.Drawing.Point(6, 72);
+            this.button6.Location = new System.Drawing.Point(5, 72);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(97, 23);
+            this.button6.Size = new System.Drawing.Size(99, 23);
             this.button6.TabIndex = 4;
             this.button6.Text = "Change Name";
             this.button6.UseVisualStyleBackColor = true;
@@ -864,9 +864,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 46);
+            this.textBox1.Location = new System.Drawing.Point(109, 46);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(319, 20);
+            this.textBox1.Size = new System.Drawing.Size(288, 20);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -883,9 +883,9 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(78, 19);
+            this.comboBox1.Location = new System.Drawing.Point(109, 19);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(319, 21);
+            this.comboBox1.Size = new System.Drawing.Size(288, 21);
             this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -906,7 +906,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(415, 311);
+            this.tabPage2.Size = new System.Drawing.Size(415, 309);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Adjust IDs";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -923,7 +923,7 @@
             this.groupBox6.Controls.Add(this.label4);
             this.groupBox6.Location = new System.Drawing.Point(6, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(403, 130);
+            this.groupBox6.Size = new System.Drawing.Size(403, 128);
             this.groupBox6.TabIndex = 18;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Presets";
@@ -933,9 +933,9 @@
             this.button25.Enabled = false;
             this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button25.Location = new System.Drawing.Point(109, 72);
+            this.button25.Location = new System.Drawing.Point(108, 99);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(288, 23);
+            this.button25.Size = new System.Drawing.Size(290, 23);
             this.button25.TabIndex = 8;
             this.button25.Text = "Create New Preset";
             this.button25.UseVisualStyleBackColor = true;
@@ -946,9 +946,9 @@
             this.button12.Enabled = false;
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button12.Location = new System.Drawing.Point(109, 101);
+            this.button12.Location = new System.Drawing.Point(108, 72);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(288, 23);
+            this.button12.Size = new System.Drawing.Size(290, 23);
             this.button12.TabIndex = 6;
             this.button12.Text = "Update Preset Settings";
             this.button12.UseVisualStyleBackColor = true;
@@ -959,9 +959,9 @@
             this.button13.Enabled = false;
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button13.Location = new System.Drawing.Point(6, 101);
+            this.button13.Location = new System.Drawing.Point(5, 99);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(97, 23);
+            this.button13.Size = new System.Drawing.Size(99, 23);
             this.button13.TabIndex = 5;
             this.button13.Text = "Delete Preset";
             this.button13.UseVisualStyleBackColor = true;
@@ -972,9 +972,9 @@
             this.button14.Enabled = false;
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.Color.Olive;
-            this.button14.Location = new System.Drawing.Point(6, 72);
+            this.button14.Location = new System.Drawing.Point(5, 72);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(97, 23);
+            this.button14.Size = new System.Drawing.Size(99, 23);
             this.button14.TabIndex = 4;
             this.button14.Text = "Change Name";
             this.button14.UseVisualStyleBackColor = true;
@@ -982,9 +982,9 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(78, 46);
+            this.textBox2.Location = new System.Drawing.Point(109, 46);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(319, 20);
+            this.textBox2.Size = new System.Drawing.Size(288, 20);
             this.textBox2.TabIndex = 3;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -1001,9 +1001,9 @@
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(78, 19);
+            this.comboBox2.Location = new System.Drawing.Point(109, 19);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(319, 21);
+            this.comboBox2.Size = new System.Drawing.Size(288, 21);
             this.comboBox2.Sorted = true;
             this.comboBox2.TabIndex = 1;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
@@ -1023,7 +1023,7 @@
             this.tabPage4.Controls.Add(this.groupBox19);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(415, 311);
+            this.tabPage4.Size = new System.Drawing.Size(415, 309);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Auto-Add Group IDs";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1040,7 +1040,7 @@
             this.groupBox8.Controls.Add(this.label8);
             this.groupBox8.Location = new System.Drawing.Point(6, 6);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(403, 130);
+            this.groupBox8.Size = new System.Drawing.Size(403, 128);
             this.groupBox8.TabIndex = 18;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Presets";
@@ -1050,9 +1050,9 @@
             this.button27.Enabled = false;
             this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button27.Location = new System.Drawing.Point(109, 72);
+            this.button27.Location = new System.Drawing.Point(108, 99);
             this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(288, 23);
+            this.button27.Size = new System.Drawing.Size(290, 23);
             this.button27.TabIndex = 8;
             this.button27.Text = "Create New Preset";
             this.button27.UseVisualStyleBackColor = true;
@@ -1063,9 +1063,9 @@
             this.button18.Enabled = false;
             this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button18.Location = new System.Drawing.Point(109, 101);
+            this.button18.Location = new System.Drawing.Point(108, 72);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(288, 23);
+            this.button18.Size = new System.Drawing.Size(290, 23);
             this.button18.TabIndex = 6;
             this.button18.Text = "Update Preset Settings";
             this.button18.UseVisualStyleBackColor = true;
@@ -1076,9 +1076,9 @@
             this.button19.Enabled = false;
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button19.Location = new System.Drawing.Point(6, 101);
+            this.button19.Location = new System.Drawing.Point(5, 99);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(97, 23);
+            this.button19.Size = new System.Drawing.Size(99, 23);
             this.button19.TabIndex = 5;
             this.button19.Text = "Delete Preset";
             this.button19.UseVisualStyleBackColor = true;
@@ -1089,9 +1089,9 @@
             this.button20.Enabled = false;
             this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button20.ForeColor = System.Drawing.Color.Olive;
-            this.button20.Location = new System.Drawing.Point(6, 72);
+            this.button20.Location = new System.Drawing.Point(5, 72);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(97, 23);
+            this.button20.Size = new System.Drawing.Size(99, 23);
             this.button20.TabIndex = 4;
             this.button20.Text = "Change Name";
             this.button20.UseVisualStyleBackColor = true;
@@ -1099,9 +1099,9 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(78, 46);
+            this.textBox4.Location = new System.Drawing.Point(109, 46);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(319, 20);
+            this.textBox4.Size = new System.Drawing.Size(288, 20);
             this.textBox4.TabIndex = 3;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -1118,9 +1118,9 @@
             // 
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(78, 19);
+            this.comboBox4.Location = new System.Drawing.Point(109, 19);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(319, 21);
+            this.comboBox4.Size = new System.Drawing.Size(288, 21);
             this.comboBox4.Sorted = true;
             this.comboBox4.TabIndex = 1;
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
@@ -1138,7 +1138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 361);
+            this.ClientSize = new System.Drawing.Size(447, 359);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;

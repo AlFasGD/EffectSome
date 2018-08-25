@@ -238,10 +238,10 @@ namespace EffectSome
         {
             return IsNumber(c) || IsLetter(c) || c == '/' || c == '+' || c == '=';
         }
-        public static bool IsLetter(this char c) => (c >= 65 && c <= 90 || c >= 97 && c <= 122);
-        public static bool IsLowerCaseLetter(this char c) => (c >= 97 && c <= 122);
-        public static bool IsNumber(this char c) => (c >= 48 && c <= 57);
-        public static bool IsUpperCaseLetter(this char c) => (c >= 65 && c <= 90);
+        public static bool IsLetter(this char c) => (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+        public static bool IsLowerCaseLetter(this char c) => c >= 'a' && c <= 'z';
+        public static bool IsNumber(this char c) => c >= '0' && c <= '9';
+        public static bool IsUpperCaseLetter(this char c) => c >= 'A' && c <= 'Z';
         public static bool IsLetterOrNumber(this char c) => IsLetter(c) || IsNumber(c);
 
         public static int[] FindOccurences(this string[] a, string match)
