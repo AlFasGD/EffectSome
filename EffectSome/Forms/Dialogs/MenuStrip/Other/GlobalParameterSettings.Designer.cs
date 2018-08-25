@@ -815,7 +815,7 @@
             this.button24.Enabled = false;
             this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button24.Location = new System.Drawing.Point(107, 99);
+            this.button24.Location = new System.Drawing.Point(108, 99);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(290, 23);
             this.button24.TabIndex = 7;
@@ -828,7 +828,7 @@
             this.button11.Enabled = false;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button11.Location = new System.Drawing.Point(107, 72);
+            this.button11.Location = new System.Drawing.Point(108, 72);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(290, 23);
             this.button11.TabIndex = 6;
