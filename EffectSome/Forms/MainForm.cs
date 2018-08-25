@@ -1499,11 +1499,9 @@ namespace EffectSome
         /// <summary>Deletes the entire <see cref="Directory"/> and all of its contents.</summary><param name="dir">The name of the <see cref="Directory"/>.</param>
         public static void DeleteEntireDirectory(string dir)
         {
-            string[] directories = GetDirectories(dir);
-            string[] files = GetFiles(dir);
-            for (int i = 0; i < files.Length; i++)
-                File.Delete(files[i]);
-            foreach (string directory in directories)
+            foreach (string file in GetFiles(dir))
+                File.Delete(file);
+            foreach (string directory in GetDirectories(dir))
                 DeleteEntireDirectory(directory);
             Directory.Delete(dir);
         }
