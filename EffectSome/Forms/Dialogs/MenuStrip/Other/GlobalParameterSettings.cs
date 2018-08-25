@@ -365,6 +365,7 @@ namespace EffectSome
             else
                 tempPreset.AutoAddGroupIDAdjustmentMode = AdjustmentMode.SpecificValues;
         }
+
         void AddItem(decimal ID, ListBox listBox)
         {
             if (listBox.Items.Contains(ID) == false)
@@ -392,10 +393,11 @@ namespace EffectSome
             while (listBox.SelectedItems.Count != 0)
                 listBox.Items.Remove(listBox.SelectedItems[listBox.SelectedItems.Count - 1]);
         }
+
         void SavePreset(string presetName, Tab tab)
         {
             if (presetName.Contains('?', '/', '|', '<', '>', '\\', '"', ':'))
-                MessageBox.Show("The name you entered contains invalid characters. If the name contains any of the following invalid characters, please remove them.\n\n\", ?, |, <, >, :, \\, /, *", "Invalid Characters", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                PromptInvalidCharacters();
             else
             {
                 string fileData = tempPreset.ToString(tab);
@@ -463,32 +465,12 @@ namespace EffectSome
         }
         void DeletePreset(ComboBox CB, TextBox TB, Button B)
         {
-            ComboBox[] CBs = { comboBox1, comboBox2, comboBox4 };
-            TextBox[] TBs = { textBox1, textBox2, textBox4 };
-            Button[] Bs = { button10, button13, button19, button6, button14, button20, button24, button25, button27 };
-            List<ComboBox> others = CBs.ToList();
-            others.Remove(CB);
-            CBs = others.ToArray();
-            EffectSome.DeleteEntireDirectory("EffectSome/Presets/Global Parameter Settings/" + CB.Text + "/");
-            for (int i = 0; i < CBs.Length; i++)
-            {
-                CBs[i].Items.Remove(CB.Text);
-                if (CBs[i].Items.Count >= 1)
-                    if (CBs[i].Text == CB.Text)
-                    {
-                        CBs[i].SelectedItem = CBs[i].Items[0];
-                        TBs[i].Text = CBs[i].Text;
-                    }
-            }
-            CB.Items.Remove(CB.Text);
-            presets = presets.DeletePreset(CB.Text);
-            if (CB.Items.Count >= 1)
-                CB.SelectedItem = CB.Items[0];
-            if (CB.Items.Count == 0)
-                for (int i = 0; i < CBs.Length * 2; i++)
-                    Bs[i].Enabled = false;
-            for (int i = 0; i < CBs.Length; i++)
-                Bs[i + 6].Enabled = true;
+            string presetName = CB.Text;
+            EffectSome.DeleteEntireDirectory($@"EffectSome\Presets\Global Parameter Settings\{presetName}\");
+            presets = presets.DeletePreset(presetName);
+
+            RemovePresetFromComboBoxes(CB, presetName);
+            UpdateButtonsAfterPresetDeletion(CB);
         }
         void ChangePresetName(ComboBox CB, TextBox TB)
         {
@@ -496,46 +478,25 @@ namespace EffectSome
             {
                 foreach (string s in CB.Items)
                 {
-                    if (TB.Text.ToLower() != s.ToLower())
+                    if (TB.Text.ToLower() == s.ToLower())
                     {
-                        if (Directory.Exists("EffectSome/Presets/Global Parameter Settings/" + TB.Text + "/"))
-                            EffectSome.DeleteEntireDirectory("EffectSome/Presets/Global Parameter Settings/" + TB.Text + "/");
-                        Directory.Move("EffectSome/Presets/Global Parameter Settings/" + CB.Text, "EffectSome/Presets/Global Parameter Settings/" + TB.Text);
-                        ComboBox[] CBs = { comboBox1, comboBox2, comboBox4 };
-                        TextBox[] TBs = { textBox1, textBox2, textBox4 };
-                        List<ComboBox> others = CBs.ToList();
-                        others.Remove(CB);
-                        others.Add(CB);
-                        CBs = others.ToArray();
-                        for (int i = 0; i < CBs.Length; i++)
-                        {
-                            CBs[i].Items.Remove(CB.Text);
-                            CBs[i].Items.Add(TB.Text);
-                            if (CB.Items.Count < 2)
-                            {
-                                CBs[i].Text = TB.Text;
-                                TBs[i].Text = TB.Text;
-                            }
-                        }
-                        presets = presets.RenamePreset(CB.Text, TB.Text);
-                        for (int i = 0; i < CBs.Length; i++)
-                        {
-                            CBs[i].Items.Clear();
-                            for (int j = 0; j < presets.Count; j++)
-                                CBs[i].Items.Add(presets[j].PresetName);
-                        }
-                        CB.Text = TB.Text;
-                        presets = presets.SortPresetList();
-                        break;
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("There already is a preset with that name. Do you want to overwrite the already existing one?", "Already Existing Preset", MessageBoxButtons.YesNo);
+                        DialogResult result = PromptExistingPreset();
                         if (result == DialogResult.Yes)
                             foreach (Tab i in Enum.GetValues(typeof(Tab)))
                                 SavePreset(TB.Text, i);
+                        else return; // Prevent weird shit from happening from this bullshit code
                     }
                 }
+                
+                if (Directory.Exists("EffectSome/Presets/Global Parameter Settings/" + TB.Text + "/"))
+                    EffectSome.DeleteEntireDirectory("EffectSome/Presets/Global Parameter Settings/" + TB.Text + "/");
+                Directory.Move("EffectSome/Presets/Global Parameter Settings/" + CB.Text, "EffectSome/Presets/Global Parameter Settings/" + TB.Text);
+
+                string oldPresetName = CB.Text;
+                string newPresetName = TB.Text;
+                presets = presets.RenamePreset(oldPresetName, newPresetName);
+                presets = presets.SortPresetList();
+                ChangeRenamedPresetOnComboBoxes(CB, oldPresetName, newPresetName);
                 TB.Focus();
             }
             else
@@ -544,61 +505,46 @@ namespace EffectSome
         void CreateNewPreset(ComboBox CB, TextBox TB)
         {
             if (TB.Text.Contains('?') || TB.Text.Contains('/') || TB.Text.Contains('|') || TB.Text.Contains('<') || TB.Text.Contains('>') || TB.Text.Contains('\\') || TB.Text.Contains('"') || TB.Text.Contains(':'))
-                MessageBox.Show("The name you entered contains an invalid character. If the name contains any of the following invalid characters, please remove them.\n\n\", ?, |, <, >, :, \\, /, *");
+                PromptInvalidCharacters();
             else
             {
-                ComboBox[] CBs = { comboBox1, comboBox2, comboBox4 };
-                TextBox[] TBs = { textBox1, textBox2, textBox4 };
-                Button[] Bs = { button10, button13, button19, button6, button14, button20, button24, button25, button27 };
+                ComboBox[] CBs = GetPresetComboBoxes();
+                TextBox[] TBs = GetPresetTextBoxes();
+                Button[] Bs = GetPresetButtons();
+                
+                string newPresetName = TB.Text;
 
                 if (presets.Count > 0)
-                {
                     foreach (Tab i in Enum.GetValues(typeof(Tab)))
-                        SavePreset(TB.Text, i);
-                    presets.Add(new GlobalParameterSettingsPreset(TB.Text));
-                    tempPreset = presets[presets.Count - 1].Clone();
-                }
-                else
-                {
-                    presets.Add(new GlobalParameterSettingsPreset(TB.Text));
-                    tempPreset = presets[presets.Count - 1].Clone();
-                    foreach (Tab i in Enum.GetValues(typeof(Tab)))
-                        SavePreset(TB.Text, i);
-                }
+                        SavePreset(CB.Text, i);
+                presets.Add(new GlobalParameterSettingsPreset(newPresetName));
+                tempPreset = presets.Last().Clone();
+                foreach (Tab i in Enum.GetValues(typeof(Tab)))
+                    SavePreset(newPresetName, i);
+
                 for (int i = 0; i < CBs.Length; i++)
                 {
-                    CBs[i].Items.Add(TB.Text);
+                    CBs[i].Items.Add(newPresetName);
                     if (CBs[i].Items.Count == 1)
-                    {
-                        CBs[i].Text = TB.Text;
-                        TBs[i].Text = TB.Text;
-                    }
+                        CBs[i].Text = TBs[i].Text = newPresetName;
                     Bs[i].Enabled = !(Bs[i + 3].Enabled = Bs[i + 6].Enabled = false);
                 }
                 presets = presets.SortPresetList();
-                for (int i = 0; i < CBs.Length; i++)
-                {
-                    CBs[i].Items.Clear();
-                    for (int j = 0; j < presets.Count; j++)
-                        CBs[i].Items.Add(presets[j].PresetName);
-                }
-                CB.Text = TB.Text;
+                CB.Text = newPresetName;
             }
         }
         void ChangePreset(ComboBox CB, TextBox TB, Button B, Tab tab)
         {
             if (B.Enabled)
             {
-                DialogResult result = MessageBox.Show("You haven't saved your changes on the preset. Would you like to save them now?", "Unsaved Settings", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                DialogResult result = PromptUnsavedChanges();
                 if (result == DialogResult.Yes)
                 {
                     SavePreset(TB.Text, tab);
                     LoadPreset(CB, tab);
-                    TB.Text = CB.Text;
                 }
             }
-            else
-                TB.Text = CB.Text;
+            TB.Text = CB.Text;
         }
         void LoadPresets()
         {
@@ -731,5 +677,57 @@ namespace EffectSome
             if (presets.Count > 0)
                 presets[presets.FindPresetIndex(presetName)].From(tempPreset, tab);
         }
+
+        ComboBox[] GetPresetComboBoxes() => new[] { comboBox1, comboBox2, comboBox4 };
+        TextBox[] GetPresetTextBoxes() => new[] { textBox1, textBox2, textBox4 };
+        Button[] GetPresetButtons() => new[] { button10, button13, button19, button6, button14, button20, button24, button25, button27 };
+
+        void ChangeRenamedPresetOnComboBoxes(ComboBox CB, string oldName, string newName)
+        {
+            ComboBox[] CBs = GetPresetComboBoxes();
+            TextBox[] TBs = GetPresetTextBoxes();
+
+            for (int i = 0; i < CBs.Length; i++)
+            {
+                CBs[i].Items.Remove(oldName);
+                CBs[i].Items.Add(newName);
+                if (CBs[i].Items.Count < 2)
+                    CBs[i].Text = TBs[i].Text = newName;
+            }
+            CB.Text = newName;
+        }
+        void RemovePresetFromComboBoxes(ComboBox CB, string presetName)
+        {
+            ComboBox[] CBs = GetPresetComboBoxes();
+            TextBox[] TBs = GetPresetTextBoxes();
+
+            for (int i = 0; i < CBs.Length; i++)
+            {
+                CBs[i].Items.Remove(presetName);
+                if (CBs[i].Items.Count >= 1)
+                    if (CBs[i].Text == presetName)
+                    {
+                        CBs[i].SelectedItem = CBs[i].Items[0];
+                        TBs[i].Text = CBs[i].Text;
+                    }
+            }
+            if (CB.Items.Count >= 1)
+                CB.SelectedItem = CB.Items[0];
+        }
+        void UpdateButtonsAfterPresetDeletion(ComboBox CB)
+        {
+            ComboBox[] CBs = GetPresetComboBoxes();
+            Button[] Bs = GetPresetButtons();
+
+            if (CB.Items.Count == 0)
+                for (int i = 0; i < CBs.Length * 2; i++)
+                    Bs[i].Enabled = false;
+            for (int i = 0; i < CBs.Length; i++)
+                Bs[i + 6].Enabled = true;
+        }
+
+        DialogResult PromptUnsavedChanges() => MessageBox.Show("You haven't saved your changes on the preset. Would you like to save them now?", "Unsaved Settings", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+        DialogResult PromptExistingPreset() => MessageBox.Show("There already is a preset with that name. Do you want to overwrite the already existing one?", "Already Existing Preset", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        void PromptInvalidCharacters() => MessageBox.Show("The name you entered contains an invalid character. If the name contains any of the following invalid characters, please remove them.\n\n\", ?, |, <, >, :, \\, /, *", "Invalid Characters", MessageBoxButtons.OK, MessageBoxIcon.Error);
     }
 } 
