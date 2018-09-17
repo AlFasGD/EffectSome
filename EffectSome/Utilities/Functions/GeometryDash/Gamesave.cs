@@ -959,7 +959,7 @@ namespace EffectSome
                 int parameterID;
                 string parameterValueType;
                 string parameterValue;
-                int finalIndex = (index < UserLevelCount - 1 ? LevelKeyStartIndices[index + 1] : DecryptedLevelData.Length - 1) - 10 - index / 10;
+                int finalIndex = (index < UserLevelCount - 1 ? LevelKeyStartIndices[index + 1] : DecryptedLevelData.Length - 1) - 10 - (index > 0 ? (int)Math.Log10(index) : 0);
                 for (int i = LevelKeyStartIndices[index]; i < finalIndex; )
                 {
                     parameterIDStartIndex = DecryptedLevelData.Find(startKeyString, i, finalIndex) + startKeyString.Length;
@@ -1444,6 +1444,7 @@ namespace EffectSome
         {
             while (encodedData.Length % 4 != 0)
                 encodedData += "=";
+            encodedData = encodedData.Replace('-', '+').Replace('_', '/').Replace("\0", string.Empty);
             byte[] encodedDataAsBytes = FromBase64String(encodedData);
             return encodedDataAsBytes;
         }

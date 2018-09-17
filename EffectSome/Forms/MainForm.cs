@@ -126,7 +126,7 @@ namespace EffectSome
         public EffectSome()
         {
             CreateFolders();
-            CopyPasteSettingsWriting.InitializeCopyPasteAutomationSettings();
+            InitializeCopyPasteAutomationSettings();
             SetupWebObjects();
             appLocation = GetCurrentDirectory();
             InitializeNotificationIcon();
@@ -1785,7 +1785,7 @@ namespace EffectSome
             notification = new NotifyIcon();
             ComponentResourceManager resources = new ComponentResourceManager(typeof(EffectSome));
             notification.BalloonTipIcon = ToolTipIcon.Info;
-            notification.Icon = ((Icon)(resources.GetObject("$this.Icon")));
+            notification.Icon = (Icon)resources.GetObject("$this.Icon");
             notification.Text = "Ready";
             notification.Visible = true;
             notification.ContextMenu = new ContextMenu();
@@ -1822,7 +1822,7 @@ namespace EffectSome
             foreach (NumericUpDown NUD in gb.Controls.OfType<NumericUpDown>())
                 NUD.Value = 0;
         }
-        void ReadPresets()
+        void ReadPresets() // TODO: Fix this function so that changing the presets will not fuck the entire thing up
         {
             ComboBox[] presetCBs = GetPresetComboBoxes();
             ToolStripItemCollection items = applyTheSamePresetToolStripMenuItem.DropDownItems;

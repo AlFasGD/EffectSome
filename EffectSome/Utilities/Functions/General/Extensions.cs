@@ -802,6 +802,17 @@ namespace EffectSome
                 result.Add(l[i]);
             return result;
         }
+        public static List<List<T>> Clone<T>(this List<List<T>> l)
+        {
+            List<List<T>> result = new List<List<T>>();
+            for (int i = 0; i < l.Count; i++)
+            {
+                result.Add(new List<T>());
+                for (int j = 0; j < l[i].Count; j++)
+                    result[i].Add(l[i][j]);
+            }
+            return result;
+        }
         public static Pair<T1, T2> Clone<T1, T2>(this Pair<T1, T2> p)
         {
             return new Pair<T1, T2>(p.Item1, p.Item2);

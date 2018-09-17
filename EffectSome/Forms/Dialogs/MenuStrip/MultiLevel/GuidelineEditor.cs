@@ -955,7 +955,10 @@ namespace EffectSome
                     presetMeasure = 1;
                 if (preset < CurrentCreationPresets.Count - 1) // If the preset is not the last one
                     if (measure >= CurrentCreationPresets[preset + 1][1]) // If the currently processed measure is greater or equal to the next preset's starting measure proceed to the next preset
+                    {
                         preset++;
+                        presetMeasure = 1; // Reset the measure too
+                    }
                 currentTimeStamp += intervals[preset];
             }
 

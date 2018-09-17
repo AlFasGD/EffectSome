@@ -25,6 +25,6 @@ namespace EffectSome
             Colors = colors;
         }
 
-        public GuidelineEditorPreset Clone() => new GuidelineEditorPreset(Name, BPM, TimeSignature, Colors);
+        public GuidelineEditorPreset Clone() => new GuidelineEditorPreset(Name, BPM, TimeSignature, Colors.Clone());
     }
 }
