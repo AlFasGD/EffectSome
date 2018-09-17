@@ -1146,7 +1146,8 @@ namespace EffectSome
 
         void SetInitialBPM()
         {
-            if (CustomSongBPMs.Count > UserLevels[CurrentLevelIndex].LevelCustomSongID && UserLevels[CurrentLevelIndex].LevelCustomSongID > 0 && CustomSongBPMs[UserLevels[CurrentLevelIndex].LevelCustomSongID] > 0)
+            int id = UserLevels[CurrentLevelIndex].LevelCustomSongID;
+            if (CustomSongBPMs.ContainsKey(id) && id > 0 && CustomSongBPMs[id] > 0)
             {
                 BPM = CustomSongBPMs[UserLevels[CurrentLevelIndex].LevelCustomSongID];
                 if (numericUpDown7.Value == (decimal)BPM)
