@@ -1,3 +1,4 @@
+using EffectSome.Forms.Dialogs.MenuStrip.PrivateTools;
 using EffectSome.Objects.CopyPasteSettings;
 using EffectSome.Utilities.Functions.GeometryDash.CopyPaste;
 using System;
@@ -49,6 +50,7 @@ namespace EffectSome
         About AboutWindow;
         Options OptionsWindow;
         GlobalParameterSettings GlobalParameterSettingsWindow;
+        GroupIDMigration GroupIDMigrationWindow;
         GuidelineEditor GuidelineEditorWindow;
         LevelOverview LevelOverviewWindow;
         LevelVersionConverter LevelVersionConverterWindow;
@@ -637,12 +639,10 @@ namespace EffectSome
             if (GlobalParameterSettings.IsOpen)
             {
                 GlobalParameterSettingsWindow.Close();
-                //isGlobalOpen = false;
             }
             else
             {
                 GlobalParameterSettingsWindow = new GlobalParameterSettings();
-                //isGlobalOpen = true;
                 GlobalParameterSettingsWindow.Show();
             }
             CheckDialogStatus();
@@ -652,12 +652,10 @@ namespace EffectSome
             if (CustomObjectEditor.IsOpen)
             {
                 CustomObjectEditorWindow.Close();
-                //isCustomObjectsOpen = false;
             }
             else
             {
                 CustomObjectEditorWindow = new CustomObjectEditor();
-                //isCustomObjectsOpen = true;
                 CustomObjectEditorWindow.Show();
             }
             CheckDialogStatus();
@@ -794,6 +792,7 @@ namespace EffectSome
         {
             guidelineEditorToolStripMenuItem.Enabled = canOpenGuidelineEditor;
             levelOverviewToolStripMenuItem.Enabled = canOpenLevelOverview;
+            groupIDMigrationToolToolStripMenuItem.Enabled = canOpenLevelOverview;
             levelVersionConverterToolStripMenuItem.Enabled = canOpenLevelVersionConverter;
         }
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1994,6 +1993,30 @@ namespace EffectSome
                 successfullyRetrievedLevelData = true;
             }
         }
+
+        private void groupIDMigrationToolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isGDOpen = CheckGDStatus();
+            while (isGDOpen)
+            {
+                isGDOpen = CheckGDStatus();
+                DialogResult result = MessageBox.Show("You need to close Geometry Dash first in order to save the changes to the levels.", "Warning", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (result == DialogResult.Cancel)
+                    return;
+            }
+            if (!isGDOpen)
+            {
+                if (GroupIDMigration.IsOpen)
+                    GroupIDMigrationWindow.Close();
+                else
+                {
+                    GroupIDMigrationWindow = new GroupIDMigration();
+                    GroupIDMigrationWindow.Show();
+                }
+                CheckDialogStatus();
+            }
+        }
+
         void WriteCPAutomation(object sender, DoWorkEventArgs e)
         {
             canWriteCP = false;

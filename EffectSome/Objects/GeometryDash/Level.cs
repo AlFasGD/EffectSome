@@ -176,6 +176,7 @@ namespace EffectSome
                 result.Append(g.ToString() + "~");
             return result.ToString();
         }
+        public string GetObjectString() => LevelObject.GetObjectString(LevelObjects);
         #endregion
     }
 }

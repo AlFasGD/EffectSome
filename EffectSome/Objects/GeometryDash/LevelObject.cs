@@ -750,7 +750,7 @@ namespace EffectSome
                                 parameter += i + "," + Parameters[i] + ",";
                         }
                         else if (Parameters[i] is string)
-                            parameter += i + "," + Parameters[i] + ",";
+                            parameter += i + $",{(i == (int)ObjectParameter.TextObjectText ? ToBase64String(Encoding.UTF8.GetBytes((string)Parameters[i])) : Parameters[i])},";
                         else if (Parameters[i] is bool)
                             parameter += i + "," + ToInt32(Parameters[i]) + ",";
                         else if (i == (int)ObjectParameter.GroupIDs)

@@ -1250,7 +1250,7 @@ namespace EffectSome
             string oldLS = GetLevelString(levelIndex);
             UserLevels[levelIndex].LevelString = newLS; // Set the new level strings in the memory
 
-            string newLevel = UserLevels[levelIndex].RawLevel.Replace("<k>k4</k><s>" + GetLevelString(levelIndex) + "</s>", "<k>k4</k><s>" + newLS + "</s>");
+            string newLevel = UserLevels[levelIndex].RawLevel.Replace($"<k>k4</k><s>{oldLS}</s>", $"<k>k4</k><s>{newLS}</s>");
             SetLevel(newLevel, levelIndex);
         }
         public static void SetLevelStrings(string[] newLS, int[] levelIndices)
@@ -1260,7 +1260,7 @@ namespace EffectSome
             {
                 string oldLS = GetLevelString(levelIndices[i]);
                 UserLevels[levelIndices[i]].LevelString = newLS[i]; // Set the new level strings in the memory
-                newLevels[i] = UserLevels[levelIndices[i]].RawLevel.Replace("<k>k4</k><s>" + GetLevelString(levelIndices[i]) + "</s>", "<k>k4</k><s>" + newLS[i] + "</s>");
+                newLevels[i] = UserLevels[levelIndices[i]].RawLevel.Replace($"<k>k4</k><s>{oldLS}</s>", $"<k>k4</k><s>{newLS}</s>");
             }
             SetLevels(newLevels, levelIndices);
         }
